@@ -55,11 +55,12 @@ public class TerrainBehaviour : MonoBehaviour
 		heightMap = new float[heightMapSize];
 		for (int i = 0; i < heightMapSize; i++)
 		{
-			heightMap[i] = (float)i / (float)heightMapSize;
+			//heightMap[i] = (float)i / (float)heightMapSize;
 			//heightMap[i] = 0.5f + (Mathf.Sin(i * 0.001f) * 0.1f);
 			//heightMap[i] = 0.5f + (Mathf.Cos(i * 0.001f) * 0.1f);
-			//heightMap[i] = 0.5f + (Mathf.Sin(i * 0.001f) * 0.1f) + (Mathf.Cos(i * 0.01f) * 0.2f);
+			heightMap[i] = 0.5f + (Mathf.Sin(i * 0.001f) * 0.1f) + (Mathf.Cos(i * 0.01f) * 0.2f);
 		}
+		Debug.Log("Heightmap length: " + heightMapSize);
 
 		float screenRatio = ((float)Screen.width / (float)Screen.height);
 		float screenHeight = Camera.main.orthographicSize * 2;
@@ -86,9 +87,9 @@ public class TerrainBehaviour : MonoBehaviour
 		Vector3 rightBottomFar = leftBottomFar + (incrementVector / segmentCount);
 		Vector3 rightTopFar = leftTopFar + (incrementVector / segmentCount);
 		rightBottomNear.y = lineNeutralBottom + (screenHeight * heightMap[1]);
-		rightTopNear.y = lineNeutralBottom + (screenHeight * heightMap[1]);
+		rightTopNear.y = lineNeutralTop + (screenHeight * heightMap[1]);
+		rightTopFar.y = lineNeutralTop + (screenHeight * heightMap[1]);
 		rightBottomFar.y = lineNeutralBottom + (screenHeight * heightMap[1]);
-		rightTopFar.y = lineNeutralBottom + (screenHeight * heightMap[1]);
 		int leftBottomNearIndex = 0;
 		int leftTopNearIndex = 1;
 		int leftTopFarIndex = 2;
@@ -131,12 +132,12 @@ public class TerrainBehaviour : MonoBehaviour
 			indexList.Add(rightTopNearIndex);
 
 			// Bottom
-			indexList.Add(leftBottomFarIndex);
 			indexList.Add(leftBottomNearIndex);
 			indexList.Add(rightBottomNearIndex);
-			indexList.Add(leftBottomFarIndex);
-			indexList.Add(rightBottomNearIndex);
 			indexList.Add(rightBottomFarIndex);
+			indexList.Add(rightBottomFarIndex);
+			indexList.Add(leftBottomFarIndex);
+			indexList.Add(leftBottomNearIndex);
 
 			// Near
 			indexList.Add(leftBottomNearIndex);
@@ -147,46 +148,49 @@ public class TerrainBehaviour : MonoBehaviour
 			indexList.Add(rightBottomNearIndex);
 
 			// Far
+			indexList.Add(leftBottomFarIndex);
+			indexList.Add(rightTopFarIndex);
 			indexList.Add(leftTopFarIndex);
 			indexList.Add(leftBottomFarIndex);
 			indexList.Add(rightBottomFarIndex);
-			indexList.Add(leftTopFarIndex);
-			indexList.Add(rightBottomFarIndex);
 			indexList.Add(rightTopFarIndex);
-
-			leftBottomNear = rightBottomNear;
-			leftTopNear = rightTopNear;
-			leftBottomFar = rightBottomFar;
-			leftTopFar = rightTopFar;
 
 			leftBottomNearIndex = rightBottomNearIndex;
 			leftTopNearIndex = rightTopNearIndex;
 			leftTopFarIndex = rightTopFarIndex;
 			leftBottomFarIndex = rightBottomFarIndex;
 
+			rightBottomNearIndex = leftBottomNearIndex + 4;
+			rightTopNearIndex = leftTopNearIndex + 4;
+			rightTopFarIndex = leftTopFarIndex + 4;
+			rightBottomFarIndex = leftBottomFarIndex + 4;
+
+			leftBottomNear = rightBottomNear;
+			leftTopNear = rightTopNear;
+			leftBottomFar = rightBottomFar;
+			leftTopFar = rightTopFar;
+
 			rightBottomNear = leftBottomNear + (incrementVector / segmentCount);
 			rightTopNear = leftTopNear + (incrementVector / segmentCount);
 			rightBottomFar = leftBottomFar + (incrementVector / segmentCount);
 			rightTopFar = leftTopFar + (incrementVector / segmentCount);
 
-			rightBottomNear.y = lineNeutralBottom + (screenHeight * heightMap[i]);
-			rightTopNear.y = lineNeutralTop + (screenHeight * heightMap[i]);
-			rightBottomFar.y = lineNeutralBottom + (screenHeight * heightMap[i]);
-			rightTopFar.y = lineNeutralTop + (screenHeight * heightMap[i]);
-
-			rightBottomNearIndex = leftBottomNearIndex + 4;
-			rightTopNearIndex = leftTopNearIndex + 4;
-			rightTopFarIndex = leftTopFarIndex + 4;
-			rightBottomFarIndex = leftBottomFarIndex + 4;
+			if ((i + 1) < heightMap.Length)
+			{
+				rightBottomNear.y = lineNeutralBottom + (screenHeight * heightMap[i + 1]);
+				rightTopNear.y = lineNeutralTop + (screenHeight * heightMap[i + 1]);
+				rightBottomFar.y = lineNeutralBottom + (screenHeight * heightMap[i + 1]);
+				rightTopFar.y = lineNeutralTop + (screenHeight * heightMap[i + 1]);
+			}
 		}
 
 		// Right-side cap
 		indexList.Add(leftBottomNearIndex);
-		indexList.Add(leftBottomFarIndex);
 		indexList.Add(leftTopNearIndex);
-		indexList.Add(leftBottomFarIndex);
 		indexList.Add(leftTopFarIndex);
-		indexList.Add(leftTopNearIndex);
+		indexList.Add(leftBottomNearIndex);
+		indexList.Add(leftTopFarIndex);
+		indexList.Add(leftBottomFarIndex);
 
 		mesh.vertices = vertexList.ToArray();
 		mesh.triangles = indexList.ToArray();

@@ -6,37 +6,44 @@ using UnityEngine;
 [RequireComponent(typeof(MeshCollider))]
 public class TerrainBehaviour : MonoBehaviour
 {
+	public float mapScale = 1.0f;
+	public float perlinScale = 0.0f;
+	public int subdivisionCount = 1;
 	public float terrainLineThickness = 1.0f;
 	public float terrainLineNeutralHeight = 0.5f;
-	public int subdivisionCount = 1;
 
 	private float[] heightMap;
 	private Mesh mesh;
+
+	private float mapScaleActual = 1.0f;
+	public float perlinScaleActual = 0.0f;
+	private int subdivisionCountActual = 1;
 	private float terrainLineThicknessActual = 1.0f;
 	private float terrainLineNeutralHeightActual = 0.5f;
-	private int subdivisionCountActual = 1;
 
 	void Start()
 	{
 		subdivisionCount = (int)Mathf.Clamp(subdivisionCount, 0.0f, 16.0f);
+		mapScaleActual = mapScale;
+		subdivisionCountActual = subdivisionCount;
 		terrainLineThicknessActual = terrainLineThickness;
 		terrainLineNeutralHeightActual = terrainLineNeutralHeight;
-		subdivisionCountActual = subdivisionCount;
 
 		GenerateMesh();
 	}
 
 	void Update()
 	{
-		if (terrainLineThicknessActual != terrainLineThickness || terrainLineNeutralHeightActual != terrainLineNeutralHeight || subdivisionCountActual != subdivisionCount)
+		if (perlinScaleActual != perlinScale || mapScaleActual != mapScale || terrainLineThicknessActual != terrainLineThickness || terrainLineNeutralHeightActual != terrainLineNeutralHeight || subdivisionCountActual != subdivisionCount)
 		{
 
 			subdivisionCount = (int)Mathf.Clamp(subdivisionCount, 0.0f, 16.0f);
+
+			mapScaleActual = mapScale;
+			perlinScaleActual = perlinScale;
+			subdivisionCountActual = subdivisionCount;
 			terrainLineThicknessActual = terrainLineThickness;
 			terrainLineNeutralHeightActual = terrainLineNeutralHeight;
-			subdivisionCountActual = subdivisionCount;
-
-			Debug.Log("Generating Mesh!" + subdivisionCount);
 
 			GenerateMesh();
 		}
@@ -48,19 +55,76 @@ public class TerrainBehaviour : MonoBehaviour
 		Debug.Log("!!!");
 	}
 
+	private void GenerateHeightmap(out float[] h, int size)
+	{
+		h = new float[size];
+
+		int heightMapGenerationMode = 1;
+		switch (heightMapGenerationMode)
+		{
+			case 4:
+				for (int i = 0; i < size; i++)
+				{
+					heightMap[i] = 0.5f + (Mathf.Sin(i * 0.001f) * 0.1f) + (Mathf.Cos(i * 0.01f) * 0.2f);
+				}
+				break;
+			case 3:
+				h[0] = Random.value * mapScale;
+				h[size - 1] = Random.value * mapScale;
+				PopulateHeightMap(ref h, 0, size - 1);
+				break;
+			case 2:
+				h[0] = 0.0f;
+				h[size - 1] = 0.0f;
+				PopulateHeightMap(ref h, 0, size - 1);
+				break;
+			case 1:
+				h[0] = Mathf.PerlinNoise(mapScale, 0.0f);
+				h[size - 1] = Mathf.PerlinNoise(mapScale, 1.0f);
+				PopulateHeightMapPerlin(ref h, 0, size - 1);
+				break;
+			default:
+				for (int i = 0; i < size; i++)
+				{
+					heightMap[i] = (float)i / (float)size - 1;
+				}
+				break;
+		}
+	}
+
+	private void PopulateHeightMapPerlin(ref float[] h, int nearIndex, int farIndex)
+	{
+		if (nearIndex + 1 == farIndex) {
+			return;
+		}
+
+		int index = nearIndex + ((farIndex - nearIndex) / 2);
+		h[index] = Mathf.PerlinNoise(mapScale, (float)index/mapScale);
+
+		PopulateHeightMap(ref h, nearIndex, index);
+		PopulateHeightMap(ref h, index, farIndex);
+	}
+
+	private void PopulateHeightMap(ref float[] h, int nearIndex, int farIndex)
+	{
+		if (nearIndex + 1 == farIndex)
+		{
+			return;
+		}
+
+		int index = nearIndex + ((farIndex - nearIndex) / 2);
+		h[index] = Random.Range(h[nearIndex], h[farIndex]);
+		//h[index] = Random.value * mapScaleActual;
+
+		PopulateHeightMap(ref h, nearIndex, index);
+		PopulateHeightMap(ref h, index, farIndex);
+	}
+
 	private void GenerateMesh()
 	{
 		int segmentCount = (int)Mathf.Pow(2.0f, Mathf.Max(0.0f, (float)(subdivisionCount)));
 		int heightMapSize = segmentCount + 1;
-		heightMap = new float[heightMapSize];
-		for (int i = 0; i < heightMapSize; i++)
-		{
-			//heightMap[i] = (float)i / (float)heightMapSize;
-			//heightMap[i] = 0.5f + (Mathf.Sin(i * 0.001f) * 0.1f);
-			//heightMap[i] = 0.5f + (Mathf.Cos(i * 0.001f) * 0.1f);
-			heightMap[i] = 0.5f + (Mathf.Sin(i * 0.001f) * 0.1f) + (Mathf.Cos(i * 0.01f) * 0.2f);
-		}
-		Debug.Log("Heightmap length: " + heightMapSize);
+		GenerateHeightmap(out heightMap, heightMapSize);
 
 		float screenRatio = ((float)Screen.width / (float)Screen.height);
 		float screenHeight = Camera.main.orthographicSize * 2;

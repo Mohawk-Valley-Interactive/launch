@@ -443,9 +443,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dbb0e3f44f39714eb2f7ad88866b501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapScale: 0.3
+  perlinScale: 0
+  subdivisionCount: 3
   terrainLineThickness: 0.01
   terrainLineNeutralHeight: 0
-  subdivisionCount: 10
+  perlinScaleActual: 0
 --- !u!4 &1109513413
 Transform:
   m_ObjectHideFlags: 0

@@ -3,36 +3,62 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class LanderBehaviour : MonoBehaviour
 {
-    private const string rotationAxisName = "Rotate";
-    private const string thrustAxisName = "ApplyThrust";
-    private Rigidbody rigidbodyComponent;
-    private float angle = 0;
-
     public float thrust = 1.0f;
-    public ForceMode forceMode = ForceMode.Acceleration;
-
     public float rotationSensitivity = 1.0f;
-    public Vector3 initialVelocity = new Vector3();
+    public Vector2 initialVelocity = new Vector2();
+    public float gravity = 1.62f;
+
+    public AudioSource thrustSound;
 
 
     void Start()
     {
-        rigidbodyComponent = GetComponent<Rigidbody>();
+        rigidbodyComponent = GetComponent<Rigidbody2D>();
         rigidbodyComponent.velocity = initialVelocity;
 
-        angle = rigidbodyComponent.rotation.eulerAngles.z;
+        gravityActual = gravity;
+        Physics2D.gravity = new Vector2(0.0f, -gravityActual);
+        if(thrustSound)
+		{
+            thrustSound.volume = 0;
+            thrustSound.Play();
+		}
     }
 
+	void Update()
+	{
+        if(gravityActual != gravity)
+		{
+            Physics2D.gravity = new Vector2(0.0f, -gravityActual);
+		}
 
-    void FixedUpdate()
+        if(thrustSound)
+		{
+            if(Input.GetAxis(thrustAxisName) != 0.0f && thrustSound.volume < 1.0f)
+			{
+                thrustSound.volume = Mathf.Min(thrustSound.volume + 0.1f, 1.0f);
+			}
+            else if(Input.GetAxis(thrustAxisName) == 0.0f && thrustSound.volume > 0.0f)
+			{
+                thrustSound.volume = Mathf.Max(thrustSound.volume - 0.1f, 0.0f);
+			}
+		}
+	}
+
+	void FixedUpdate()
     {
-        angle -= Input.GetAxis(rotationAxisName) * Time.fixedDeltaTime * rotationSensitivity;
-        rigidbodyComponent.MoveRotation(Quaternion.AngleAxis(angle, Vector3.forward));
-
         float actualThrust = Input.GetAxis(thrustAxisName) * thrust;
-        rigidbodyComponent.AddRelativeForce(0.0f, actualThrust, 0.0f, ForceMode.Acceleration);
+        rigidbodyComponent.AddRelativeForce(new Vector2(0.0f, actualThrust));
+
+        rigidbodyComponent.angularVelocity = rigidbodyComponent.angularVelocity + Input.GetAxis(rotationAxisName) * -rotationSensitivity;
+        rigidbodyComponent.rotation = Mathf.Clamp(rigidbodyComponent.rotation, -90.0f, 90.0f);
     }
+
+    private const string rotationAxisName = "Rotate";
+    private const string thrustAxisName = "ApplyThrust";
+    private float gravityActual = 0.0f;
+    private Rigidbody2D rigidbodyComponent;
 }

@@ -13,6 +13,10 @@ public class TerrainGeneratorBehaviour : MonoBehaviour
     private float bufferActual = 0.0f;
     public float perlin = 0.0f;
     private float perlinActual = 0.0f;
+
+    public float xOffset = 0.0f;
+    private float xOffsetActual = 0.0f;
+
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
@@ -21,6 +25,10 @@ public class TerrainGeneratorBehaviour : MonoBehaviour
         lineThicknessActual = lineThickness;
         lineRenderer.startWidth = lineThicknessActual;
         lineRenderer.endWidth = lineThicknessActual;
+        lineRenderer.positionCount = pointCount;
+
+        linePositionList = new Vector3[pointCount];
+        colliderPositionList = new Vector2[pointCount];
 
         GenerateTerrain();
     }
@@ -36,8 +44,9 @@ public class TerrainGeneratorBehaviour : MonoBehaviour
             lineRenderer.endWidth = lineThicknessActual;
 		}
 
-        if(buffer != bufferActual || scale != scaleActual || perlin != perlinActual)
+        if(buffer != bufferActual || scale != scaleActual || perlin != perlinActual || xOffset != xOffsetActual)
 		{
+            xOffsetActual = xOffset;
             bufferActual = buffer;
             perlinActual = perlin;
             scaleActual = scale;
@@ -47,29 +56,27 @@ public class TerrainGeneratorBehaviour : MonoBehaviour
 
     protected void GenerateTerrain()
 	{
+        const float z = 0.0f;
 
 		float screenRatio = ((float)Screen.width / (float)Screen.height);
 		float screenHeight = Camera.main.orthographicSize * 2;
 		float screenWidth = screenHeight * screenRatio;
 
 		float leftScreenEdge = screenWidth * -0.5f;
-		float rightScreenEdge = screenWidth * 0.5f;
 
-        int pointCount = 512;
-        Vector3[] linePositionList = new Vector3[pointCount];
-        Vector2[] colliderPositionList = new Vector2[pointCount];
-        float x = leftScreenEdge;
         float y0 = screenHeight * -0.5f;
-        float z = 0.0f;
         for(int i = 0; i < pointCount; i++)
 		{
-            x = leftScreenEdge + (i * (screenWidth / (float)pointCount));
-            float y1 = y0 + Mathf.PerlinNoise(perlinActual, i * bufferActual) * scaleActual;
-            linePositionList[i] = new Vector3(x, y1, z);
-            colliderPositionList[i] = new Vector2(x, y1);
+            float x = leftScreenEdge + (i * (screenWidth / (float)pointCount));
+            float y1 = y0 + Mathf.PerlinNoise(perlinActual, xOffset + (i * bufferActual)) * scaleActual;
+
+            linePositionList[i].x = x;
+            linePositionList[i].y = y1;
+            linePositionList[i].z = z;
+            colliderPositionList[i].x = x;
+            colliderPositionList[i].y = y1;
 		}
 
-        lineRenderer.positionCount = pointCount;
         lineRenderer.SetPositions(linePositionList);
 		edgeCollider2D.points = colliderPositionList;
 	}
@@ -77,4 +84,8 @@ public class TerrainGeneratorBehaviour : MonoBehaviour
     private LineRenderer lineRenderer;
     private EdgeCollider2D edgeCollider2D;
     private float lineThicknessActual;
+
+    private int pointCount = 512;
+    private Vector3[] linePositionList;
+    private Vector2[] colliderPositionList;
 }

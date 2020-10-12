@@ -18,12 +18,14 @@ public class LanderBehaviour : MonoBehaviour
 
 	[Header("World Settings")]
 	public Vector2 initialVelocity = new Vector2();
+	public float initialFuel = 3500.0f;
 	[Space(10)]
 
 	[Header("Landing Requirements")]
 	public int angleOfApproachThreshold = 0;
 	public int horizontalSpeedThreshold = 1;
 	public int verticalSpeedThreshold = 1;
+	public int lowFuelThreshold = 250;
 	[Space(10)]
 
 	[Header("Audio & Visuals")]
@@ -39,6 +41,9 @@ public class LanderBehaviour : MonoBehaviour
 	public ParticleSystem thrusterParticleSystem;
 
 	[Header("UI Gauges")]
+	public Text scoreGuageText;
+	public Text timeGuageText;
+	public Text fuelGuageText;
 	public Text altitudeGuageText;
 	public Text horizontalSpeedGuageText;
 	public Text verticalSpeedGuageText;
@@ -54,6 +59,8 @@ public class LanderBehaviour : MonoBehaviour
 		rigidbodyComponent = GetComponent<Rigidbody2D>();
 		rigidbodyComponent.velocity = initialVelocity;
 
+		fuel = initialFuel;
+
 		if (thrustSound)
 		{
 			thrustSound.volume = 0;
@@ -63,7 +70,7 @@ public class LanderBehaviour : MonoBehaviour
 
 	void Update()
 	{
-		bool isThrusting = Input.GetAxis(thrustAxisName) != 0.0f;
+		bool isThrusting = Input.GetAxis(thrustAxisName) != 0.0f && fuel > 0.0f;
 		if (thrustSound)
 		{
 			if (isThrusting && thrustSound.volume < 1.0f)
@@ -93,7 +100,6 @@ public class LanderBehaviour : MonoBehaviour
 
 	void FixedUpdate()
 	{
-
 		if (hasCrashed)
 		{
 			return;
@@ -101,7 +107,8 @@ public class LanderBehaviour : MonoBehaviour
 
 		CalculateStats();
 
-		float actualThrust = Input.GetAxis(thrustAxisName) * thrust;
+		float actualThrust = fuel > 0.0f ? Input.GetAxis(thrustAxisName) * thrust * Time.fixedDeltaTime : 0.0f;
+		fuel -= actualThrust;
 		rigidbodyComponent.AddRelativeForce(new Vector2(0.0f, actualThrust));
 
 		rigidbodyComponent.angularVelocity = rigidbodyComponent.angularVelocity + Input.GetAxis(rotationAxisName) * -rotationSensitivity;
@@ -181,12 +188,23 @@ public class LanderBehaviour : MonoBehaviour
 
 	private void UpdateUiElements()
 	{
+		time += Time.deltaTime;
+
+		const string scorePrecision = "D9";
+		const string fuelPrecision = "D4";
+		const string timePrecision = "D2";
 		const string floatingPointPrecision = "F1";
+
+		scoreGuageText.text = score.ToString(scorePrecision);
+		fuelGuageText.text = ((int)fuel).ToString(fuelPrecision);
+		timeGuageText.text = ((int)(time / 60)).ToString(timePrecision) + ":" + ((int)(time % 60)).ToString(timePrecision);
+
 		altitudeGuageText.text = altitude.ToString(floatingPointPrecision);
 		angleOfApproachGuageText.text = angleOfApproach.ToString(floatingPointPrecision);
 		horizontalSpeedGuageText.text = horizontalSpeed.ToString(floatingPointPrecision);
 		verticalSpeedGuageText.text = verticalSpeed.ToString(floatingPointPrecision);
 
+		fuelGuageText.color = fuel < lowFuelThreshold ? Color.red : Color.white;
 		horizontalSpeedGuageText.color = isDangerousHorizontalVelocity ? Color.red : Color.white;
 		verticalSpeedGuageText.color = isDangerousVerticalVelocity ? Color.red : Color.white;
 		angleOfApproachGuageText.color = isDangerousAngleOfApproach ? Color.red : Color.white;
@@ -202,6 +220,9 @@ public class LanderBehaviour : MonoBehaviour
 
 	private Rigidbody2D rigidbodyComponent;
 
+	private int score = 0;
+	private float time = 0;
+	private float fuel = 0;
 	private float altitude;
 	private float angleOfApproach;
 	private float horizontalSpeed;

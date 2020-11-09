@@ -26,13 +26,18 @@ public class LanderBehaviour : MonoBehaviour
 	public int horizontalSpeedThreshold = 1;
 	public int verticalSpeedThreshold = 1;
 	public int lowFuelThreshold = 250;
+	public int fuelNearEmptyThreshold = 100;
+	public int fuelEmergencyThreshold = 50;
 	[Space(10)]
 
 	[Header("Audio & Visuals")]
 	public GameObject landerAvatar;
 	[Space(5)]
 	public AudioSource successfulLandingSound;
-	[Space(5)]
+	public float fuelNearEmptyDelay = 0.5f;
+	public float fuelEmergencyDelay = 0.25f;
+	public float lowFuelChimeDelay = 1.0f;
+	public AudioSource lowFuelSound;
 	public AudioSource explosionSound;
 	public ParticleSystem explosionParticleSystem;
 	[Space(5)]
@@ -48,6 +53,8 @@ public class LanderBehaviour : MonoBehaviour
 	public Text horizontalSpeedGuageText;
 	public Text verticalSpeedGuageText;
 	public Text angleOfApproachGuageText;
+
+	public bool HasCrashed { get => hasCrashed; }
 
 	void Start()
 	{
@@ -70,6 +77,11 @@ public class LanderBehaviour : MonoBehaviour
 
 	void Update()
 	{
+		if (hasCrashed)
+		{
+			return;
+		}
+
 		bool isThrusting = Input.GetAxis(thrustAxisName) != 0.0f && fuel > 0.0f;
 		if (thrustSound)
 		{
@@ -80,6 +92,30 @@ public class LanderBehaviour : MonoBehaviour
 			else if (!isThrusting && thrustSound.volume > 0.0f)
 			{
 				thrustSound.volume = Mathf.Max(thrustSound.volume - (thrustSoundRamp * Time.deltaTime), 0.0f);
+			}
+		}
+
+		if (fuel < lowFuelThreshold)
+		{
+			if (timeSinceLastFuelChime < 0)
+			{
+				lowFuelSound.Play();
+				if (fuel < fuelEmergencyThreshold)
+				{
+					timeSinceLastFuelChime = fuelEmergencyDelay;
+				}
+				else if (fuel < fuelNearEmptyThreshold)
+				{
+					timeSinceLastFuelChime = fuelNearEmptyDelay;
+				}
+				else
+				{
+					timeSinceLastFuelChime = lowFuelChimeDelay;
+				}
+			}
+			else
+			{
+				timeSinceLastFuelChime -= Time.deltaTime;
 			}
 		}
 
@@ -109,7 +145,7 @@ public class LanderBehaviour : MonoBehaviour
 
 		float actualThrust = fuel > 0.0f ? Input.GetAxis(thrustAxisName) * thrust * Time.fixedDeltaTime : 0.0f;
 		fuel -= actualThrust;
-		rigidbodyComponent.AddRelativeForce(new Vector2(0.0f, actualThrust));
+		rigidbodyComponent.AddRelativeForce(new Vector2(0.0f, actualThrust * 100.0f));
 
 		rigidbodyComponent.angularVelocity = rigidbodyComponent.angularVelocity + Input.GetAxis(rotationAxisName) * -rotationSensitivity;
 		rigidbodyComponent.rotation = Mathf.Clamp(rigidbodyComponent.rotation, -90.0f, 90.0f);
@@ -122,7 +158,7 @@ public class LanderBehaviour : MonoBehaviour
 			return;
 		}
 
-		bool isBadLanding = isDangerousAngleOfApproach || isDangerousHorizontalVelocity || isDangerousVerticalVelocity;
+		bool isBadLanding = isDangerousAngleOfApproach || isDangerousHorizontalVelocity || isDangerousVerticalVelocity || landingMultiplier == LandingZoneBehavior.DEFAULT_MULTIPLIER;
 
 		if (isBadLanding)
 		{
@@ -155,11 +191,23 @@ public class LanderBehaviour : MonoBehaviour
 		}
 	}
 
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		LandingZoneBehavior lzb = collision.gameObject.GetComponent<LandingZoneBehavior>();
+		landingMultiplier = lzb.Multiplier;
+	}
+
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+		LandingZoneBehavior lzb = collision.gameObject.GetComponent<LandingZoneBehavior>();
+		landingMultiplier = LandingZoneBehavior.DEFAULT_MULTIPLIER;
+	}
+
 	private void CalculateStats()
 	{
-		velocity = Mathf.Abs((rigidbodyComponent.velocity.magnitude * 100.0f));
-		horizontalSpeed = Mathf.Abs((rigidbodyComponent.velocity.x * 100.0f));
-		verticalSpeed = Mathf.Abs((rigidbodyComponent.velocity.y * 100.0f));
+		//velocity = Mathf.Abs((rigidbodyComponent.velocity.magnitude * 10.0f));
+		horizontalSpeed = Mathf.Abs((rigidbodyComponent.velocity.x));
+		verticalSpeed = Mathf.Abs((rigidbodyComponent.velocity.y));
 		angleOfApproach = Mathf.Abs(Vector3.Angle(transform.up, Vector3.up));
 
 		Vector2 direction = new Vector2(0.0f, -1.0f);
@@ -168,7 +216,7 @@ public class LanderBehaviour : MonoBehaviour
 		if (results.Count > 1)
 		{
 			float distance = results[1].point.y - results[0].point.y;
-			altitude = Mathf.Abs(distance * 10.0f) - 1.0f;
+			altitude = Mathf.Abs(distance) - 1.0f;
 		}
 		else
 		{
@@ -221,6 +269,8 @@ public class LanderBehaviour : MonoBehaviour
 	private Rigidbody2D rigidbodyComponent;
 
 	private int score = 0;
+	private int landingMultiplier = LandingZoneBehavior.DEFAULT_MULTIPLIER;
+	private float timeSinceLastFuelChime;
 	private float time = 0;
 	private float fuel = 0;
 	private float altitude;

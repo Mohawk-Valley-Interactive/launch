@@ -14,6 +14,7 @@ public class LandscapeGeneratorBehavior : MonoBehaviour
 	public int rangeTotal = 1;
 	public float terrainLineThickness;
 	public float bottomBufferSpace = 100.0f;
+	public StarFieldBehavior starFieldBehavior;
 
 	public List<LandingZone> LandingZones
 	{
@@ -33,6 +34,7 @@ public class LandscapeGeneratorBehavior : MonoBehaviour
 		InitData();
 
 		landscapeBehavior.GenerateLandingZones(landingZones);
+		starFieldBehavior.GenerateStars(lineRenderer);
 	}
 
 	// Update is called once per frame

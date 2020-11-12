@@ -48,6 +48,7 @@ public class LandingZoneGeneratorBehavior : MonoBehaviour
 	public Material lzMaterial;
 	public int fontSize;
 	public float yOffset;
+	public float lzLineThickness;
 
 	public void GenerateLandingZones(List<LandingZone> landingZones, int levelId = 0)
 	{
@@ -66,7 +67,7 @@ public class LandingZoneGeneratorBehavior : MonoBehaviour
 				lz.transform.position = new Vector3(
 					landingZone.StartPoint.x + ((landingZone.EndPoint.x - landingZone.StartPoint.x) * 0.5f),
 					landingZone.StartPoint.y + ((landingZone.EndPoint.y - landingZone.StartPoint.y) + (colliderHeight * 0.5f)),
-					0.0f
+					-1.0f
 				);
 
 				BoxCollider2D collider = lz.AddComponent<BoxCollider2D>();
@@ -81,16 +82,18 @@ public class LandingZoneGeneratorBehavior : MonoBehaviour
 
 				LineRenderer lr = lz.AddComponent<LineRenderer>();
 				lr.SetPositions(new Vector3[2] { landingZone.StartPoint, landingZone.EndPoint });
-				lr.startColor = Color.red;
-				lr.endColor = Color.red;
 				lr.material = lzMaterial;
+				lr.startWidth = lzLineThickness;
+				lr.endWidth = lzLineThickness;
 
+				// Multiplier text 
 				GameObject go = new GameObject(lz.name + "_text");
 				go.transform.position = new Vector3(lz.transform.position.x, lz.transform.position.y + yOffset, lz.transform.position.z);
 				go.transform.SetParent(canvas.transform);
 				Text text = go.AddComponent<Text>();
 				text.text = landingZone.Multiplier.ToString() + "x";
 				text.font = font;
+				text.fontSize = fontSize;
 				text.alignment = TextAnchor.MiddleCenter;
 				text.fontStyle = FontStyle.Bold;
 			}

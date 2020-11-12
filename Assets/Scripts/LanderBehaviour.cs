@@ -9,6 +9,7 @@ public class LanderBehaviour : MonoBehaviour
 {
 	[Header("Support GameObjects")]
 	public Transform spawnPoint = null;
+	public GameBehavior gameBehavior = null;
 	[Space(10)]
 
 	[Header("Handling")]
@@ -55,6 +56,9 @@ public class LanderBehaviour : MonoBehaviour
 	public Text angleOfApproachGuageText;
 
 	public bool HasCrashed { get => hasCrashed; }
+	public bool HasLanded { get => hasLanded; }
+	public float Altitude { get => altitude;  }
+	public int LandingMultiplier { get => landingMultiplier; }
 
 	void Start()
 	{
@@ -77,7 +81,7 @@ public class LanderBehaviour : MonoBehaviour
 
 	void Update()
 	{
-		if (hasCrashed)
+		if (hasCrashed || hasLanded)
 		{
 			return;
 		}
@@ -136,7 +140,7 @@ public class LanderBehaviour : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		if (hasCrashed)
+		if (hasCrashed || hasLanded)
 		{
 			return;
 		}
@@ -153,7 +157,7 @@ public class LanderBehaviour : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (hasCrashed)
+		if (hasCrashed || hasLanded)
 		{
 			return;
 		}
@@ -162,6 +166,7 @@ public class LanderBehaviour : MonoBehaviour
 
 		if (isBadLanding)
 		{
+			rigidbodyComponent.simulated = false;
 			if (explosionParticleSystem)
 			{
 				explosionParticleSystem.Play();
@@ -188,6 +193,14 @@ public class LanderBehaviour : MonoBehaviour
 			}
 
 			hasCrashed = true;
+		}
+		else 
+		{
+			hasLanded = true;
+			rigidbodyComponent.simulated = false;
+			successfulLandingSound.Play();
+
+			gameBehavior.OnSuccessfulLanding(fuel, landingMultiplier);
 		}
 	}
 
@@ -236,16 +249,10 @@ public class LanderBehaviour : MonoBehaviour
 
 	private void UpdateUiElements()
 	{
-		time += Time.deltaTime;
-
-		const string scorePrecision = "D9";
 		const string fuelPrecision = "D4";
-		const string timePrecision = "D2";
 		const string floatingPointPrecision = "F1";
 
-		scoreGuageText.text = score.ToString(scorePrecision);
 		fuelGuageText.text = ((int)fuel).ToString(fuelPrecision);
-		timeGuageText.text = ((int)(time / 60)).ToString(timePrecision) + ":" + ((int)(time % 60)).ToString(timePrecision);
 
 		altitudeGuageText.text = altitude.ToString(floatingPointPrecision);
 		angleOfApproachGuageText.text = angleOfApproach.ToString(floatingPointPrecision);
@@ -259,6 +266,7 @@ public class LanderBehaviour : MonoBehaviour
 	}
 
 	private bool hasCrashed = false;
+	private bool hasLanded = false;
 	private bool isDangerousHorizontalVelocity = false;
 	private bool isDangerousVerticalVelocity = false;
 	private bool isDangerousAngleOfApproach = false;
@@ -268,10 +276,8 @@ public class LanderBehaviour : MonoBehaviour
 
 	private Rigidbody2D rigidbodyComponent;
 
-	private int score = 0;
 	private int landingMultiplier = LandingZoneBehavior.DEFAULT_MULTIPLIER;
 	private float timeSinceLastFuelChime;
-	private float time = 0;
 	private float fuel = 0;
 	private float altitude;
 	private float angleOfApproach;

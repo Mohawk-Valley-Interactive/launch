@@ -11,6 +11,7 @@ public class CameraBehavior : MonoBehaviour
 	public float sideBound = 50.0f;
 	public float upperBound = 50.0f;
 	public float lowerBound = 20.0f;
+	public float zoomedLowerBound = 100.0f;
 	public float zoomSpeed = 1.0f;
 
 	private void Start()
@@ -28,22 +29,16 @@ public class CameraBehavior : MonoBehaviour
 			return;
 
 		Vector3 newCameraPosition = transform.position;
-
+		float zoom = zoomSpeed * Time.deltaTime;
 		if (lander.Altitude < zoomInAltitudeThreshold && minCameraSize < cam.orthographicSize)
 		{
-			cam.orthographicSize -= zoomSpeed * Time.deltaTime;
-			if(cam.orthographicSize < minCameraSize)
-			{
-				cam.orthographicSize = minCameraSize;
-			}
+			lowerBoundActual = Mathf.Min(lowerBoundActual + zoom,  zoomedLowerBound);
+			cam.orthographicSize = Mathf.Max(cam.orthographicSize - zoom, minCameraSize);
 		}
 		else if (lander.Altitude > zoomInAltitudeThreshold && initialCameraSize > cam.orthographicSize)
 		{
-			cam.orthographicSize += zoomSpeed * Time.deltaTime;
-			if(cam.orthographicSize > initialCameraSize)
-			{
-				cam.orthographicSize = initialCameraSize;
-			}
+			lowerBoundActual = lowerBound;
+			cam.orthographicSize = Mathf.Min(cam.orthographicSize + zoom, initialCameraSize);
 		}
 
 		float cameraOffsetX = lander.transform.position.x - transform.position.x;
@@ -63,8 +58,7 @@ public class CameraBehavior : MonoBehaviour
 
 		float cameraOffsetY = lander.transform.position.y - transform.position.y;
 		float upperBoarderDistanceY = (upperBound * 0.01f) * cam.orthographicSize;
-		float lowerBoarderDistanceY = ((100.0f - lowerBound) * 0.01f) * cam.orthographicSize;
-		Debug.Log(cameraOffsetY + " | " + upperBoarderDistanceY + " | " + lowerBoarderDistanceY);
+		float lowerBoarderDistanceY = ((100.0f - lowerBoundActual) * 0.01f) * cam.orthographicSize;
 		if (cameraOffsetY > 0.0f && cameraOffsetY > upperBoarderDistanceY)
 		{
 			newCameraPosition.y = lander.transform.position.y - upperBoarderDistanceY;
@@ -79,4 +73,5 @@ public class CameraBehavior : MonoBehaviour
 
 	private Camera cam;
 	private float initialCameraSize;
+	public float lowerBoundActual;
 }

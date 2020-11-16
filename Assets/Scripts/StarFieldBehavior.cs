@@ -28,6 +28,7 @@ public class StarFieldBehavior : MonoBehaviour
 						star = Instantiate(starPrefabs[1], transform);
 					}
 					star.transform.position = new Vector3(line.x, starY, line.z);
+					star.transform.Rotate(Vector3.forward, Random.Range(0.0f, 360.0f));
 				}
 			}
 		}

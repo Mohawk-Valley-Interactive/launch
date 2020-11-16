@@ -11,6 +11,7 @@ public class CameraBehavior : MonoBehaviour
 	public float sideBound = 50.0f;
 	public float upperBound = 50.0f;
 	public float lowerBound = 20.0f;
+	public float zoomSpeed = 1.0f;
 
 	private void Start()
 	{
@@ -28,21 +29,22 @@ public class CameraBehavior : MonoBehaviour
 
 		Vector3 newCameraPosition = transform.position;
 
-		//      if(lander.Altitude < zoomInAltitudeThreshold)
-		//{
-		//          newCameraPosition.y = lander.transform.position.y;
-		//          cam.orthographicSize = minCameraSize;
-		//}
-		//      else if(lander.transform.position.y > (initialCameraSize * 2.0f))
-		//{
-		//          newCameraPosition.y = lander.transform.position.y - initialCameraSize;
-		//          cam.orthographicSize = initialCameraSize;
-		//}
-		//      else
-		//{
-		//          newCameraPosition.y = initialCameraSize;
-		//          cam.orthographicSize = initialCameraSize;
-		//}
+		if (lander.Altitude < zoomInAltitudeThreshold && minCameraSize < cam.orthographicSize)
+		{
+			cam.orthographicSize -= zoomSpeed * Time.deltaTime;
+			if(cam.orthographicSize < minCameraSize)
+			{
+				cam.orthographicSize = minCameraSize;
+			}
+		}
+		else if (lander.Altitude > zoomInAltitudeThreshold && initialCameraSize > cam.orthographicSize)
+		{
+			cam.orthographicSize += zoomSpeed * Time.deltaTime;
+			if(cam.orthographicSize > initialCameraSize)
+			{
+				cam.orthographicSize = initialCameraSize;
+			}
+		}
 
 		float cameraOffsetX = lander.transform.position.x - transform.position.x;
 		float cameraDistanceX = Mathf.Abs(cameraOffsetX);

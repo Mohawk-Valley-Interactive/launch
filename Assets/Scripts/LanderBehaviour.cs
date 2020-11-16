@@ -57,7 +57,7 @@ public class LanderBehaviour : MonoBehaviour
 
 	public bool HasCrashed { get => hasCrashed; }
 	public bool HasLanded { get => hasLanded; }
-	public float Altitude { get => altitude;  }
+	public float Altitude { get => altitude; }
 	public int LandingMultiplier { get => landingMultiplier; }
 
 	void Start()
@@ -152,7 +152,8 @@ public class LanderBehaviour : MonoBehaviour
 		rigidbodyComponent.AddRelativeForce(new Vector2(0.0f, actualThrust * 100.0f));
 
 		rigidbodyComponent.angularVelocity = rigidbodyComponent.angularVelocity + Input.GetAxis(rotationAxisName) * -rotationSensitivity;
-		rigidbodyComponent.rotation = Mathf.Clamp(rigidbodyComponent.rotation, -90.0f, 90.0f);
+		rigidbodyComponent.rotation = rigidbodyComponent.rotation > 360.0f ? rigidbodyComponent.rotation - 360.0f :
+			rigidbodyComponent.rotation < 0.0f ? rigidbodyComponent.rotation + 360.0f : rigidbodyComponent.rotation;
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
@@ -194,7 +195,7 @@ public class LanderBehaviour : MonoBehaviour
 
 			hasCrashed = true;
 		}
-		else 
+		else
 		{
 			hasLanded = true;
 			rigidbodyComponent.simulated = false;

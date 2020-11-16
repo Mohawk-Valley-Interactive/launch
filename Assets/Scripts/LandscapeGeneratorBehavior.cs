@@ -14,6 +14,7 @@ public class LandscapeGeneratorBehavior : MonoBehaviour
 	public int rangeTotal = 1;
 	public float terrainLineThickness;
 	public float bottomBufferSpace = 100.0f;
+	public float minimumXDistance = 25.0f;
 	public StarFieldBehavior starFieldBehavior;
 
 	public List<LandingZone> LandingZones
@@ -45,21 +46,38 @@ public class LandscapeGeneratorBehavior : MonoBehaviour
 
 	private void InitData()
 	{
-		string[] lines = terrainFile.text.Split( new char[] { '\n', '\r' }, System.StringSplitOptions.RemoveEmptyEntries);
+		string[] lines = terrainFile.text.Split(new char[] { '\n', '\r' }, System.StringSplitOptions.RemoveEmptyEntries);
 		List<Vector3> points = new List<Vector3>(lines.Length);
 		List<Vector3> finalPoints = new List<Vector3>((lines.Length * rangeTotal * 2) + 1);
 
+		float previousX = 0.0f;
+		float xAdjustment = 0.0f;
+		bool isLandingZone = false;
 		for (int lineIndex = 0; lineIndex < lines.Length; ++lineIndex)
 		{
 			string[] lineData = lines[lineIndex].Split(' ');
-			float x = float.Parse(lineData[0]);
+			float x = float.Parse(lineData[0]) + xAdjustment;
 			float y = float.Parse(lineData[1]);
-			points.Add(new Vector3(x, y, 0.0f));
-
-			if(lineData.Length > 2)
+			Vector3 newPoint = new Vector3(x, y, 0.0f);
+			if (lineData.Length > 2)
 			{
-				referenceLandingZones.Add( new LandingZone(lineIndex, int.Parse(lineData[2])) );
+				referenceLandingZones.Add(new LandingZone(lineIndex, int.Parse(lineData[2])));
+				isLandingZone = true;
 			}
+			else if (isLandingZone)
+			{
+				isLandingZone = false;
+
+				float providedDistance = newPoint.x - previousX;
+				if (providedDistance < minimumXDistance)
+				{
+					newPoint.x = previousX + minimumXDistance;
+					xAdjustment += minimumXDistance - providedDistance;
+				}
+			}
+
+			previousX = newPoint.x;
+			points.Add(newPoint);
 		}
 
 		List<float> xs = new List<float>(points.Count);
@@ -75,11 +93,11 @@ public class LandscapeGeneratorBehavior : MonoBehaviour
 				finalPoints.Add(newVec3);
 
 				int referenceIndex = finalPointIndex > points.Count ? finalPointIndex % points.Count : finalPointIndex;
-				for(int zoneIndex = 0; zoneIndex < referenceLandingZones.Count; ++zoneIndex)
+				for (int zoneIndex = 0; zoneIndex < referenceLandingZones.Count; ++zoneIndex)
 				{
-					if(referenceIndex == referenceLandingZones[zoneIndex].StartIndex)
+					if (referenceIndex == referenceLandingZones[zoneIndex].StartIndex)
 					{
-						landingZones.Add(new LandingZone(finalPointIndex, referenceLandingZones[zoneIndex].Multiplier, zoneIndex));	
+						landingZones.Add(new LandingZone(finalPointIndex, referenceLandingZones[zoneIndex].Multiplier, zoneIndex));
 					}
 				}
 
@@ -87,7 +105,7 @@ public class LandscapeGeneratorBehavior : MonoBehaviour
 			}
 		}
 
-		foreach(LandingZone landingZone in landingZones)
+		foreach (LandingZone landingZone in landingZones)
 		{
 			landingZone.StartPoint = finalPoints[landingZone.StartIndex];
 			landingZone.EndPoint = finalPoints[landingZone.StartIndex + 1];

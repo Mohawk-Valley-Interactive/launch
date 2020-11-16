@@ -9,20 +9,25 @@ public class GameBehavior : MonoBehaviour
 	public Text scoreGuageText;
 	public Text timeGuageText;
 	public float parTime = 60000;
-    public void OnSuccessfulLanding(float fuel, float multiplier)
-	{
-        totalPoints += (int)((fuel + (parTime - time)) * multiplier);
 
-        UpdateScoreUI();
+	public void OnSuccessfulLanding(float fuel, float multiplier)
+	{
+		totalPoints += (int)((fuel + (parTime - time)) * multiplier);
+		isTimerActive = false;
+
+		UpdateScoreUI();
 	}
 
 	private void Update()
 	{
-		time += Time.deltaTime;
-		UpdateTimeUI();
+		if (isTimerActive)
+		{
+			time += Time.deltaTime;
+			UpdateTimeUI();
+		}
 	}
 
-    private void UpdateScoreUI()
+	private void UpdateScoreUI()
 	{
 		const string scorePrecision = "D9";
 		scoreGuageText.text = totalPoints.ToString(scorePrecision);
@@ -34,6 +39,7 @@ public class GameBehavior : MonoBehaviour
 		timeGuageText.text = ((int)(time / 60)).ToString(timePrecision) + ":" + ((int)(time % 60)).ToString(timePrecision);
 	}
 
-    private int totalPoints = 0;
+	private bool isTimerActive = true;
+	private int totalPoints = 0;
 	private float time = 0;
 }

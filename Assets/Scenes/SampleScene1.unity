@@ -876,6 +876,9 @@ MonoBehaviour:
   lander: {fileID: 423707215}
   zoomInAltitudeThreshold: 200
   minCameraSize: 200
+  sideBound: 80
+  upperBound: 50
+  lowerBound: 80
 --- !u!1 &985567065
 GameObject:
   m_ObjectHideFlags: 0

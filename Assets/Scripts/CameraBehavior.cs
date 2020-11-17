@@ -11,6 +11,7 @@ public class CameraBehavior : MonoBehaviour
 	public float sideBound = 50.0f;
 	public float upperBound = 50.0f;
 	public float lowerBound = 20.0f;
+	public float zoomedSideBound = 100.0f;
 	public float zoomedLowerBound = 100.0f;
 	public float zoomSpeed = 1.0f;
 
@@ -30,30 +31,39 @@ public class CameraBehavior : MonoBehaviour
 
 		Vector3 newCameraPosition = transform.position;
 		float zoom = zoomSpeed * Time.deltaTime;
-		if (lander.Altitude < zoomInAltitudeThreshold && minCameraSize < cam.orthographicSize)
+		if (lander.Altitude < zoomInAltitudeThreshold)
 		{
-			lowerBoundActual = Mathf.Min(lowerBoundActual + zoom,  zoomedLowerBound);
-			cam.orthographicSize = Mathf.Max(cam.orthographicSize - zoom, minCameraSize);
+			if (zoomedLowerBound > lowerBoundActual)
+			{
+				lowerBoundActual = Mathf.Min(lowerBoundActual + zoom, zoomedLowerBound);
+			}
+			if (zoomedSideBound > sideBoundActual)
+			{
+				sideBoundActual = Mathf.Min(sideBoundActual + zoom, zoomedSideBound);
+			}
+			if (minCameraSize < cam.orthographicSize)
+			{
+				cam.orthographicSize = Mathf.Max(cam.orthographicSize - zoom, minCameraSize);
+			}
 		}
-		else if (lander.Altitude > zoomInAltitudeThreshold && initialCameraSize > cam.orthographicSize)
+		else if (lander.Altitude > zoomInAltitudeThreshold)
 		{
 			lowerBoundActual = lowerBound;
-			cam.orthographicSize = Mathf.Min(cam.orthographicSize + zoom, initialCameraSize);
+			sideBoundActual = sideBound;
+			if (initialCameraSize > cam.orthographicSize)
+			{
+				cam.orthographicSize = Mathf.Min(cam.orthographicSize + zoom, initialCameraSize);
+			}
 		}
 
-		float cameraOffsetX = lander.transform.position.x - transform.position.x;
-		float cameraDistanceX = Mathf.Abs(cameraOffsetX);
-		float boarderDistanceX = (sideBound * 0.01f) * cam.orthographicSize;
-		if (cameraDistanceX > boarderDistanceX)
+		bool isOnRightSideOfCamera = lander.transform.position.x > transform.position.x;
+		float cameraOffsetX = isOnRightSideOfCamera ?
+			lander.transform.position.x - transform.position.x :
+			transform.position.x - lander.transform.position.x;
+		float boarderDistanceX = ((100.0f - sideBoundActual) * 0.01f) * cam.orthographicSize;
+		if (cameraOffsetX > boarderDistanceX)
 		{
-			if (cameraOffsetX < 0.0f)
-			{
-				newCameraPosition.x = lander.transform.position.x + boarderDistanceX;
-			}
-			else
-			{
-				newCameraPosition.x = lander.transform.position.x - boarderDistanceX;
-			}
+			newCameraPosition.x = isOnRightSideOfCamera ? lander.transform.position.x - boarderDistanceX : lander.transform.position.x + boarderDistanceX;
 		}
 
 		float cameraOffsetY = lander.transform.position.y - transform.position.y;
@@ -74,4 +84,5 @@ public class CameraBehavior : MonoBehaviour
 	private Camera cam;
 	private float initialCameraSize;
 	public float lowerBoundActual;
+	public float sideBoundActual;
 }

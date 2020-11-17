@@ -15,6 +15,7 @@ public class LandscapeGeneratorBehavior : MonoBehaviour
 	public float terrainLineThickness;
 	public float bottomBufferSpace = 100.0f;
 	public float minimumXDistance = 25.0f;
+	public float heightScale = 1.0f;
 	public StarFieldBehavior starFieldBehavior;
 
 	public List<LandingZone> LandingZones
@@ -57,7 +58,7 @@ public class LandscapeGeneratorBehavior : MonoBehaviour
 		{
 			string[] lineData = lines[lineIndex].Split(' ');
 			float x = float.Parse(lineData[0]) + xAdjustment;
-			float y = float.Parse(lineData[1]);
+			float y = float.Parse(lineData[1]) * heightScale;
 			Vector3 newPoint = new Vector3(x, y, 0.0f);
 			if (lineData.Length > 2)
 			{

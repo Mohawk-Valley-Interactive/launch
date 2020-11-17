@@ -91,6 +91,10 @@ public class LandscapeGeneratorBehavior : MonoBehaviour
 			for (int pointIndex = 0; pointIndex < points.Count; ++pointIndex)
 			{
 				Vector3 newVec3 = new Vector3((points[pointIndex].x) + (rangeIndex * rangeX), points[pointIndex].y + bottomBufferSpace, 0.0f);
+				if(finalPointIndex == 0 || ((pointIndex + 1) == points.Count && (rangeIndex + 1) == rangeTotal))
+				{
+					newVec3.y = 10000.0f;
+				}
 				finalPoints.Add(newVec3);
 
 				int referenceIndex = finalPointIndex > points.Count ? finalPointIndex % points.Count : finalPointIndex;
@@ -105,6 +109,7 @@ public class LandscapeGeneratorBehavior : MonoBehaviour
 				++finalPointIndex;
 			}
 		}
+
 
 		foreach (LandingZone landingZone in landingZones)
 		{

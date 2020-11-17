@@ -55,10 +55,16 @@ public class LanderBehaviour : MonoBehaviour
 	public Text verticalSpeedGuageText;
 	public Text angleOfApproachGuageText;
 
+	public float Altitude { get => altitude; }
+	public float Fuel { get => fuel;  }
 	public bool HasCrashed { get => hasCrashed; }
 	public bool HasLanded { get => hasLanded; }
-	public float Altitude { get => altitude; }
 	public int LandingMultiplier { get => landingMultiplier; }
+
+	public void ModifyFuel(float fuel)
+	{
+		this.fuel += fuel;
+	}
 
 	void Start()
 	{
@@ -163,7 +169,7 @@ public class LanderBehaviour : MonoBehaviour
 			return;
 		}
 
-		bool isBadLanding = isDangerousAngleOfApproach || isDangerousHorizontalVelocity || isDangerousVerticalVelocity || landingMultiplier == LandingZoneBehavior.DEFAULT_MULTIPLIER;
+		bool isBadLanding = isDangerousAngleOfApproach || isDangerousHorizontalVelocity || isDangerousVerticalVelocity;
 
 		if (isBadLanding)
 		{
@@ -194,6 +200,7 @@ public class LanderBehaviour : MonoBehaviour
 			}
 
 			hasCrashed = true;
+			gameBehavior.OnCrashLanding(this);
 		}
 		else
 		{
@@ -201,7 +208,7 @@ public class LanderBehaviour : MonoBehaviour
 			rigidbodyComponent.simulated = false;
 			successfulLandingSound.Play();
 
-			gameBehavior.OnSuccessfulLanding(fuel, landingMultiplier);
+			gameBehavior.OnSuccessfulLanding(this, landingMultiplier);
 		}
 	}
 

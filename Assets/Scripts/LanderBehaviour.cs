@@ -45,16 +45,17 @@ public class LanderBehaviour : MonoBehaviour
 	public float thrustSoundRamp = 0.1f;
 	public AudioSource thrustSound;
 	public ParticleSystem thrusterParticleSystem;
+	[Space(10)]
 
-	[Header("UI Gauges")]
-	public Text scoreGuageText;
-	public Text timeGuageText;
+	[Header("UI")]
 	public Text fuelGuageText;
 	public Text altitudeGuageText;
 	public Text horizontalSpeedGuageText;
 	public Text verticalSpeedGuageText;
 	public Text angleOfApproachGuageText;
 
+	public string RotationAxisName { get => rotationAxisName; }
+	public string ThrustAxisName { get => thrustAxisName; }
 	public float Altitude { get => altitude; }
 	public float Fuel { get => fuel;  }
 	public bool HasCrashed { get => hasCrashed; }
@@ -64,6 +65,22 @@ public class LanderBehaviour : MonoBehaviour
 	public void ModifyFuel(float fuel)
 	{
 		this.fuel += fuel;
+	}
+
+	public void ResetLander(bool isGameOver)
+	{
+		RepositionToSpawnPoint();
+		hasLanded = false;
+		hasCrashed = false;
+		rigidbodyComponent.simulated = true;
+		rigidbodyComponent.velocity = initialVelocity;
+		rigidbodyComponent.angularVelocity = 0.0f;
+		landerAvatar.SetActive(true);
+
+		if(isGameOver)
+		{
+			fuel = initialFuel;
+		}
 	}
 
 	void Start()
@@ -226,7 +243,6 @@ public class LanderBehaviour : MonoBehaviour
 
 	private void CalculateStats()
 	{
-		//velocity = Mathf.Abs((rigidbodyComponent.velocity.magnitude * 10.0f));
 		horizontalSpeed = Mathf.Abs((rigidbodyComponent.velocity.x));
 		verticalSpeed = Mathf.Abs((rigidbodyComponent.velocity.y));
 		angleOfApproach = Mathf.Abs(Vector3.Angle(transform.up, Vector3.up));
@@ -279,11 +295,10 @@ public class LanderBehaviour : MonoBehaviour
 	private bool isDangerousVerticalVelocity = false;
 	private bool isDangerousAngleOfApproach = false;
 
-	private const string rotationAxisName = "Rotate";
-	private const string thrustAxisName = "ApplyThrust";
-
 	private Rigidbody2D rigidbodyComponent;
 
+	private const string rotationAxisName = "Rotate";
+	private const string thrustAxisName = "ApplyThrust";
 	private int landingMultiplier = LandingZoneBehavior.DEFAULT_MULTIPLIER;
 	private float timeSinceLastFuelChime;
 	private float fuel = 0;
@@ -291,5 +306,4 @@ public class LanderBehaviour : MonoBehaviour
 	private float angleOfApproach;
 	private float horizontalSpeed;
 	private float verticalSpeed;
-	private float velocity;
 }

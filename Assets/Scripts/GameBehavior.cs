@@ -5,30 +5,52 @@ using UnityEngine.UI;
 
 public class GameBehavior : MonoBehaviour
 {
+	[Header("General")]
+	public CameraBehavior cam;
+	public LanderBehaviour lander;
+	public LandscapeGeneratorBehavior landscapeGenerator;
+	[Space(5)]
+
 	[Header("UI Gauges")]
 	public Text scoreGuageText;
 	public Text timeGuageText;
 	public Text levelCompleteScreen;
 	public Text continueText;
-	public float parTime = 60000;
+	public GameObject levelCompletePanel;
+	public GameObject continuePanel;
 
-	private void Start()
+	void Start()
 	{
 		continueText.gameObject.SetActive(false);
 		levelCompleteScreen.gameObject.SetActive(false);
+		continuePanel.SetActive(false);
+		levelCompletePanel.SetActive(false);
 	}
 
 	void Update()
 	{
-		if (isTimerActive)
+		if (!isLevelComplete)
 		{
-			time += Time.deltaTime;
-			UpdateTimeUI();
+			if (isTimerActive)
+			{
+				time += Time.deltaTime;
+				UpdateTimeUI();
+			}
+		}
+		else
+		{
+			if(hasReleasedThrottle && Input.GetAxis(lander.ThrustAxisName) != 0)
+			{
+				StartNextRound();
+				isLevelComplete = false;
+			}
+			hasReleasedThrottle = Input.GetAxis(lander.ThrustAxisName) == 0;
 		}
 	}
 
 	public void OnSuccessfulLanding(LanderBehaviour lander, float multiplier)
 	{
+		isLevelComplete = true;
 		int points = (int)(50.0f * multiplier);
 		totalPoints += points;
 		isTimerActive = false;
@@ -41,18 +63,41 @@ public class GameBehavior : MonoBehaviour
 
 	public void OnCrashLanding(LanderBehaviour lander)
 	{
+		isLevelComplete = true;
 		isTimerActive = false;
 		int fuelDeducted = (int)((Random.value * 200.0f) + 200.0f);
 		lander.ModifyFuel(-fuelDeducted);
 
-		if(lander.Fuel < 1)
+		if (lander.Fuel < 1)
 		{
 			ShowGameOverScreen();
-		} 
+		}
 		else
 		{
 			ShowFailureScreen(fuelDeducted);
 		}
+	}
+
+	private void StartNextRound()
+	{
+		isTimerActive = true;
+		continuePanel.SetActive(false);
+		levelCompletePanel.SetActive(false);
+		continueText.gameObject.SetActive(false);
+		levelCompleteScreen.gameObject.SetActive(false);
+
+		bool isGameOver = lander.Fuel <= 0; 
+		if(isGameOver)
+		{
+			totalPoints = 0;
+			time = 0;
+		}
+
+		UpdateScoreUI();
+
+		cam.ResetCamera();
+		lander.ResetLander(isGameOver);
+		landscapeGenerator.IncrementLevel(isGameOver);
 	}
 
 	private void UpdateScoreUI()
@@ -63,6 +108,8 @@ public class GameBehavior : MonoBehaviour
 
 	private void ShowSuccessScreen(int points)
 	{
+		continuePanel.SetActive(true);
+		levelCompletePanel.SetActive(true);
 		continueText.gameObject.SetActive(true);
 		levelCompleteScreen.gameObject.SetActive(true);
 		levelCompleteScreen.text = "Congrats!\nPerfect Landing\n" + points + " points";
@@ -70,6 +117,8 @@ public class GameBehavior : MonoBehaviour
 
 	private void ShowFailureScreen(int fuelDeducted)
 	{
+		continuePanel.SetActive(true);
+		levelCompletePanel.SetActive(true);
 		continueText.gameObject.SetActive(true);
 		levelCompleteScreen.gameObject.SetActive(true);
 		string[] flavorText = new string[]
@@ -87,18 +136,27 @@ public class GameBehavior : MonoBehaviour
 
 	private void ShowGameOverScreen()
 	{
+		continuePanel.SetActive(true);
+		levelCompletePanel.SetActive(true);
 		continueText.gameObject.SetActive(true);
 		levelCompleteScreen.gameObject.SetActive(true);
 
-		levelCompleteScreen.text = "out of fuel\nFIN";
+		levelCompleteScreen.text = "out of fuel\nFIN\n\ntime: " + getTimeString() + "\nscore: " + totalPoints.ToString();
 	}
 
 	private void UpdateTimeUI()
 	{
-		const string timePrecision = "D2";
-		timeGuageText.text = ((int)(time / 60)).ToString(timePrecision) + ":" + ((int)(time % 60)).ToString(timePrecision);
+		timeGuageText.text = getTimeString();
 	}
 
+	private string getTimeString()
+	{
+		const string timePrecision = "D2";
+		return ((int)(time / 60)).ToString(timePrecision) + ":" + ((int)(time % 60)).ToString(timePrecision);
+	}
+
+	private bool hasReleasedThrottle = false;
+	private bool isLevelComplete = false;
 	private bool isTimerActive = true;
 	private int totalPoints = 0;
 	private float time = 0;

@@ -28,14 +28,16 @@ public class LandscapeGeneratorBehavior : MonoBehaviour
 	{
 		edgeCollider = GetComponent<EdgeCollider2D>();
 		lineRenderer = GetComponent<LineRenderer>();
-		LandingZoneGeneratorBehavior landscapeBehavior = GetComponent<LandingZoneGeneratorBehavior>();
+		LandingZoneGeneratorBehavior landingZoneGeneratorBehavior = GetComponent<LandingZoneGeneratorBehavior>();
 
 		lineRenderer.startWidth = terrainLineThickness;
 		lineRenderer.endWidth = terrainLineThickness;
 
+		levelId = 0;
+
 		InitData();
 
-		landscapeBehavior.GenerateLandingZones(landingZones);
+		landingZoneGeneratorBehavior.GenerateLandingZones(landingZones, levelId);
 		starFieldBehavior.GenerateStars(lineRenderer);
 	}
 
@@ -44,6 +46,16 @@ public class LandscapeGeneratorBehavior : MonoBehaviour
 	private EdgeCollider2D edgeCollider;
 	private List<LandingZone> referenceLandingZones = new List<LandingZone>();
 	private List<LandingZone> landingZones = new List<LandingZone>();
+
+	public void IncrementLevel(bool isGameOver)
+	{
+		levelId = isGameOver ? 0 : levelId + 1;
+		LandingZoneGeneratorBehavior landingZoneGeneratorBehavior = GetComponent<LandingZoneGeneratorBehavior>();
+		landingZoneGeneratorBehavior.ClearLandingZones();
+		landingZoneGeneratorBehavior.GenerateLandingZones(landingZones, levelId);
+	}
+
+	private int levelId = 0;
 
 	private void InitData()
 	{

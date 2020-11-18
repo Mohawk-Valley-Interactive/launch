@@ -50,14 +50,16 @@ public class LandingZoneGeneratorBehavior : MonoBehaviour
 	public float yOffset;
 	public float lzLineThickness;
 
-	public void GenerateLandingZones(List<LandingZone> landingZones, int levelId = 0)
+	public void GenerateLandingZones(List<LandingZone> landingZones, int levelId)
 	{
+		int landingZoneConfigId = levelId % landingZoneConfigs.GetLength(0);
+
 		for (int landingZoneIndex = 0; landingZoneIndex < landingZones.Count; ++landingZoneIndex)
 		{
 			LandingZone landingZone = landingZones[landingZoneIndex];
 			for (int configIndex = 0; configIndex < landingZoneConfigs.GetLength(1); ++configIndex)
 			{
-				if(landingZone.Id != landingZoneConfigs[levelId, configIndex])
+				if(landingZone.Id != landingZoneConfigs[landingZoneConfigId, configIndex])
 				{
 					continue;
 				}
@@ -96,10 +98,22 @@ public class LandingZoneGeneratorBehavior : MonoBehaviour
 				text.fontSize = fontSize;
 				text.alignment = TextAnchor.MiddleCenter;
 				text.fontStyle = FontStyle.Bold;
+
+				landingZoneObjects.Add(lz);
+				landingZoneObjects.Add(go);
 			}
 		}
 	}
 
+	public void ClearLandingZones()
+	{
+		foreach(GameObject g in landingZoneObjects)
+		{
+			Destroy(g);
+		}
+	}
+
+	private List<GameObject> landingZoneObjects = new List<GameObject>();
 	private List<GameObject> landingZoneColliders = new List<GameObject>(4);
 	private int[,] landingZoneConfigs = new int[7, 4] {
 		{2, 3, 7, 9},

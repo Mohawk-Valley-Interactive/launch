@@ -15,13 +15,14 @@ public class CameraBehavior : MonoBehaviour
 	public float zoomedLowerBound = 100.0f;
 	public float zoomSpeed = 1.0f;
 
-	private void Start()
+	void Start()
 	{
 		cam = GetComponent<Camera>();
 		initialCameraSize = cam.orthographicSize;
 		Vector3 position = transform.position;
 		position.y = cam.orthographicSize;
 		transform.position = position;
+		initialPosition = position;
 	}
 
 	void Update()
@@ -81,7 +82,14 @@ public class CameraBehavior : MonoBehaviour
 		transform.position = newCameraPosition;
 	}
 
+	public void ResetCamera()
+	{
+		cam.orthographicSize = initialCameraSize;
+		transform.position = initialPosition;
+	}
+
 	private Camera cam;
+	private Vector3 initialPosition;
 	private float initialCameraSize;
 	public float lowerBoundActual;
 	public float sideBoundActual;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameBehavior : MonoBehaviour
@@ -39,7 +40,7 @@ public class GameBehavior : MonoBehaviour
 		}
 		else
 		{
-			if(hasReleasedThrottle && Input.GetAxis(lander.ThrustAxisName) != 0)
+			if (hasReleasedThrottle && Input.GetAxis(lander.ThrustAxisName) != 0)
 			{
 				StartNextRound();
 				isLevelComplete = false;
@@ -80,18 +81,19 @@ public class GameBehavior : MonoBehaviour
 
 	private void StartNextRound()
 	{
+		bool isGameOver = lander.Fuel <= 0;
+		if (isGameOver)
+		{
+			SceneManager.LoadScene("LaunchScene");
+			totalPoints = 0;
+			time = 0;
+		}
+
 		isTimerActive = true;
 		continuePanel.SetActive(false);
 		levelCompletePanel.SetActive(false);
 		continueText.gameObject.SetActive(false);
 		levelCompleteScreen.gameObject.SetActive(false);
-
-		bool isGameOver = lander.Fuel <= 0; 
-		if(isGameOver)
-		{
-			totalPoints = 0;
-			time = 0;
-		}
 
 		UpdateScoreUI();
 

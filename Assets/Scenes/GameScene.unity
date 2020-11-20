@@ -2404,21 +2404,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2466927072824576260, guid: e75ec9ab42b7b44449e2956ae826a622,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: 0.0017368793
-      objectReference: {fileID: 0}
-    - target: {fileID: 2466927072824576260, guid: e75ec9ab42b7b44449e2956ae826a622,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.021734297
-      objectReference: {fileID: 0}
-    - target: {fileID: 2466927072824576260, guid: e75ec9ab42b7b44449e2956ae826a622,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.0446888
-      objectReference: {fileID: 0}
     - target: {fileID: 2466927072824576280, guid: e75ec9ab42b7b44449e2956ae826a622,
         type: 3}
       propertyPath: m_Name
@@ -2431,14 +2416,9 @@ PrefabInstance:
       objectReference: {fileID: 907281839}
     - target: {fileID: 2466927072824576282, guid: e75ec9ab42b7b44449e2956ae826a622,
         type: 3}
-      propertyPath: scoreGuageText
+      propertyPath: gameBehavior
       value: 
-      objectReference: {fileID: 1055399990}
-    - target: {fileID: 2466927072824576282, guid: e75ec9ab42b7b44449e2956ae826a622,
-        type: 3}
-      propertyPath: timeGuageText
-      value: 
-      objectReference: {fileID: 1557341793}
+      objectReference: {fileID: 1310640640}
     - target: {fileID: 2466927072824576282, guid: e75ec9ab42b7b44449e2956ae826a622,
         type: 3}
       propertyPath: fuelGuageText
@@ -2464,26 +2444,6 @@ PrefabInstance:
       propertyPath: angleOfApproachGuageText
       value: 
       objectReference: {fileID: 1576885099}
-    - target: {fileID: 2466927072824576282, guid: e75ec9ab42b7b44449e2956ae826a622,
-        type: 3}
-      propertyPath: initialFuel
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 2466927072824576282, guid: e75ec9ab42b7b44449e2956ae826a622,
-        type: 3}
-      propertyPath: initialVelocity.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 2466927072824576282, guid: e75ec9ab42b7b44449e2956ae826a622,
-        type: 3}
-      propertyPath: thrust
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2466927072824576282, guid: e75ec9ab42b7b44449e2956ae826a622,
-        type: 3}
-      propertyPath: gameBehavior
-      value: 
-      objectReference: {fileID: 1310640640}
     - target: {fileID: 2466927072824576283, guid: e75ec9ab42b7b44449e2956ae826a622,
         type: 3}
       propertyPath: m_LocalPosition.x

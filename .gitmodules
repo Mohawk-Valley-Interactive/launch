@@ -1,0 +1,3 @@
+[submodule "Assets/launchdarkly-client-unity-plugin"]
+	path = Assets/launchdarkly-client-unity-plugin
+	url = git@github.com:launchdarkly-labs/launchdarkly-client-unity-plugin.git

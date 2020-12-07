@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using LaunchDarkly.Unity;
 
 public class LaunchDarklyInterfaceBehavior : MonoBehaviour
@@ -39,6 +37,11 @@ public class LaunchDarklyInterfaceBehavior : MonoBehaviour
 		{
 			InitializeLdClient();
 		}
+	}
+
+	void OnDestroy()
+	{
+		clientBehavior = null;	
 	}
 
 	void InitializeLdClient()

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4956052127592824962}
   - component: {fileID: 4956052127592824961}
+  - component: {fileID: -3533060790827861198}
   m_Layer: 0
   m_Name: Star1
   m_TagString: Untagged
@@ -133,3 +134,16 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
+--- !u!114 &-3533060790827861198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4956052127592824960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2fe9fc3c5f5e3944b5a4103d8e3f03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 90

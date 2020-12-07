@@ -3,41 +3,41 @@ using UnityEngine.UI;
 
 public class OptionsPanelBehavior : MonoBehaviour
 {
+	public const string ldMobileKeyKey = "ld-mobile-key";
+	public const string userEmailKey = "user-email-key";
 
-	public const string LdMobileKeyKey = "ld-mobile-key";
-	public const string UserEmailKey = "user-email-key";
+	private const string defaultLdMobileKey = "mob-xxx-xxxxxxx";
+	private const string defaultUserEmail = "user@domain.tld";
 
-	private const string DefaultLdMobileKey = "mob-xxx-xxxxxxx";
-	private const string DefaultUserEmail = "user@domain.tld";
-
-	public InputField MobileKeyInput;
-	public InputField UserEmailInput;
+	public LaunchDarklyInterfaceBehavior launchDarklyInterfaceBehavior;
+	public InputField mobileKeyInput;
+	public InputField userEmailInput;
 
 	public void Show()
 	{
-		if (MobileKeyInput != null)
+		if (mobileKeyInput != null)
 		{
-			if (PlayerPrefs.HasKey(LdMobileKeyKey))
+			if (PlayerPrefs.HasKey(ldMobileKeyKey))
 			{
-				string mobileKey = PlayerPrefs.GetString(LdMobileKeyKey);
-				MobileKeyInput.SetTextWithoutNotify(mobileKey.Length > 0 ? mobileKey : DefaultLdMobileKey);
+				string mobileKey = PlayerPrefs.GetString(ldMobileKeyKey);
+				mobileKeyInput.SetTextWithoutNotify(mobileKey.Length > 0 ? mobileKey : defaultLdMobileKey);
 			}
 			else
 			{
-				MobileKeyInput.SetTextWithoutNotify(DefaultLdMobileKey);
+				mobileKeyInput.SetTextWithoutNotify(defaultLdMobileKey);
 			}
 		}
 
-		if (UserEmailInput != null)
+		if (userEmailInput != null)
 		{
-			if (PlayerPrefs.HasKey(UserEmailKey))
+			if (PlayerPrefs.HasKey(userEmailKey))
 			{
-				string userEmail = PlayerPrefs.GetString(UserEmailKey);
-				UserEmailInput.SetTextWithoutNotify(userEmail.Length > 0 ? userEmail : DefaultUserEmail);
+				string userEmail = PlayerPrefs.GetString(userEmailKey);
+				userEmailInput.SetTextWithoutNotify(userEmail.Length > 0 ? userEmail : defaultUserEmail);
 			}
 			else
 			{
-				UserEmailInput.SetTextWithoutNotify(DefaultUserEmail);
+				userEmailInput.SetTextWithoutNotify(defaultUserEmail);
 			}
 		}
 
@@ -46,14 +46,24 @@ public class OptionsPanelBehavior : MonoBehaviour
 
 	public void Apply()
 	{
-		if (MobileKeyInput != null && MobileKeyInput.text != DefaultLdMobileKey)
+		if (mobileKeyInput != null && mobileKeyInput.text != defaultLdMobileKey)
 		{
-			PlayerPrefs.SetString(LdMobileKeyKey, MobileKeyInput.text.Trim());
+			PlayerPrefs.SetString(ldMobileKeyKey, mobileKeyInput.text.Trim());
+		}
+		else
+		{
+			PlayerPrefs.DeleteKey(ldMobileKeyKey);
 		}
 
-		if (UserEmailInput != null && UserEmailInput.text != DefaultUserEmail)
+		if (userEmailInput != null && userEmailInput.text != defaultUserEmail)
 		{
-			PlayerPrefs.SetString(UserEmailKey, UserEmailInput.text.Trim());
+			string email = userEmailInput.text.Trim();
+			PlayerPrefs.SetString(userEmailKey, email);
+			launchDarklyInterfaceBehavior.UpdateEmail(email);
+		}
+		else
+		{
+			PlayerPrefs.DeleteKey(userEmailKey);
 		}
 
 		gameObject.SetActive(false);
@@ -61,27 +71,27 @@ public class OptionsPanelBehavior : MonoBehaviour
 
 	public void Discard()
 	{
-		if (MobileKeyInput != null)
+		if (mobileKeyInput != null)
 		{
-			if (PlayerPrefs.HasKey(LdMobileKeyKey))
+			if (PlayerPrefs.HasKey(ldMobileKeyKey))
 			{
-				MobileKeyInput.SetTextWithoutNotify(PlayerPrefs.GetString(LdMobileKeyKey));
+				mobileKeyInput.SetTextWithoutNotify(PlayerPrefs.GetString(ldMobileKeyKey));
 			}
 			else
 			{
-				MobileKeyInput.SetTextWithoutNotify(DefaultLdMobileKey);
+				mobileKeyInput.SetTextWithoutNotify(defaultLdMobileKey);
 			}
 		}
 
-		if (UserEmailInput != null)
+		if (userEmailInput != null)
 		{
-			if (PlayerPrefs.HasKey(UserEmailKey))
+			if (PlayerPrefs.HasKey(userEmailKey))
 			{
-				UserEmailInput.SetTextWithoutNotify(PlayerPrefs.GetString(UserEmailKey));
+				userEmailInput.SetTextWithoutNotify(PlayerPrefs.GetString(userEmailKey));
 			}
 			else
 			{
-				UserEmailInput.SetTextWithoutNotify(DefaultUserEmail);
+				userEmailInput.SetTextWithoutNotify(defaultUserEmail);
 			}
 		}
 

@@ -238,7 +238,7 @@ Transform:
   - {fileID: 866462333}
   - {fileID: 1654606907}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -60}
 --- !u!114 &423707215
 MonoBehaviour:
@@ -254,6 +254,80 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.5
   loadBoarderX: 250
+--- !u!1001 &620699822
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 625089578558530277, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
+        type: 3}
+      propertyPath: m_Name
+      value: LdClient
+      objectReference: {fileID: 0}
+    - target: {fileID: 625089578558530278, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
+        type: 3}
+      propertyPath: isInitializedOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 625089578558530279, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 625089578558530279, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 625089578558530279, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 625089578558530279, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 625089578558530279, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 625089578558530279, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 625089578558530279, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 625089578558530279, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 625089578558530279, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 625089578558530279, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 625089578558530279, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06b5ed18425c6a14c86e62653ccf5fd2, type: 3}
 --- !u!1 &705726343
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +392,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &866462332
 GameObject:
@@ -494,7 +568,7 @@ RectTransform:
   - {fileID: 66026804}
   - {fileID: 1886369363}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -660,7 +734,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1259150861
 GameObject:
@@ -5633,6 +5707,63 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &1704688806 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2920143896235167271, guid: a4f92ab86f6438749bb44f3dbc149c44,
+    type: 3}
+  m_PrefabInstance: {fileID: 2920143895967283395}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1743149887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1743149889}
+  - component: {fileID: 1743149888}
+  m_Layer: 0
+  m_Name: LaunchDarklyInterface
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1743149888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743149887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa90086fcbc2e14880c594a27ee1a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultEmail: launch.default.user@launchdarkly.com
+  defaultMobileKey: mob-eeeaab3e-a3c7-411f-bac7-e0f8ed5b4919
+--- !u!4 &1743149889
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743149887}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1886369363 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2920143895164096144, guid: a4f92ab86f6438749bb44f3dbc149c44,
@@ -5649,6 +5780,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 587842d0badfd7145b4390905971a492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2033694672 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3573701169646607836, guid: a4f92ab86f6438749bb44f3dbc149c44,
+    type: 3}
+  m_PrefabInstance: {fileID: 2920143895967283395}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2920143895967283395
@@ -5767,6 +5910,48 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: OptionsPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920143895164096145, guid: a4f92ab86f6438749bb44f3dbc149c44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920143895164096151, guid: a4f92ab86f6438749bb44f3dbc149c44,
+        type: 3}
+      propertyPath: userEmailInput
+      value: 
+      objectReference: {fileID: 2033694672}
+    - target: {fileID: 2920143895164096151, guid: a4f92ab86f6438749bb44f3dbc149c44,
+        type: 3}
+      propertyPath: mobileKeyInput
+      value: 
+      objectReference: {fileID: 1704688806}
+    - target: {fileID: 2920143895164096151, guid: a4f92ab86f6438749bb44f3dbc149c44,
+        type: 3}
+      propertyPath: launchDarklyInterfaceBehavior
+      value: 
+      objectReference: {fileID: 1743149888}
+    - target: {fileID: 2920143895460355288, guid: a4f92ab86f6438749bb44f3dbc149c44,
+        type: 3}
+      propertyPath: m_Text
+      value: 'LaunchDarkly Mobile Client SDK Key
+
+        (App Restart Required)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920143895460355289, guid: a4f92ab86f6438749bb44f3dbc149c44,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920143896235167264, guid: a4f92ab86f6438749bb44f3dbc149c44,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3014094510666187496, guid: a4f92ab86f6438749bb44f3dbc149c44,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -98.61
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4f92ab86f6438749bb44f3dbc149c44, type: 3}

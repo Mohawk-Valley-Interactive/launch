@@ -1,5 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using LaunchDarkly.Client;
+using LaunchDarkly.Unity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -19,6 +20,22 @@ public class GameBehavior : MonoBehaviour
 	public Text continueText;
 	public GameObject levelCompletePanel;
 	public GameObject continuePanel;
+	[Space(5)]
+
+	[Header("Feature Flags")]
+	public string gravityFeatureFlagName = "gravity";
+	public float defaultGravityValue = -1.62f;
+	private float flagGravityValue;
+	private bool hasNewFlagGravityValue = false;
+	[Space(1)]
+	public string failedLandingFlavorTextFlagName = "failed-landing-flavor-text";
+	public string[] defaultFailedLandingFlavorText = { "Flavor text belongs here..." };
+	private string[] flavorText = { "flavor text unset" };
+	[Space(1)]
+	public string additionalFuelFlagName = "fuel-reward";
+	public float defaultFuelReward = 50.0f;
+	public float fuelReward = 50.0f;
+
 
 	void Start()
 	{
@@ -26,6 +43,10 @@ public class GameBehavior : MonoBehaviour
 		levelCompleteScreen.gameObject.SetActive(false);
 		continuePanel.SetActive(false);
 		levelCompletePanel.SetActive(false);
+
+		ClientBehavior.Instance.RegisterFeatureFlagChangedCallback(gravityFeatureFlagName, LdValue.Of(defaultGravityValue), OnGravityFeatureFlagChanged, true);
+		ClientBehavior.Instance.RegisterFeatureFlagChangedCallback(additionalFuelFlagName, LdValue.Of(defaultFuelReward), OnFuelRewardFeatureFlagChanged, true);
+		ClientBehavior.Instance.RegisterFeatureFlagChangedCallback(failedLandingFlavorTextFlagName, MakeLdValueFromStringArray(defaultFailedLandingFlavorText), OnFailedLandingFlavorTextFeatureFlagChanged, true);
 	}
 
 	void Update()
@@ -47,6 +68,12 @@ public class GameBehavior : MonoBehaviour
 			}
 			hasReleasedThrottle = Input.GetAxis(lander.ThrustAxisName) == 0;
 		}
+
+		if (hasNewFlagGravityValue)
+		{
+			Physics2D.gravity = new Vector2(0.0f, -flagGravityValue);
+			hasNewFlagGravityValue = false;
+		}
 	}
 
 	public void OnSuccessfulLanding(LanderBehaviour lander, float multiplier)
@@ -56,7 +83,7 @@ public class GameBehavior : MonoBehaviour
 		totalPoints += points;
 		isTimerActive = false;
 
-		lander.ModifyFuel(50.0f);
+		lander.ModifyFuel(fuelReward);
 
 		UpdateScoreUI();
 		ShowSuccessScreen(points);
@@ -123,13 +150,6 @@ public class GameBehavior : MonoBehaviour
 		levelCompletePanel.SetActive(true);
 		continueText.gameObject.SetActive(true);
 		levelCompleteScreen.gameObject.SetActive(true);
-		string[] flavorText = new string[]
-		{
-			"you just destroyed a 15 dollar lander!",
-			"you left an awesome 2 mile crater",
-			"probably didn't hurt a bit",
-			"brutal",
-		};
 
 		string message = flavorText[Random.Range(0, flavorText.Length)];
 		message += "\nauxiliary fuel tanks destroyed\n" + fuelDeducted + " fuel units lost";
@@ -156,6 +176,40 @@ public class GameBehavior : MonoBehaviour
 		const string timePrecision = "D2";
 		return ((int)(time / 60)).ToString(timePrecision) + ":" + ((int)(time % 60)).ToString(timePrecision);
 	}
+
+	// BEGIN - Feature flag support
+	private LdValue MakeLdValueFromStringArray(string[] stringArray)
+	{
+		LdValue.ArrayBuilder arrayBuilder = LdValue.BuildArray();
+		foreach (string s in stringArray)
+		{
+			arrayBuilder.Add(s);
+		}
+
+		return arrayBuilder.Build();
+	}
+
+	private void OnFuelRewardFeatureFlagChanged(LdValue value)
+	{
+		fuelReward = value.AsFloat;
+	}
+
+	private void OnGravityFeatureFlagChanged(LdValue value)
+	{
+		flagGravityValue = value.AsFloat;
+		hasNewFlagGravityValue = true;
+	}
+
+	private void OnFailedLandingFlavorTextFeatureFlagChanged(LdValue value)
+	{
+		IReadOnlyList<string> strings = value.AsList(LdValue.Convert.String);
+		flavorText = new string[strings.Count];
+		for(int i = 0; i < strings.Count; i++)
+		{
+			flavorText[i] = strings[i];	
+		}
+	}
+	// END - Feature flag support
 
 	private bool hasReleasedThrottle = false;
 	private bool isLevelComplete = false;

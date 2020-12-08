@@ -1,37 +1,18 @@
 ﻿using UnityEngine;
 using LaunchDarkly.Unity;
+using LaunchDarkly.Client;
 
-public class LaunchDarklyInterfaceBehavior : MonoBehaviour
+public class LaunchDarklyInterfaceBehavior : IUserAttributeProviderBehavior
 {
 	public string defaultEmail = "launch.default.user@launchdarkly.com";
 	public string defaultMobileKey = "mob-eeeaab3e-a3c7-411f-bac7-e0f8ed5b4919";
 
 	void Awake()
 	{
-		ClientBehavior[] foundClientBehaviors = FindObjectsOfType<ClientBehavior>();
-		BuiltInUserAttributeProviderBehavior[] foundAttributeBehaviors = FindObjectsOfType<BuiltInUserAttributeProviderBehavior>();
-		if (foundClientBehaviors.Length > 1)
+		if(PlayerPrefs.HasKey(OptionsPanelBehavior.userEmailKey))
 		{
-			Debug.LogError("More than one LD Client Behavior detected in scene. Defaulting to the first instance. Total found: " + foundClientBehaviors.Length);
+			email = PlayerPrefs.GetString(OptionsPanelBehavior.userEmailKey);
 		}
-		else if (foundClientBehaviors.Length == 0)
-		{
-			Debug.LogError("No LD Client Behavior detected in scene.");
-			return;
-		}
-
-		if (foundAttributeBehaviors.Length > 1)
-		{
-			Debug.LogError("More than one BuiltInUserAttributeBehavior detected in scene. Defaulting to the first instance. Total found: " + foundClientBehaviors.Length);
-		}
-		else if (foundAttributeBehaviors.Length == 0)
-		{
-			Debug.LogError("No BuiltInUserAttributeBehavior detected in scene.");
-			return;
-		}
-
-		clientBehavior = foundClientBehaviors[0];
-		attributesBehavior = foundAttributeBehaviors[0];
 
 		if (!ClientBehavior.IsInitialized)
 		{
@@ -39,35 +20,32 @@ public class LaunchDarklyInterfaceBehavior : MonoBehaviour
 		}
 	}
 
-	void OnDestroy()
-	{
-		clientBehavior = null;	
-	}
-
 	void InitializeLdClient()
 	{
-		clientBehavior.mobileKey = PlayerPrefs.GetString(OptionsPanelBehavior.ldMobileKeyKey, defaultMobileKey);
+		ClientBehavior.Instance.mobileKey = PlayerPrefs.GetString(OptionsPanelBehavior.ldMobileKeyKey, defaultMobileKey);
+		ClientBehavior.Instance.userKey = (email != null ? email : defaultEmail).GetHashCode().ToString();
 
-		string email = PlayerPrefs.GetString(OptionsPanelBehavior.userEmailKey);
-		clientBehavior.userKey = email.GetHashCode().ToString();
-		attributesBehavior.email.isSet = true;
-		attributesBehavior.email.isPrivate = false;
-		attributesBehavior.email.value = email;
-
-		clientBehavior.Initialize();
+		ClientBehavior.Instance.Initialize();
 	}
 
 	public void UpdateEmail(string email)
 	{
-		clientBehavior.userKey = email.GetHashCode().ToString();
-		attributesBehavior.email.isSet = true;
-		attributesBehavior.email.isPrivate = false;
-		attributesBehavior.email.value = email;
-
-		clientBehavior.UpdateUser(attributesBehavior);
-		clientBehavior.IdentifyUser();
+		if(email == null)
+		{
+			email = defaultEmail;
+		}
+		ClientBehavior.Instance.userKey = email.GetHashCode().ToString();
+		ClientBehavior.Instance.RefreshUserAttributes();
 	}
 
-	private ClientBehavior clientBehavior;
-	private BuiltInUserAttributeProviderBehavior attributesBehavior;
+	public override void InjectAttributes(ref IUserBuilder userBuilder)
+	{
+		userBuilder.Key((email != null ? email : defaultEmail).GetHashCode().ToString());
+		if(email != null)
+		{
+			userBuilder.Email(email);
+		}
+	}
+
+	private string email = null;
 }

@@ -8,10 +8,14 @@ public class AvatarBehavior : MonoBehaviour
 	public string avatarDefault = "standard";
 	public GameObject defaultAvatar;
 
+	private void Awake()
+	{
+		ClientBehavior.Instance.RegisterFeatureFlagChangedCallback(avatarFlagName, LdValue.Of(avatarDefault), OnAvatarFlagChanged, true);
+	}
+
 	void Start()
 	{
 		landerBehavior = transform.parent.GetComponent<LanderBehaviour>();
-		ClientBehavior.Instance.RegisterFeatureFlagChangedCallback(avatarFlagName, LdValue.Of(avatarDefault), OnAvatarFlagChanged, true);
 	}
 
 	void Update()

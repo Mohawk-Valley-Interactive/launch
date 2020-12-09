@@ -11,7 +11,7 @@ public class LaunchDarklyInterfaceBehavior : IUserAttributeProviderBehavior
 	{
 		if(PlayerPrefs.HasKey(OptionsPanelBehavior.userEmailKey))
 		{
-			email = PlayerPrefs.GetString(OptionsPanelBehavior.userEmailKey);
+			emailField = PlayerPrefs.GetString(OptionsPanelBehavior.userEmailKey);
 		}
 
 		if (!ClientBehavior.IsInitialized)
@@ -23,29 +23,40 @@ public class LaunchDarklyInterfaceBehavior : IUserAttributeProviderBehavior
 	void InitializeLdClient()
 	{
 		ClientBehavior.Instance.mobileKey = PlayerPrefs.GetString(OptionsPanelBehavior.ldMobileKeyKey, defaultMobileKey);
-		ClientBehavior.Instance.userKey = (email != null ? email : defaultEmail).GetHashCode().ToString();
+		ClientBehavior.Instance.userKey = (emailField != null ? emailField : defaultEmail).GetHashCode().ToString();
 
 		ClientBehavior.Instance.Initialize();
 	}
 
-	public void UpdateEmail(string email)
+	public void UpdateEmail(string e)
 	{
-		if(email == null)
+		if(e == null || e.Trim().Length == 0)
 		{
-			email = defaultEmail;
+			e = defaultEmail;
+			this.emailField = null;
 		}
-		ClientBehavior.Instance.userKey = email.GetHashCode().ToString();
+		else
+		{
+			this.emailField = e;
+		}
+
+		ClientBehavior.Instance.userKey = e.GetHashCode().ToString();
 		ClientBehavior.Instance.RefreshUserAttributes();
 	}
 
 	public override void InjectAttributes(ref IUserBuilder userBuilder)
 	{
-		userBuilder.Key((email != null ? email : defaultEmail).GetHashCode().ToString());
-		if(email != null)
+		if(emailField != null && emailField.Trim().Length == 0)
 		{
-			userBuilder.Email(email);
+			emailField = null;
+		}
+
+		userBuilder.Key((emailField != null ? emailField : defaultEmail).GetHashCode().ToString());
+		if(emailField != null)
+		{
+			userBuilder.Email(emailField);
 		}
 	}
 
-	private string email = null;
+	private string emailField = null;
 }

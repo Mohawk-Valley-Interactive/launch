@@ -55,7 +55,7 @@ public class OptionsPanelBehavior : MonoBehaviour
 			PlayerPrefs.DeleteKey(ldMobileKeyKey);
 		}
 
-		if (userEmailInput != null && userEmailInput.text != defaultUserEmail)
+		if (userEmailInput != null && userEmailInput.text != defaultUserEmail && userEmailInput.text.Trim().Length > 0)
 		{
 			string email = userEmailInput.text.Trim();
 			PlayerPrefs.SetString(userEmailKey, email);
@@ -64,6 +64,7 @@ public class OptionsPanelBehavior : MonoBehaviour
 		else
 		{
 			PlayerPrefs.DeleteKey(userEmailKey);
+			launchDarklyInterfaceBehavior.UpdateEmail(null);
 		}
 
 		gameObject.SetActive(false);

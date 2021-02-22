@@ -187,7 +187,7 @@ public class LanderBehaviour : MonoBehaviour
 			return;
 		}
 
-		bool isBadLanding = isDangerousAngleOfApproach || isDangerousHorizontalVelocity || isDangerousVerticalVelocity;
+		bool isBadLanding = landingMultiplier == LandingZoneBehavior.DEFAULT_MULTIPLIER || isDangerousAngleOfApproach || isDangerousHorizontalVelocity || isDangerousVerticalVelocity;
 
 		if (isBadLanding)
 		{
@@ -238,7 +238,6 @@ public class LanderBehaviour : MonoBehaviour
 
 	private void OnTriggerExit2D(Collider2D collision)
 	{
-		LandingZoneBehavior lzb = collision.gameObject.GetComponent<LandingZoneBehavior>();
 		landingMultiplier = LandingZoneBehavior.DEFAULT_MULTIPLIER;
 	}
 

@@ -25,8 +25,6 @@ public class GameBehavior : MonoBehaviour
 	[Header("Feature Flags")]
 	public string gravityFeatureFlagName = "gravity";
 	public float defaultGravityValue = -1.62f;
-	private float flagGravityValue;
-	private bool hasNewFlagGravityValue = false;
 	[Space(1)]
 	public string failedLandingFlavorTextFlagName = "failed-landing-flavor-text";
 	public string[] defaultFailedLandingFlavorText = { "Flavor text belongs here..." };
@@ -44,9 +42,9 @@ public class GameBehavior : MonoBehaviour
 		continuePanel.SetActive(false);
 		levelCompletePanel.SetActive(false);
 
-		ClientBehavior.Instance.RegisterFeatureFlagChangedCallback(gravityFeatureFlagName, LdValue.Of(defaultGravityValue), OnGravityFeatureFlagChanged, true);
-		ClientBehavior.Instance.RegisterFeatureFlagChangedCallback(additionalFuelFlagName, LdValue.Of(defaultFuelReward), OnFuelRewardFeatureFlagChanged, true);
-		ClientBehavior.Instance.RegisterFeatureFlagChangedCallback(failedLandingFlavorTextFlagName, MakeLdValueFromStringArray(defaultFailedLandingFlavorText), OnFailedLandingFlavorTextFeatureFlagChanged, true);
+		LaunchDarklyClientBehavior.Instance.RegisterFeatureFlagChangedCallback(gravityFeatureFlagName, LdValue.Of(defaultGravityValue), OnGravityFeatureFlagChanged, true);
+		LaunchDarklyClientBehavior.Instance.RegisterFeatureFlagChangedCallback(additionalFuelFlagName, LdValue.Of(defaultFuelReward), OnFuelRewardFeatureFlagChanged, true);
+		LaunchDarklyClientBehavior.Instance.RegisterFeatureFlagChangedCallback(failedLandingFlavorTextFlagName, MakeLdValueFromStringArray(defaultFailedLandingFlavorText), OnFailedLandingFlavorTextFeatureFlagChanged, true);
 	}
 
 	void Update()
@@ -67,12 +65,6 @@ public class GameBehavior : MonoBehaviour
 				isLevelComplete = false;
 			}
 			hasReleasedThrottle = Input.GetAxis(lander.ThrustAxisName) == 0;
-		}
-
-		if (hasNewFlagGravityValue)
-		{
-			Physics2D.gravity = new Vector2(0.0f, -flagGravityValue);
-			hasNewFlagGravityValue = false;
 		}
 	}
 
@@ -196,8 +188,7 @@ public class GameBehavior : MonoBehaviour
 
 	private void OnGravityFeatureFlagChanged(LdValue value)
 	{
-		flagGravityValue = value.AsFloat;
-		hasNewFlagGravityValue = true;
+		Physics2D.gravity = new Vector2(0.0f, -value.AsFloat);
 	}
 
 	private void OnFailedLandingFlavorTextFeatureFlagChanged(LdValue value)

@@ -8,13 +8,9 @@ public class AvatarBehavior : MonoBehaviour
 	public string avatarDefault = "standard";
 	public GameObject defaultAvatar;
 
-	private void Awake()
-	{
-		ClientBehavior.Instance.RegisterFeatureFlagChangedCallback(avatarFlagName, LdValue.Of(avatarDefault), OnAvatarFlagChanged, true);
-	}
-
 	void Start()
 	{
+		LaunchDarklyClientBehavior.Instance.RegisterFeatureFlagChangedCallback(avatarFlagName, LdValue.Of(avatarDefault), OnAvatarFlagChanged, true);
 		landerBehavior = transform.parent.GetComponent<LanderBehaviour>();
 	}
 

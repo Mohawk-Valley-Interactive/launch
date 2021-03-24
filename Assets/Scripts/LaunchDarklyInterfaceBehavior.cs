@@ -2,7 +2,7 @@
 using LaunchDarkly.Unity;
 using LaunchDarkly.Client;
 
-public class LaunchDarklyInterfaceBehavior : IUserAttributeProviderBehavior
+public class LaunchDarklyInterfaceBehavior : ILaunchDarklyUserAttributeProviderBehavior
 {
 	public string defaultEmail = "launch.default.user@launchdarkly.com";
 	public string defaultMobileKey = "mob-eeeaab3e-a3c7-411f-bac7-e0f8ed5b4919";
@@ -14,7 +14,7 @@ public class LaunchDarklyInterfaceBehavior : IUserAttributeProviderBehavior
 			emailField = PlayerPrefs.GetString(OptionsPanelBehavior.userEmailKey);
 		}
 
-		if (!ClientBehavior.IsInitialized)
+		if (!LaunchDarklyClientBehavior.IsInitialized)
 		{
 			InitializeLdClient();
 		}
@@ -22,10 +22,10 @@ public class LaunchDarklyInterfaceBehavior : IUserAttributeProviderBehavior
 
 	void InitializeLdClient()
 	{
-		ClientBehavior.Instance.mobileKey = PlayerPrefs.GetString(OptionsPanelBehavior.ldMobileKeyKey, defaultMobileKey);
-		ClientBehavior.Instance.userKey = (emailField != null ? emailField : defaultEmail).GetHashCode().ToString();
+		LaunchDarklyClientBehavior.Instance.mobileKey = PlayerPrefs.GetString(OptionsPanelBehavior.ldMobileKeyKey, defaultMobileKey);
+		LaunchDarklyClientBehavior.Instance.userKey = (emailField != null ? emailField : defaultEmail).GetHashCode().ToString();
 
-		ClientBehavior.Instance.Initialize();
+		LaunchDarklyClientBehavior.Instance.Initialize();
 	}
 
 	public void UpdateEmail(string e)
@@ -40,8 +40,8 @@ public class LaunchDarklyInterfaceBehavior : IUserAttributeProviderBehavior
 			this.emailField = e;
 		}
 
-		ClientBehavior.Instance.userKey = e.GetHashCode().ToString();
-		ClientBehavior.Instance.RefreshUserAttributes();
+		LaunchDarklyClientBehavior.Instance.userKey = e.GetHashCode().ToString();
+		LaunchDarklyClientBehavior.Instance.RefreshUserAttributes();
 	}
 
 	public override void InjectAttributes(ref IUserBuilder userBuilder)

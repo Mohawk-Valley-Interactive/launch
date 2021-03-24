@@ -23,6 +23,8 @@ public class LanderBehaviour : MonoBehaviour
 	[Space(10)]
 
 	[Header("Landing Requirements")]
+	public Color normalColor = Color.white;
+	public Color dangerColor = Color.red;
 	public int angleOfApproachThreshold = 0;
 	public int horizontalSpeedThreshold = 1;
 	public int verticalSpeedThreshold = 1;
@@ -283,10 +285,10 @@ public class LanderBehaviour : MonoBehaviour
 		horizontalSpeedGuageText.text = horizontalSpeed.ToString(floatingPointPrecision);
 		verticalSpeedGuageText.text = verticalSpeed.ToString(floatingPointPrecision);
 
-		fuelGuageText.color = fuel < lowFuelThreshold ? Color.red : Color.white;
-		horizontalSpeedGuageText.color = isDangerousHorizontalVelocity ? Color.red : Color.white;
-		verticalSpeedGuageText.color = isDangerousVerticalVelocity ? Color.red : Color.white;
-		angleOfApproachGuageText.color = isDangerousAngleOfApproach ? Color.red : Color.white;
+		fuelGuageText.color = fuel < lowFuelThreshold ? dangerColor : normalColor;
+		horizontalSpeedGuageText.color = isDangerousHorizontalVelocity ? dangerColor : normalColor;
+		verticalSpeedGuageText.color = isDangerousVerticalVelocity ? dangerColor : normalColor;
+		angleOfApproachGuageText.color = isDangerousAngleOfApproach ? dangerColor : normalColor;
 	}
 
 	private bool hasCrashed = false;

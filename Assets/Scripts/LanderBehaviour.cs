@@ -14,6 +14,7 @@ public class LanderBehaviour : MonoBehaviour
 
 	[Header("Handling")]
 	public float thrust = 1.0f;
+    public float maxVelocity = 10.0f;
 	public float rotationSensitivity = 1.0f;
 	[Space(10)]
 
@@ -64,7 +65,7 @@ public class LanderBehaviour : MonoBehaviour
 	public bool HasLanded { get => hasLanded; }
 	public int LandingMultiplier { get => landingMultiplier; }
 
-	public void ModifyFuel(float fuel)
+    public void ModifyFuel(float fuel)
 	{
 		this.fuel += fuel;
 	}

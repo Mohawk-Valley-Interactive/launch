@@ -1,6 +1,3 @@
 [submodule "Assets/launchdarkly-client-unity-plugin"]
 	path = Assets/launchdarkly-client-unity-plugin
 	url = git@github.com:launchdarkly-labs/launchdarkly-client-unity-plugin.git
-[submodule "Assets/SVG-Importer"]
-	path = Assets/SVG-Importer
-	url = git@github.com:Mohawk-Valley-Interactive/svgimporter.git

@@ -1,0 +1,706 @@
+fileFormatVersion: 2
+guid: 72e0a7d2faf95874d999e95da51615b0
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<!-- Generator:
+    Adobe Illustrator 25.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->\n\n<svg\n  
+    xmlns:dc=\"http://purl.org/dc/elements/1.1/\"\n   xmlns:cc=\"http://creativecommons.org/ns#\"\n  
+    xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\"\n  
+    xmlns=\"http://www.w3.org/2000/svg\"\n   xmlns:xlink=\"http://www.w3.org/1999/xlink\"\n  
+    xmlns:sodipodi=\"http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd\"\n   xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\"\n  
+    version=\"1.1\"\n   id=\"Layer_1\"\n   x=\"0px\"\n   y=\"0px\"\n   viewBox=\"0
+    0 8192 1277\"\n   style=\"enable-background:new 0 0 8192 1277;\"\n   xml:space=\"preserve\"\n  
+    sodipodi:docname=\"mountains_short.svg\"\n   inkscape:version=\"0.92.4 (5da689c313,
+    2019-01-14)\"><metadata\n   id=\"metadata300\"><rdf:RDF><cc:Work\n       rdf:about=\"\"><dc:format>image/svg+xml</dc:format><dc:type\n        
+    rdf:resource=\"http://purl.org/dc/dcmitype/StillImage\" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs\n  
+    id=\"defs298\"><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_23_\"\n    
+    id=\"linearGradient1090\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"7932.71\"\n     y1=\"402.9838\"\n     x2=\"8433.1992\"\n     y2=\"689.93109\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_24_\"\n    
+    id=\"linearGradient1092\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"7076.3828\"\n     y1=\"335.51419\"\n     x2=\"7707.2959\"\n     y2=\"697.23767\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_25_\"\n    
+    id=\"linearGradient1094\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"8517.1982\"\n     y1=\"80.346397\"\n     x2=\"9468.3574\"\n     y2=\"625.67749\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_26_\"\n    
+    id=\"linearGradient1096\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"7566.5742\"\n     y1=\"170.43671\"\n     x2=\"8050.9922\"\n     y2=\"448.16949\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_27_\"\n    
+    id=\"linearGradient1098\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"7832.9541\"\n     y1=\"771.15387\"\n     x2=\"7969.9731\"\n     y2=\"849.71143\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_28_\"\n    
+    id=\"linearGradient1100\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"6930.103\"\n     y1=\"700.87671\"\n     x2=\"7119.0566\"\n     y2=\"809.21008\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_29_\"\n    
+    id=\"linearGradient1102\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"9444.0752\"\n     y1=\"607.97308\"\n     x2=\"9891.1475\"\n     y2=\"760.16803\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_30_\"\n    
+    id=\"linearGradient1104\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"9961.7627\"\n     y1=\"412.29471\"\n     x2=\"10281.995\"\n     y2=\"521.30981\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_31_\"\n    
+    id=\"linearGradient1106\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"9675.7041\"\n     y1=\"136.067\"\n     x2=\"11519.786\"\n     y2=\"763.83948\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_32_\"\n    
+    id=\"linearGradient1108\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"9947.0283\"\n     y1=\"530.10089\"\n     x2=\"10442.305\"\n     y2=\"698.70569\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_33_\"\n    
+    id=\"linearGradient1110\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"9197.7832\"\n     y1=\"836.73438\"\n     x2=\"9618.5928\"\n     y2=\"979.98901\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_23_\"\n    
+    id=\"linearGradient1438\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"7932.71\"\n     y1=\"402.9838\"\n     x2=\"8433.1992\"\n     y2=\"689.93109\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_24_\"\n    
+    id=\"linearGradient1440\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"7076.3828\"\n     y1=\"335.51419\"\n     x2=\"7707.2959\"\n     y2=\"697.23767\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_25_\"\n    
+    id=\"linearGradient1442\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"8517.1982\"\n     y1=\"80.346397\"\n     x2=\"9468.3574\"\n     y2=\"625.67749\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_26_\"\n    
+    id=\"linearGradient1444\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"7566.5742\"\n     y1=\"170.43671\"\n     x2=\"8050.9922\"\n     y2=\"448.16949\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_27_\"\n    
+    id=\"linearGradient1446\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"7832.9541\"\n     y1=\"771.15387\"\n     x2=\"7969.9731\"\n     y2=\"849.71143\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_28_\"\n    
+    id=\"linearGradient1448\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"6930.103\"\n     y1=\"700.87671\"\n     x2=\"7119.0566\"\n     y2=\"809.21008\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_29_\"\n    
+    id=\"linearGradient1450\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"9444.0752\"\n     y1=\"607.97308\"\n     x2=\"9891.1475\"\n     y2=\"760.16803\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_30_\"\n    
+    id=\"linearGradient1452\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"9961.7627\"\n     y1=\"412.29471\"\n     x2=\"10281.995\"\n     y2=\"521.30981\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_31_\"\n    
+    id=\"linearGradient1454\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"9675.7041\"\n     y1=\"136.067\"\n     x2=\"11519.786\"\n     y2=\"763.83948\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_32_\"\n    
+    id=\"linearGradient1456\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"9947.0283\"\n     y1=\"530.10089\"\n     x2=\"10442.305\"\n     y2=\"698.70569\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_33_\"\n    
+    id=\"linearGradient1458\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"9197.7832\"\n     y1=\"836.73438\"\n     x2=\"9618.5928\"\n     y2=\"979.98901\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_23_\"\n    
+    id=\"linearGradient1460\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"7932.71\"\n     y1=\"402.9838\"\n     x2=\"8433.1992\"\n     y2=\"689.93109\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_24_\"\n    
+    id=\"linearGradient1462\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"7076.3828\"\n     y1=\"335.51419\"\n     x2=\"7707.2959\"\n     y2=\"697.23767\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_25_\"\n    
+    id=\"linearGradient1464\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"8517.1982\"\n     y1=\"80.346397\"\n     x2=\"9468.3574\"\n     y2=\"625.67749\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_26_\"\n    
+    id=\"linearGradient1466\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"7566.5742\"\n     y1=\"170.43671\"\n     x2=\"8050.9922\"\n     y2=\"448.16949\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_27_\"\n    
+    id=\"linearGradient1468\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"7832.9541\"\n     y1=\"771.15387\"\n     x2=\"7969.9731\"\n     y2=\"849.71143\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_28_\"\n    
+    id=\"linearGradient1470\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"6930.103\"\n     y1=\"700.87671\"\n     x2=\"7119.0566\"\n     y2=\"809.21008\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_29_\"\n    
+    id=\"linearGradient1472\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"9444.0752\"\n     y1=\"607.97308\"\n     x2=\"9891.1475\"\n     y2=\"760.16803\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_30_\"\n    
+    id=\"linearGradient1474\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"9961.7627\"\n     y1=\"412.29471\"\n     x2=\"10281.995\"\n     y2=\"521.30981\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_31_\"\n    
+    id=\"linearGradient1476\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"9675.7041\"\n     y1=\"136.067\"\n     x2=\"11519.786\"\n     y2=\"763.83948\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_32_\"\n    
+    id=\"linearGradient1478\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"9947.0283\"\n     y1=\"530.10089\"\n     x2=\"10442.305\"\n     y2=\"698.70569\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_33_\"\n    
+    id=\"linearGradient1480\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"9197.7832\"\n     y1=\"836.73438\"\n     x2=\"9618.5928\"\n     y2=\"979.98901\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_23_\"\n    
+    id=\"linearGradient2056\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"7932.71\"\n     y1=\"402.9838\"\n     x2=\"8433.1992\"\n     y2=\"689.93109\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_24_\"\n    
+    id=\"linearGradient2058\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"7076.3828\"\n     y1=\"335.51419\"\n     x2=\"7707.2959\"\n     y2=\"697.23767\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_25_\"\n    
+    id=\"linearGradient2060\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"8517.1982\"\n     y1=\"80.346397\"\n     x2=\"9468.3574\"\n     y2=\"625.67749\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_26_\"\n    
+    id=\"linearGradient2062\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"7566.5742\"\n     y1=\"170.43671\"\n     x2=\"8050.9922\"\n     y2=\"448.16949\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_27_\"\n    
+    id=\"linearGradient2064\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"7832.9541\"\n     y1=\"771.15387\"\n     x2=\"7969.9731\"\n     y2=\"849.71143\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_28_\"\n    
+    id=\"linearGradient2066\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"6930.103\"\n     y1=\"700.87671\"\n     x2=\"7119.0566\"\n     y2=\"809.21008\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_29_\"\n    
+    id=\"linearGradient2068\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"9444.0752\"\n     y1=\"607.97308\"\n     x2=\"9891.1475\"\n     y2=\"760.16803\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_30_\"\n    
+    id=\"linearGradient2070\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"9961.7627\"\n     y1=\"412.29471\"\n     x2=\"10281.995\"\n     y2=\"521.30981\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_31_\"\n    
+    id=\"linearGradient2072\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"9675.7041\"\n     y1=\"136.067\"\n     x2=\"11519.786\"\n     y2=\"763.83948\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_32_\"\n    
+    id=\"linearGradient2074\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"9947.0283\"\n     y1=\"530.10089\"\n     x2=\"10442.305\"\n     y2=\"698.70569\"
+    /><linearGradient\n     inkscape:collect=\"always\"\n     xlink:href=\"#SVGID_33_\"\n    
+    id=\"linearGradient2076\"\n     gradientUnits=\"userSpaceOnUse\"\n     gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n    
+    x1=\"9197.7832\"\n     y1=\"836.73438\"\n     x2=\"9618.5928\"\n     y2=\"979.98901\"
+    /></defs><sodipodi:namedview\n   pagecolor=\"#ffffff\"\n   bordercolor=\"#666666\"\n  
+    borderopacity=\"1\"\n   objecttolerance=\"10\"\n   gridtolerance=\"10\"\n   guidetolerance=\"10\"\n  
+    inkscape:pageopacity=\"0\"\n   inkscape:pageshadow=\"2\"\n   inkscape:window-width=\"3840\"\n  
+    inkscape:window-height=\"2097\"\n   id=\"namedview296\"\n   showgrid=\"false\"\n  
+    inkscape:zoom=\"0.41986485\"\n   inkscape:cx=\"4658.212\"\n   inkscape:cy=\"505.37726\"\n  
+    inkscape:window-x=\"7672\"\n   inkscape:window-y=\"-8\"\n   inkscape:window-maximized=\"1\"\n  
+    inkscape:current-layer=\"Layer_1\" />\n<style\n   type=\"text/css\"\n   id=\"style2\">\n\t.st0{fill:#092247;}\n\t.st1{opacity:0.78;fill:url(#SVGID_1_);enable-background:new   
+    ;}\n\t.st2{opacity:0.78;fill:url(#SVGID_2_);enable-background:new    ;}\n\t.st3{opacity:0.78;fill:url(#SVGID_3_);enable-background:new   
+    ;}\n\t.st4{opacity:0.78;fill:url(#SVGID_4_);enable-background:new    ;}\n\t.st5{opacity:0.78;fill:url(#SVGID_5_);enable-background:new   
+    ;}\n\t.st6{opacity:0.78;fill:url(#SVGID_6_);enable-background:new    ;}\n\t.st7{opacity:0.78;fill:url(#SVGID_7_);enable-background:new   
+    ;}\n\t.st8{opacity:0.78;fill:url(#SVGID_8_);enable-background:new    ;}\n\t.st9{opacity:0.78;fill:url(#SVGID_9_);enable-background:new   
+    ;}\n\t.st10{opacity:0.78;fill:url(#SVGID_10_);enable-background:new    ;}\n\t.st11{opacity:0.78;fill:url(#SVGID_11_);enable-background:new   
+    ;}\n\t.st12{fill:none;stroke:#73FFEF;stroke-width:6.3985;stroke-linecap:round;stroke-miterlimit:5.8169;}\n\t.st13{opacity:0.78;fill:url(#SVGID_12_);enable-background:new   
+    ;}\n\t.st14{opacity:0.78;fill:url(#SVGID_13_);enable-background:new    ;}\n\t.st15{opacity:0.78;fill:url(#SVGID_14_);enable-background:new   
+    ;}\n\t.st16{opacity:0.78;fill:url(#SVGID_15_);enable-background:new    ;}\n\t.st17{opacity:0.78;fill:url(#SVGID_16_);enable-background:new   
+    ;}\n\t.st18{opacity:0.78;fill:url(#SVGID_17_);enable-background:new    ;}\n\t.st19{opacity:0.78;fill:url(#SVGID_18_);enable-background:new   
+    ;}\n\t.st20{opacity:0.78;fill:url(#SVGID_19_);enable-background:new    ;}\n\t.st21{opacity:0.78;fill:url(#SVGID_20_);enable-background:new   
+    ;}\n\t.st22{opacity:0.78;fill:url(#SVGID_21_);enable-background:new    ;}\n\t.st23{opacity:0.78;fill:url(#SVGID_22_);enable-background:new   
+    ;}\n\t.st24{opacity:0.78;fill:url(#SVGID_23_);enable-background:new    ;}\n\t.st25{opacity:0.78;fill:url(#SVGID_24_);enable-background:new   
+    ;}\n\t.st26{opacity:0.78;fill:url(#SVGID_25_);enable-background:new    ;}\n\t.st27{opacity:0.78;fill:url(#SVGID_26_);enable-background:new   
+    ;}\n\t.st28{opacity:0.78;fill:url(#SVGID_27_);enable-background:new    ;}\n\t.st29{opacity:0.78;fill:url(#SVGID_28_);enable-background:new   
+    ;}\n\t.st30{opacity:0.78;fill:url(#SVGID_29_);enable-background:new    ;}\n\t.st31{opacity:0.78;fill:url(#SVGID_30_);enable-background:new   
+    ;}\n\t.st32{opacity:0.78;fill:url(#SVGID_31_);enable-background:new    ;}\n\t.st33{opacity:0.78;fill:url(#SVGID_32_);enable-background:new   
+    ;}\n\t.st34{opacity:0.78;fill:url(#SVGID_33_);enable-background:new    ;}\n</style>\n\n\n\n<g\n  
+    style=\"display:inline\"\n   id=\"g1328\"\n   transform=\"matrix(1,0,0,-1.4649158,0,2519.8834)\">\n\t<g\n  
+    id=\"g1230\">\n\t\t<path\n   style=\"fill:#092247\"\n   inkscape:connector-curvature=\"0\"\n  
+    id=\"path1222\"\n   d=\"m 5448.9,669.9 c 55.6,-6.3 131.3,5 131.3,5 l 8.4,-15.9
+    c 0,0 27.3,-12.9 39.8,-26.5 12.5,-13.6 119,-53.6 119,-53.6 0,0 66.8,28.7 85.4,37.7
+    19.4,-0.7 43.7,1.5 43.7,1.5 0,0 70.5,78.7 80.9,90.2 8.1,0.2 63,-0.4 83.3,0 14.5,-14.1
+    25.7,-66.5 35.2,-81.9 23.3,-23 62.8,-26.5 62.8,-26.5 0,0 38,-33 54.9,-44.1 16.9,-11.1
+    42.7,-28.3 42.7,-28.3 0,0 34.4,29.8 38,33.7 3.6,4 64.2,17.2 64.2,17.2 0,0 4,13.6
+    10.1,20.8 6.1,7.2 143.2,88 146.7,93.6 3.6,5.6 21.9,28.5 26.5,46.8 2.5,9.9 -6.6,104.6
+    9.2,177.8 5.6,10.5 95.3,-0.9 93.8,8.6 -1.3,8.7 236.5,61.5 239.2,96.3 h -99.6
+    -1315.6 z\"\n   class=\"st0\" />\n\t\t<path\n   style=\"fill:#092247\"\n   inkscape:connector-curvature=\"0\"\n  
+    id=\"path1224\"\n   d=\"m 7394.4,853.2 c 0,0 40.1,-179.6 60.8,-183.3 20.8,-3.7
+    89.1,5 89.1,5 l 8.4,-15.9 c 0,0 27.3,-12.9 39.8,-26.5 10.6,-11.6 88,-41.8 112,-51
+    4.5,-1.7 9.5,-1.6 14,0.3 17.6,7.6 63.5,27.5 78.5,34.7 19.4,-0.7 43.7,1.5 43.7,1.5
+    0,0 21.5,13.3 31.9,24.7 13.6,0.3 58.8,1.8 63.5,0 4.7,-1.8 28.3,-9.3 32.6,-8.3
+    4.3,1 110.4,38.5 185.6,35.4 v 352.1 h -891 z\"\n   class=\"st0\" />\n\t\t<path\n  
+    style=\"fill:#092247\"\n   inkscape:connector-curvature=\"0\"\n   id=\"path1226\"\n  
+    d=\"m 6887.9,1021.5 h -464 c 0.1,-5.1 -1.3,-166 -2.2,-181.4 -0.3,-6.1 3,-11.9
+    8.4,-14.7 6.5,-3.3 69.2,-7.4 69.2,-7.4 0,0 18.4,112.1 32.4,105.9 14,-6.2 11.2,-3.2
+    23.5,-3 12.3,0.2 58.2,0.8 66.3,1 26.4,-16.4 37,-220.9 61.8,-213.2 6.8,-11.6 5.8,-37
+    5.8,-37 0,0 54.9,-5.5 57.5,-4.2 2.7,1.2 33.3,-2.3 36.5,0.3 3.2,2.6 10.8,6.6 15.9,12
+    5.8,6 7,18.1 12,20.8 4.6,2.4 87.2,-2.4 101.2,1.3 14.4,3.7 -24.3,319.6 -24.3,319.6\"\n  
+    class=\"st0\" />\n\t\t<path\n   style=\"fill:#092247\"\n   inkscape:connector-curvature=\"0\"\n  
+    id=\"path1228\"\n   d=\"m 7346.1,1022 h -506.4 c 0.2,-11.7 -1.5,-207 -2.5,-242
+    -0.4,-13.9 3.4,-27 9.8,-33.3 7.5,-7.5 47.2,-17 47.2,-17 0,0 29.7,-139.4 46,-153.7
+    16.3,-14.3 62.8,-8.6 76.8,-12 l 30.4,-78.4 c 0,0 18.7,-3.9 41.4,-4.7 9.1,-21.2
+    31.6,-56.1 36.2,-56.7 4.6,-0.5 42.2,25.1 45.4,27.9 3.2,2.8 10.8,16.8 10.8,16.8
+    l 82.4,210.5 c 0,0 40.7,10.2 49.2,16.9 8.4,6.7 20.1,109.8 20.1,109.8 0,0 10.5,2.1
+    20.9,1.1 10.4,-1 63.3,-2.3 63.3,-2.3 L 7398,1022 Z\"\n   class=\"st0\" />\n\t</g>\n\t\n\t\t<linearGradient\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n   y2=\"689.93109\"\n  
+    x2=\"8433.1992\"\n   y1=\"402.9838\"\n   x1=\"7932.71\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    id=\"linearGradient1236\">\n\t\t<stop\n   id=\"stop1232\"\n   style=\"stop-color:#04927B\"\n  
+    offset=\"0.1653\" />\n\t\t<stop\n   id=\"stop1234\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n  
+    offset=\"1\" />\n\t</linearGradient>\n\t<polyline\n   style=\"opacity:0.77999998;fill:url(#linearGradient1438);enable-background:new\"\n  
+    id=\"polyline1238\"\n   points=\"6300.8,593.2 6266.2,582 6235.2,537.6 6209.9,566.1
+    6209.9,595 6242.9,623 6242.6,656.3    6222.3,697.1 6225.5,716 6265.4,716.5 6288.8,726.1
+    6318.7,744.9 6295.3,775.6 6273,788.6 6249,824.8 6235.2,868 6338.1,868    6378.5,902.9
+    6394.1,978.2 6442.1,1001.2 6598.3,1001.2  \"\n   class=\"st24\" />\n\t\n\t\t<linearGradient\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n   y2=\"697.23767\"\n  
+    x2=\"7707.2959\"\n   y1=\"335.51419\"\n   x1=\"7076.3828\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    id=\"linearGradient1244\">\n\t\t<stop\n   id=\"stop1240\"\n   style=\"stop-color:#04927B\"\n  
+    offset=\"0.1653\" />\n\t\t<stop\n   id=\"stop1242\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n  
+    offset=\"1\" />\n\t</linearGradient>\n\t<path\n   style=\"opacity:0.77999998;fill:url(#linearGradient1440);enable-background:new\"\n  
+    inkscape:connector-curvature=\"0\"\n   id=\"path1246\"\n   d=\"m 5747.4,578.8
+    7,42.3 12.9,5.4 v 25.2 l -17.9,42.3 68.5,-29.4 h 23.5 l 11.8,50.5 -14.1,27 -2.3,48.2
+    -87.3,92.8 10.9,10.6 h 10.6 l 27.6,10.6 25.3,21.2 h 41.1 l 28.2,16.5 36.5,47
+    52.5,32.9 h 47.6 88.8 l -108.3,-314.3 -52.8,0.3 c 0,0 -73.5,-88.1 -80.9,-90.2
+    -4.2,-1.2 -43.7,-1.5 -43.7,-1.5 z\"\n   class=\"st25\" />\n\t\n\t\t<linearGradient\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n   y2=\"625.67749\"\n  
+    x2=\"9468.3574\"\n   y1=\"80.346397\"\n   x1=\"8517.1982\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    id=\"linearGradient1252\">\n\t\t<stop\n   id=\"stop1248\"\n   style=\"stop-color:#04927B\"\n  
+    offset=\"0.1653\" />\n\t\t<stop\n   id=\"stop1250\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n  
+    offset=\"1\" />\n\t</linearGradient>\n\t<path\n   style=\"opacity:0.77999998;fill:url(#linearGradient1442);enable-background:new\"\n  
+    inkscape:connector-curvature=\"0\"\n   id=\"path1254\"\n   d=\"m 6700.7,721.5
+    -4.7,5.1 c -0.8,0.9 -1.4,2 -1.7,3.2 l -4.2,18.4 15.5,22.2 27.1,61.7 12.5,20.6
+    v 14.7 l -20,-2.5 -21.5,87.8 30.2,21.4 12.9,31.1 58.3,-2.2 14.3,18.9 h 141.3
+    226.4 l -34,-103.9 -3.5,-138.3 -96.6,-29 -185.6,-49.6 -25.4,-1.9 -31,-0.5 -13.6,-19.7
+    -42.6,0.6 -6.7,-3.7 -44.8,1.2 c -4.2,-0.2 -7.6,3.5 -7.2,7.7 l 6.3,30.3 c 0.5,2.5
+    -0.2,4.8 -1.7,6.4 z\"\n   class=\"st26\" />\n\t\n\t\t<linearGradient\n   gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n  
+    y2=\"448.16949\"\n   x2=\"8050.9922\"\n   y1=\"170.43671\"\n   x1=\"7566.5742\"\n  
+    gradientUnits=\"userSpaceOnUse\"\n   id=\"linearGradient1260\">\n\t\t<stop\n  
+    id=\"stop1256\"\n   style=\"stop-color:#04927B\"\n   offset=\"0.1653\" />\n\t\t<stop\n  
+    id=\"stop1258\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   offset=\"1\"
+    />\n\t</linearGradient>\n\t<polygon\n   style=\"opacity:0.77999998;fill:url(#linearGradient1444);enable-background:new\"\n  
+    id=\"polygon1262\"\n   points=\"6218.2,983.4 6307.3,1022 6029.7,1022 5998.8,897.7
+    6038.1,867.4 6038.1,822.9 6077.3,853.2 6091.6,872.8 6091.6,897.7 6177.2,937 \"\n  
+    class=\"st27\" />\n\t\n\t\t<linearGradient\n   gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n  
+    y2=\"849.71143\"\n   x2=\"7969.9731\"\n   y1=\"771.15387\"\n   x1=\"7832.9541\"\n  
+    gradientUnits=\"userSpaceOnUse\"\n   id=\"linearGradient1268\">\n\t\t<stop\n  
+    id=\"stop1264\"\n   style=\"stop-color:#04927B\"\n   offset=\"0.1653\" />\n\t\t<stop\n  
+    id=\"stop1266\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   offset=\"1\"
+    />\n\t</linearGradient>\n\t<path\n   style=\"opacity:0.77999998;fill:url(#linearGradient1446);enable-background:new\"\n  
+    inkscape:connector-curvature=\"0\"\n   id=\"path1270\"\n   d=\"m 6129.6,622.5
+    c 0,0 -23.8,0 -25,9.5 -1.2,9.5 12.5,44 12.5,44 h 12.5 l 23.5,33.3 20.6,23.8 13.1,-48.9
+    v -23.7 z\"\n   class=\"st28\" />\n\t\n\t\t<linearGradient\n   gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n  
+    y2=\"809.21008\"\n   x2=\"7119.0566\"\n   y1=\"700.87671\"\n   x1=\"6930.103\"\n  
+    gradientUnits=\"userSpaceOnUse\"\n   id=\"linearGradient1276\">\n\t\t<stop\n  
+    id=\"stop1272\"\n   style=\"stop-color:#04927B\"\n   offset=\"0.1653\" />\n\t\t<stop\n  
+    id=\"stop1274\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   offset=\"1\"
+    />\n\t</linearGradient>\n\t<path\n   style=\"opacity:0.77999998;fill:url(#linearGradient1448);enable-background:new\"\n  
+    inkscape:connector-curvature=\"0\"\n   id=\"path1278\"\n   d=\"m 5587.9,684.4
+    c -4.2,11.9 25.1,38.8 25.1,38.8 l 19.8,10.1 -2.8,20.6 14.8,32.1 27.7,-56.4 15.6,-51.7
+    -14.6,-16.8 c 0,0 -35.8,-40.6 -45.1,-28.6 -9.4,12 -39.8,26.5 -39.8,26.5 0,0 3.5,13.5
+    -0.7,25.4 z\"\n   class=\"st29\" />\n\t\n\t\t<linearGradient\n   gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n  
+    y2=\"760.16803\"\n   x2=\"9891.1475\"\n   y1=\"607.97308\"\n   x1=\"9444.0752\"\n  
+    gradientUnits=\"userSpaceOnUse\"\n   id=\"linearGradient1284\">\n\t\t<stop\n  
+    id=\"stop1280\"\n   style=\"stop-color:#04927B\"\n   offset=\"0.1653\" />\n\t\t<stop\n  
+    id=\"stop1282\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   offset=\"1\"
+    />\n\t</linearGradient>\n\t<polyline\n   style=\"opacity:0.77999998;fill:url(#linearGradient1450);enable-background:new\"\n  
+    id=\"polyline1286\"\n   points=\"7384.2,1014.3 7272.9,953.1 7257.1,914.7 7213.7,875.7
+    7229.5,822.2 7209.2,779.8 7244.1,746.3    7178.8,694.8 7164.7,654.9 7134.5,615.6
+    7123.1,527.6 7117.7,477.3 7128.5,441.9 7134.5,429.5 7170.4,452.2 7263.6,679.4 
+    \"\n   class=\"st30\" />\n\t\n\t\t<linearGradient\n   gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n  
+    y2=\"521.30981\"\n   x2=\"10281.995\"\n   y1=\"412.29471\"\n   x1=\"9961.7627\"\n  
+    gradientUnits=\"userSpaceOnUse\"\n   id=\"linearGradient1292\">\n\t\t<stop\n  
+    id=\"stop1288\"\n   style=\"stop-color:#04927B\"\n   offset=\"0.1653\" />\n\t\t<stop\n  
+    id=\"stop1290\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   offset=\"1\"
+    />\n\t</linearGradient>\n\t<polygon\n   style=\"opacity:0.77999998;fill:url(#linearGradient1452);enable-background:new\"\n  
+    id=\"polygon1294\"\n   points=\"7422.3,838.8 7467.6,942.1 7553,963.6 7435.2,753
+    \"\n   class=\"st31\" />\n\t\n\t\t<linearGradient\n   gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n  
+    y2=\"763.83948\"\n   x2=\"11519.786\"\n   y1=\"136.067\"\n   x1=\"9675.7041\"\n  
+    gradientUnits=\"userSpaceOnUse\"\n   id=\"linearGradient1300\">\n\t\t<stop\n  
+    id=\"stop1296\"\n   style=\"stop-color:#04927B\"\n   offset=\"0.1653\" />\n\t\t<stop\n  
+    id=\"stop1298\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   offset=\"0.9181\"
+    />\n\t</linearGradient>\n\t<polygon\n   style=\"opacity:0.77999998;fill:url(#linearGradient1454);enable-background:new\"\n  
+    id=\"polygon1302\"\n   points=\"7838.1,646.7 7796.5,640.2 7716.9,602.1 7691.1,677.9
+    7704.2,708.1 7778.9,714.8 7834.5,757 7773,788.4 7710,877.1 7773,914.7 7872.8,945
+    7931.5,1001.2 8154.4,1022 8154.4,689.3 8018.8,659.8 7979.9,677.9 7957.2,677.9
+    7897.7,670.1 7872.7,668.8 \"\n   class=\"st32\" />\n\t\n\t\t<linearGradient\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n   y2=\"698.70569\"\n  
+    x2=\"10442.305\"\n   y1=\"530.10089\"\n   x1=\"9947.0283\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    id=\"linearGradient1308\">\n\t\t<stop\n   id=\"stop1304\"\n   style=\"stop-color:#04927B\"\n  
+    offset=\"0.1653\" />\n\t\t<stop\n   id=\"stop1306\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n  
+    offset=\"1\" />\n\t</linearGradient>\n\t<polygon\n   style=\"opacity:0.77999998;fill:url(#linearGradient1456);enable-background:new\"\n  
+    id=\"polygon1310\"\n   points=\"7547.2,835.3 7612.1,858.3 7637.2,858.3 7559.7,686.6
+    7454,680.4 7452.9,717.9 7488.4,773 \"\n   class=\"st33\" />\n\t\n\t\t<linearGradient\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n   y2=\"979.98901\"\n  
+    x2=\"9618.5928\"\n   y1=\"836.73438\"\n   x1=\"9197.7832\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    id=\"linearGradient1316\">\n\t\t<stop\n   id=\"stop1312\"\n   style=\"stop-color:#04927B\"\n  
+    offset=\"0.1653\" />\n\t\t<stop\n   id=\"stop1314\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n  
+    offset=\"1\" />\n\t</linearGradient>\n\t<polygon\n   style=\"opacity:0.77999998;fill:url(#linearGradient1458);enable-background:new\"\n  
+    id=\"polygon1318\"\n   points=\"7065.2,669.3 7085.4,669.3 7117.7,714.8 7088.9,481
+    7047.4,485.7 7017.1,564 7017.1,610.9 \"\n   class=\"st34\" />\n\t<line\n   style=\"display:none;fill:none;stroke:#73ffef;stroke-width:6.39849997;stroke-linecap:round;stroke-miterlimit:5.81689978\"\n  
+    id=\"line1320\"\n   y2=\"921.79999\"\n   x2=\"6621.1001\"\n   y1=\"921.79999\"\n  
+    x1=\"6534.5\"\n   class=\"st12\" />\n\t<line\n   style=\"display:none;fill:none;stroke:#73ffef;stroke-width:6.39849997;stroke-linecap:round;stroke-miterlimit:5.81689978\"\n  
+    id=\"line1322\"\n   y2=\"805.59998\"\n   x2=\"7404.1001\"\n   y1=\"805.59998\"\n  
+    x1=\"7334.1001\"\n   class=\"st12\" />\n\t<line\n   style=\"display:none;fill:none;stroke:#73ffef;stroke-width:6.39849997;stroke-linecap:round;stroke-miterlimit:5.81689978\"\n  
+    id=\"line1324\"\n   y2=\"707.29999\"\n   x2=\"6042\"\n   y1=\"707.29999\"\n  
+    x1=\"5956.3999\"\n   class=\"st12\" />\n\t<line\n   style=\"display:none;fill:none;stroke:#73ffef;stroke-width:6.39849997;stroke-linecap:round;stroke-miterlimit:5.81689978\"\n  
+    id=\"line1326\"\n   y2=\"700.59998\"\n   x2=\"6898.8999\"\n   y1=\"700.59998\"\n  
+    x1=\"6812.2998\"\n   class=\"st12\" />\n</g><g\n   transform=\"matrix(-1.0385149,0,0,-1.4649158,11191.021,2519.8834)\"\n  
+    id=\"g1436\"\n   style=\"display:inline\">\n\t<g\n   id=\"g1338\">\n\t\t<path\n  
+    class=\"st0\"\n   d=\"m 5448.9,669.9 c 55.6,-6.3 131.3,5 131.3,5 l 8.4,-15.9
+    c 0,0 27.3,-12.9 39.8,-26.5 12.5,-13.6 119,-53.6 119,-53.6 0,0 66.8,28.7 85.4,37.7
+    19.4,-0.7 43.7,1.5 43.7,1.5 0,0 70.5,78.7 80.9,90.2 8.1,0.2 63,-0.4 83.3,0 14.5,-14.1
+    25.7,-66.5 35.2,-81.9 23.3,-23 62.8,-26.5 62.8,-26.5 0,0 38,-33 54.9,-44.1 16.9,-11.1
+    42.7,-28.3 42.7,-28.3 0,0 34.4,29.8 38,33.7 3.6,4 64.2,17.2 64.2,17.2 0,0 4,13.6
+    10.1,20.8 6.1,7.2 143.2,88 146.7,93.6 3.6,5.6 21.9,28.5 26.5,46.8 2.5,9.9 -6.6,104.6
+    9.2,177.8 5.6,10.5 95.3,-0.9 93.8,8.6 -1.3,8.7 236.5,61.5 239.2,96.3 h -99.6
+    -1315.6 z\"\n   id=\"path1330\"\n   inkscape:connector-curvature=\"0\"\n   style=\"fill:#092247\"
+    />\n\t\t<path\n   class=\"st0\"\n   d=\"m 7394.4,853.2 c 0,0 40.1,-179.6 60.8,-183.3
+    20.8,-3.7 89.1,5 89.1,5 l 8.4,-15.9 c 0,0 27.3,-12.9 39.8,-26.5 10.6,-11.6 88,-41.8
+    112,-51 4.5,-1.7 9.5,-1.6 14,0.3 17.6,7.6 63.5,27.5 78.5,34.7 19.4,-0.7 43.7,1.5
+    43.7,1.5 0,0 21.5,13.3 31.9,24.7 13.6,0.3 58.8,1.8 63.5,0 4.7,-1.8 28.3,-9.3
+    32.6,-8.3 4.3,1 110.4,38.5 185.6,35.4 v 352.1 h -891 z\"\n   id=\"path1332\"\n  
+    inkscape:connector-curvature=\"0\"\n   style=\"fill:#092247\" />\n\t\t<path\n  
+    class=\"st0\"\n   d=\"m 6887.9,1021.5 h -464 c 0.1,-5.1 -1.3,-166 -2.2,-181.4
+    -0.3,-6.1 3,-11.9 8.4,-14.7 6.5,-3.3 69.2,-7.4 69.2,-7.4 0,0 18.4,112.1 32.4,105.9
+    14,-6.2 11.2,-3.2 23.5,-3 12.3,0.2 58.2,0.8 66.3,1 26.4,-16.4 37,-220.9 61.8,-213.2
+    6.8,-11.6 5.8,-37 5.8,-37 0,0 54.9,-5.5 57.5,-4.2 2.7,1.2 33.3,-2.3 36.5,0.3
+    3.2,2.6 10.8,6.6 15.9,12 5.8,6 7,18.1 12,20.8 4.6,2.4 87.2,-2.4 101.2,1.3 14.4,3.7
+    -24.3,319.6 -24.3,319.6\"\n   id=\"path1334\"\n   inkscape:connector-curvature=\"0\"\n  
+    style=\"fill:#092247\" />\n\t\t<path\n   class=\"st0\"\n   d=\"m 7346.1,1022
+    h -506.4 c 0.2,-11.7 -1.5,-207 -2.5,-242 -0.4,-13.9 3.4,-27 9.8,-33.3 7.5,-7.5
+    47.2,-17 47.2,-17 0,0 29.7,-139.4 46,-153.7 16.3,-14.3 62.8,-8.6 76.8,-12 l 30.4,-78.4
+    c 0,0 18.7,-3.9 41.4,-4.7 9.1,-21.2 31.6,-56.1 36.2,-56.7 4.6,-0.5 42.2,25.1
+    45.4,27.9 3.2,2.8 10.8,16.8 10.8,16.8 l 82.4,210.5 c 0,0 40.7,10.2 49.2,16.9
+    8.4,6.7 20.1,109.8 20.1,109.8 0,0 10.5,2.1 20.9,1.1 10.4,-1 63.3,-2.3 63.3,-2.3
+    L 7398,1022 Z\"\n   id=\"path1336\"\n   inkscape:connector-curvature=\"0\"\n  
+    style=\"fill:#092247\" />\n\t</g>\n\t\n\t\t<linearGradient\n   id=\"linearGradient1344\"\n  
+    gradientUnits=\"userSpaceOnUse\"\n   x1=\"7932.71\"\n   y1=\"402.9838\"\n   x2=\"8433.1992\"\n  
+    y2=\"689.93109\"\n   gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop1340\" />\n\t\t<stop\n  
+    offset=\"1\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop1342\"
+    />\n\t</linearGradient>\n\t<polyline\n   class=\"st24\"\n   points=\"6300.8,593.2
+    6266.2,582 6235.2,537.6 6209.9,566.1 6209.9,595 6242.9,623 6242.6,656.3    6222.3,697.1
+    6225.5,716 6265.4,716.5 6288.8,726.1 6318.7,744.9 6295.3,775.6 6273,788.6 6249,824.8
+    6235.2,868 6338.1,868    6378.5,902.9 6394.1,978.2 6442.1,1001.2 6598.3,1001.2 
+    \"\n   id=\"polyline1346\"\n   style=\"opacity:0.77999998;fill:url(#linearGradient1460);enable-background:new\"
+    />\n\t\n\t\t<linearGradient\n   id=\"linearGradient1352\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    x1=\"7076.3828\"\n   y1=\"335.51419\"\n   x2=\"7707.2959\"\n   y2=\"697.23767\"\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop1348\" />\n\t\t<stop\n  
+    offset=\"1\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop1350\"
+    />\n\t</linearGradient>\n\t<path\n   class=\"st25\"\n   d=\"m 5747.4,578.8 7,42.3
+    12.9,5.4 v 25.2 l -17.9,42.3 68.5,-29.4 h 23.5 l 11.8,50.5 -14.1,27 -2.3,48.2
+    -87.3,92.8 10.9,10.6 h 10.6 l 27.6,10.6 25.3,21.2 h 41.1 l 28.2,16.5 36.5,47
+    52.5,32.9 h 47.6 88.8 l -108.3,-314.3 -52.8,0.3 c 0,0 -73.5,-88.1 -80.9,-90.2
+    -4.2,-1.2 -43.7,-1.5 -43.7,-1.5 z\"\n   id=\"path1354\"\n   inkscape:connector-curvature=\"0\"\n  
+    style=\"opacity:0.77999998;fill:url(#linearGradient1462);enable-background:new\"
+    />\n\t\n\t\t<linearGradient\n   id=\"linearGradient1360\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    x1=\"8517.1982\"\n   y1=\"80.346397\"\n   x2=\"9468.3574\"\n   y2=\"625.67749\"\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop1356\" />\n\t\t<stop\n  
+    offset=\"1\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop1358\"
+    />\n\t</linearGradient>\n\t<path\n   class=\"st26\"\n   d=\"m 6700.7,721.5 -4.7,5.1
+    c -0.8,0.9 -1.4,2 -1.7,3.2 l -4.2,18.4 15.5,22.2 27.1,61.7 12.5,20.6 v 14.7 l
+    -20,-2.5 -21.5,87.8 30.2,21.4 12.9,31.1 58.3,-2.2 14.3,18.9 h 141.3 226.4 l -34,-103.9
+    -3.5,-138.3 -96.6,-29 -185.6,-49.6 -25.4,-1.9 -31,-0.5 -13.6,-19.7 -42.6,0.6
+    -6.7,-3.7 -44.8,1.2 c -4.2,-0.2 -7.6,3.5 -7.2,7.7 l 6.3,30.3 c 0.5,2.5 -0.2,4.8
+    -1.7,6.4 z\"\n   id=\"path1362\"\n   inkscape:connector-curvature=\"0\"\n   style=\"opacity:0.77999998;fill:url(#linearGradient1464);enable-background:new\"
+    />\n\t\n\t\t<linearGradient\n   id=\"linearGradient1368\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    x1=\"7566.5742\"\n   y1=\"170.43671\"\n   x2=\"8050.9922\"\n   y2=\"448.16949\"\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop1364\" />\n\t\t<stop\n  
+    offset=\"1\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop1366\"
+    />\n\t</linearGradient>\n\t<polygon\n   class=\"st27\"\n   points=\"6091.6,897.7
+    6177.2,937 6218.2,983.4 6307.3,1022 6029.7,1022 5998.8,897.7 6038.1,867.4 6038.1,822.9
+    6077.3,853.2 6091.6,872.8 \"\n   id=\"polygon1370\"\n   style=\"opacity:0.77999998;fill:url(#linearGradient1466);enable-background:new\"
+    />\n\t\n\t\t<linearGradient\n   id=\"linearGradient1376\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    x1=\"7832.9541\"\n   y1=\"771.15387\"\n   x2=\"7969.9731\"\n   y2=\"849.71143\"\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop1372\" />\n\t\t<stop\n  
+    offset=\"1\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop1374\"
+    />\n\t</linearGradient>\n\t<path\n   class=\"st28\"\n   d=\"m 6129.6,622.5 c
+    0,0 -23.8,0 -25,9.5 -1.2,9.5 12.5,44 12.5,44 h 12.5 l 23.5,33.3 20.6,23.8 13.1,-48.9
+    v -23.7 z\"\n   id=\"path1378\"\n   inkscape:connector-curvature=\"0\"\n   style=\"opacity:0.77999998;fill:url(#linearGradient1468);enable-background:new\"
+    />\n\t\n\t\t<linearGradient\n   id=\"linearGradient1384\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    x1=\"6930.103\"\n   y1=\"700.87671\"\n   x2=\"7119.0566\"\n   y2=\"809.21008\"\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop1380\" />\n\t\t<stop\n  
+    offset=\"1\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop1382\"
+    />\n\t</linearGradient>\n\t<path\n   class=\"st29\"\n   d=\"m 5587.9,684.4 c
+    -4.2,11.9 25.1,38.8 25.1,38.8 l 19.8,10.1 -2.8,20.6 14.8,32.1 27.7,-56.4 15.6,-51.7
+    -14.6,-16.8 c 0,0 -35.8,-40.6 -45.1,-28.6 -9.4,12 -39.8,26.5 -39.8,26.5 0,0 3.5,13.5
+    -0.7,25.4 z\"\n   id=\"path1386\"\n   inkscape:connector-curvature=\"0\"\n  
+    style=\"opacity:0.77999998;fill:url(#linearGradient1470);enable-background:new\"
+    />\n\t\n\t\t<linearGradient\n   id=\"linearGradient1392\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    x1=\"9444.0752\"\n   y1=\"607.97308\"\n   x2=\"9891.1475\"\n   y2=\"760.16803\"\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop1388\" />\n\t\t<stop\n  
+    offset=\"1\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop1390\"
+    />\n\t</linearGradient>\n\t<polyline\n   class=\"st30\"\n   points=\"7384.2,1014.3
+    7272.9,953.1 7257.1,914.7 7213.7,875.7 7229.5,822.2 7209.2,779.8 7244.1,746.3   
+    7178.8,694.8 7164.7,654.9 7134.5,615.6 7123.1,527.6 7117.7,477.3 7128.5,441.9
+    7134.5,429.5 7170.4,452.2 7263.6,679.4  \"\n   id=\"polyline1394\"\n   style=\"opacity:0.77999998;fill:url(#linearGradient1472);enable-background:new\"
+    />\n\t\n\t\t<linearGradient\n   id=\"linearGradient1400\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    x1=\"9961.7627\"\n   y1=\"412.29471\"\n   x2=\"10281.995\"\n   y2=\"521.30981\"\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop1396\" />\n\t\t<stop\n  
+    offset=\"1\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop1398\"
+    />\n\t</linearGradient>\n\t<polygon\n   class=\"st31\"\n   points=\"7553,963.6
+    7435.2,753 7422.3,838.8 7467.6,942.1 \"\n   id=\"polygon1402\"\n   style=\"opacity:0.77999998;fill:url(#linearGradient1474);enable-background:new\"
+    />\n\t\n\t\t<linearGradient\n   id=\"linearGradient1408\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    x1=\"9675.7041\"\n   y1=\"136.067\"\n   x2=\"11519.786\"\n   y2=\"763.83948\"\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop1404\" />\n\t\t<stop\n  
+    offset=\"0.9181\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop1406\"
+    />\n\t</linearGradient>\n\t<polygon\n   class=\"st32\"\n   points=\"7872.7,668.8
+    7838.1,646.7 7796.5,640.2 7716.9,602.1 7691.1,677.9 7704.2,708.1 7778.9,714.8
+    7834.5,757 7773,788.4 7710,877.1 7773,914.7 7872.8,945 7931.5,1001.2 8154.4,1022
+    8154.4,689.3 8018.8,659.8 7979.9,677.9 7957.2,677.9 7897.7,670.1 \"\n   id=\"polygon1410\"\n  
+    style=\"opacity:0.77999998;fill:url(#linearGradient1476);enable-background:new\"
+    />\n\t\n\t\t<linearGradient\n   id=\"linearGradient1416\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    x1=\"9947.0283\"\n   y1=\"530.10089\"\n   x2=\"10442.305\"\n   y2=\"698.70569\"\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop1412\" />\n\t\t<stop\n  
+    offset=\"1\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop1414\"
+    />\n\t</linearGradient>\n\t<polygon\n   class=\"st33\"\n   points=\"7454,680.4
+    7452.9,717.9 7488.4,773 7547.2,835.3 7612.1,858.3 7637.2,858.3 7559.7,686.6 \"\n  
+    id=\"polygon1418\"\n   style=\"opacity:0.77999998;fill:url(#linearGradient1478);enable-background:new\"
+    />\n\t\n\t\t<linearGradient\n   id=\"linearGradient1424\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    x1=\"9197.7832\"\n   y1=\"836.73438\"\n   x2=\"9618.5928\"\n   y2=\"979.98901\"\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop1420\" />\n\t\t<stop\n  
+    offset=\"1\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop1422\"
+    />\n\t</linearGradient>\n\t<polygon\n   class=\"st34\"\n   points=\"7047.4,485.7
+    7017.1,564 7017.1,610.9 7065.2,669.3 7085.4,669.3 7117.7,714.8 7088.9,481 \"\n  
+    id=\"polygon1426\"\n   style=\"opacity:0.77999998;fill:url(#linearGradient1480);enable-background:new\"
+    />\n\t<line\n   class=\"st12\"\n   x1=\"6534.5\"\n   y1=\"921.79999\"\n   x2=\"6621.1001\"\n  
+    y2=\"921.79999\"\n   id=\"line1428\"\n   style=\"display:none;fill:none;stroke:#73ffef;stroke-width:6.39849997;stroke-linecap:round;stroke-miterlimit:5.81689978\"
+    />\n\t<line\n   class=\"st12\"\n   x1=\"7334.1001\"\n   y1=\"805.59998\"\n  
+    x2=\"7404.1001\"\n   y2=\"805.59998\"\n   id=\"line1430\"\n   style=\"display:none;fill:none;stroke:#73ffef;stroke-width:6.39849997;stroke-linecap:round;stroke-miterlimit:5.81689978\"
+    />\n\t<line\n   class=\"st12\"\n   x1=\"5956.3999\"\n   y1=\"707.29999\"\n  
+    x2=\"6042\"\n   y2=\"707.29999\"\n   id=\"line1432\"\n   style=\"display:none;fill:none;stroke:#73ffef;stroke-width:6.39849997;stroke-linecap:round;stroke-miterlimit:5.81689978\"
+    />\n\t<line\n   class=\"st12\"\n   x1=\"6812.2998\"\n   y1=\"700.59998\"\n  
+    x2=\"6898.8999\"\n   y2=\"700.59998\"\n   id=\"line1434\"\n   style=\"display:none;fill:none;stroke:#73ffef;stroke-width:6.39849997;stroke-linecap:round;stroke-miterlimit:5.81689978\"
+    />\n</g><g\n   id=\"g293\"\n   style=\"display:inline\"\n   transform=\"translate(0,52.009701)\">\n\t<g\n  
+    id=\"g206\">\n\t\t<path\n   class=\"st0\"\n   d=\"m 5448.9,669.9 c 55.6,-6.3
+    131.3,5 131.3,5 l 8.4,-15.9 c 0,0 27.3,-12.9 39.8,-26.5 12.5,-13.6 119,-53.6
+    119,-53.6 0,0 66.8,28.7 85.4,37.7 19.4,-0.7 43.7,1.5 43.7,1.5 0,0 70.5,78.7 80.9,90.2
+    8.1,0.2 63,-0.4 83.3,0 14.5,-14.1 25.7,-66.5 35.2,-81.9 23.3,-23 62.8,-26.5 62.8,-26.5
+    0,0 38,-33 54.9,-44.1 16.9,-11.1 42.7,-28.3 42.7,-28.3 0,0 34.4,29.8 38,33.7
+    3.6,4 64.2,17.2 64.2,17.2 0,0 4,13.6 10.1,20.8 6.1,7.2 143.2,88 146.7,93.6 3.6,5.6
+    21.9,28.5 26.5,46.8 2.5,9.9 -6.6,104.6 9.2,177.8 5.6,10.5 95.3,-0.9 93.8,8.6
+    -1.3,8.7 236.5,61.5 239.2,96.3 h -99.6 -1315.6 z\"\n   id=\"path198\"\n   inkscape:connector-curvature=\"0\"\n  
+    style=\"fill:#092247\" />\n\t\t<path\n   class=\"st0\"\n   d=\"m 7394.4,853.2
+    c 0,0 40.1,-179.6 60.8,-183.3 20.8,-3.7 89.1,5 89.1,5 l 8.4,-15.9 c 0,0 27.3,-12.9
+    39.8,-26.5 10.6,-11.6 88,-41.8 112,-51 4.5,-1.7 9.5,-1.6 14,0.3 17.6,7.6 63.5,27.5
+    78.5,34.7 19.4,-0.7 43.7,1.5 43.7,1.5 0,0 21.5,13.3 31.9,24.7 13.6,0.3 58.8,1.8
+    63.5,0 4.7,-1.8 28.3,-9.3 32.6,-8.3 4.3,1 110.4,38.5 185.6,35.4 v 352.1 h -891
+    z\"\n   id=\"path200\"\n   inkscape:connector-curvature=\"0\"\n   style=\"fill:#092247\"
+    />\n\t\t<path\n   class=\"st0\"\n   d=\"m 6887.9,1021.5 h -464 c 0.1,-5.1 -1.3,-166
+    -2.2,-181.4 -0.3,-6.1 3,-11.9 8.4,-14.7 6.5,-3.3 69.2,-7.4 69.2,-7.4 0,0 18.4,112.1
+    32.4,105.9 14,-6.2 11.2,-3.2 23.5,-3 12.3,0.2 58.2,0.8 66.3,1 26.4,-16.4 37,-220.9
+    61.8,-213.2 6.8,-11.6 5.8,-37 5.8,-37 0,0 54.9,-5.5 57.5,-4.2 2.7,1.2 33.3,-2.3
+    36.5,0.3 3.2,2.6 10.8,6.6 15.9,12 5.8,6 7,18.1 12,20.8 4.6,2.4 87.2,-2.4 101.2,1.3
+    14.4,3.7 -24.3,319.6 -24.3,319.6\"\n   id=\"path202\"\n   inkscape:connector-curvature=\"0\"\n  
+    style=\"fill:#092247\" />\n\t\t<path\n   class=\"st0\"\n   d=\"m 7346.1,1022
+    h -506.4 c 0.2,-11.7 -1.5,-207 -2.5,-242 -0.4,-13.9 3.4,-27 9.8,-33.3 7.5,-7.5
+    47.2,-17 47.2,-17 0,0 29.7,-139.4 46,-153.7 16.3,-14.3 62.8,-8.6 76.8,-12 l 30.4,-78.4
+    c 0,0 18.7,-3.9 41.4,-4.7 9.1,-21.2 31.6,-56.1 36.2,-56.7 4.6,-0.5 42.2,25.1
+    45.4,27.9 3.2,2.8 10.8,16.8 10.8,16.8 l 82.4,210.5 c 0,0 40.7,10.2 49.2,16.9
+    8.4,6.7 20.1,109.8 20.1,109.8 0,0 10.5,2.1 20.9,1.1 10.4,-1 63.3,-2.3 63.3,-2.3
+    L 7398,1022 Z\"\n   id=\"path204\"\n   inkscape:connector-curvature=\"0\"\n  
+    style=\"fill:#092247\" />\n\t</g>\n\t\n\t\t<linearGradient\n   id=\"SVGID_23_\"\n  
+    gradientUnits=\"userSpaceOnUse\"\n   x1=\"7932.71\"\n   y1=\"402.9838\"\n   x2=\"8433.1992\"\n  
+    y2=\"689.93109\"\n   gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop208\" />\n\t\t<stop\n  
+    offset=\"1\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop210\"
+    />\n\t</linearGradient>\n\t<polyline\n   class=\"st24\"\n   points=\"6300.8,593.2
+    6266.2,582 6235.2,537.6 6209.9,566.1 6209.9,595 6242.9,623 6242.6,656.3    6222.3,697.1
+    6225.5,716 6265.4,716.5 6288.8,726.1 6318.7,744.9 6295.3,775.6 6273,788.6 6249,824.8
+    6235.2,868 6338.1,868    6378.5,902.9 6394.1,978.2 6442.1,1001.2 6598.3,1001.2 
+    \"\n   id=\"polyline213\"\n   style=\"opacity:0.77999998;fill:url(#linearGradient2056);enable-background:new\"
+    />\n\t\n\t\t<linearGradient\n   id=\"SVGID_24_\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    x1=\"7076.3828\"\n   y1=\"335.51419\"\n   x2=\"7707.2959\"\n   y2=\"697.23767\"\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop215\" />\n\t\t<stop\n  
+    offset=\"1\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop217\"
+    />\n\t</linearGradient>\n\t<path\n   class=\"st25\"\n   d=\"m 5747.4,578.8 7,42.3
+    12.9,5.4 v 25.2 l -17.9,42.3 68.5,-29.4 h 23.5 l 11.8,50.5 -14.1,27 -2.3,48.2
+    -87.3,92.8 10.9,10.6 h 10.6 l 27.6,10.6 25.3,21.2 h 41.1 l 28.2,16.5 36.5,47
+    52.5,32.9 h 47.6 88.8 l -108.3,-314.3 -52.8,0.3 c 0,0 -73.5,-88.1 -80.9,-90.2
+    -4.2,-1.2 -43.7,-1.5 -43.7,-1.5 z\"\n   id=\"path220\"\n   inkscape:connector-curvature=\"0\"\n  
+    style=\"opacity:0.77999998;fill:url(#linearGradient2058);enable-background:new\"
+    />\n\t\n\t\t<linearGradient\n   id=\"SVGID_25_\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    x1=\"8517.1982\"\n   y1=\"80.346397\"\n   x2=\"9468.3574\"\n   y2=\"625.67749\"\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop222\" />\n\t\t<stop\n  
+    offset=\"1\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop224\"
+    />\n\t</linearGradient>\n\t<path\n   class=\"st26\"\n   d=\"m 6700.7,721.5 -4.7,5.1
+    c -0.8,0.9 -1.4,2 -1.7,3.2 l -4.2,18.4 15.5,22.2 27.1,61.7 12.5,20.6 v 14.7 l
+    -20,-2.5 -21.5,87.8 30.2,21.4 12.9,31.1 58.3,-2.2 14.3,18.9 h 141.3 226.4 l -34,-103.9
+    -3.5,-138.3 -96.6,-29 -185.6,-49.6 -25.4,-1.9 -31,-0.5 -13.6,-19.7 -42.6,0.6
+    -6.7,-3.7 -44.8,1.2 c -4.2,-0.2 -7.6,3.5 -7.2,7.7 l 6.3,30.3 c 0.5,2.5 -0.2,4.8
+    -1.7,6.4 z\"\n   id=\"path227\"\n   inkscape:connector-curvature=\"0\"\n   style=\"opacity:0.77999998;fill:url(#linearGradient2060);enable-background:new\"
+    />\n\t\n\t\t<linearGradient\n   id=\"SVGID_26_\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    x1=\"7566.5742\"\n   y1=\"170.43671\"\n   x2=\"8050.9922\"\n   y2=\"448.16949\"\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop229\" />\n\t\t<stop\n  
+    offset=\"1\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop231\"
+    />\n\t</linearGradient>\n\t<polygon\n   class=\"st27\"\n   points=\"6091.6,872.8
+    6091.6,897.7 6177.2,937 6218.2,983.4 6307.3,1022 6029.7,1022 5998.8,897.7 6038.1,867.4
+    6038.1,822.9 6077.3,853.2 \"\n   id=\"polygon234\"\n   style=\"opacity:0.77999998;fill:url(#linearGradient2062);enable-background:new\"
+    />\n\t\n\t\t<linearGradient\n   id=\"SVGID_27_\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    x1=\"7832.9541\"\n   y1=\"771.15387\"\n   x2=\"7969.9731\"\n   y2=\"849.71143\"\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop236\" />\n\t\t<stop\n  
+    offset=\"1\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop238\"
+    />\n\t</linearGradient>\n\t<path\n   class=\"st28\"\n   d=\"m 6129.6,622.5 c
+    0,0 -23.8,0 -25,9.5 -1.2,9.5 12.5,44 12.5,44 h 12.5 l 23.5,33.3 20.6,23.8 13.1,-48.9
+    v -23.7 z\"\n   id=\"path241\"\n   inkscape:connector-curvature=\"0\"\n   style=\"opacity:0.77999998;fill:url(#linearGradient2064);enable-background:new\"
+    />\n\t\n\t\t<linearGradient\n   id=\"SVGID_28_\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    x1=\"6930.103\"\n   y1=\"700.87671\"\n   x2=\"7119.0566\"\n   y2=\"809.21008\"\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop243\" />\n\t\t<stop\n  
+    offset=\"1\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop245\"
+    />\n\t</linearGradient>\n\t<path\n   class=\"st29\"\n   d=\"m 5587.9,684.4 c
+    -4.2,11.9 25.1,38.8 25.1,38.8 l 19.8,10.1 -2.8,20.6 14.8,32.1 27.7,-56.4 15.6,-51.7
+    -14.6,-16.8 c 0,0 -35.8,-40.6 -45.1,-28.6 -9.4,12 -39.8,26.5 -39.8,26.5 0,0 3.5,13.5
+    -0.7,25.4 z\"\n   id=\"path248\"\n   inkscape:connector-curvature=\"0\"\n   style=\"opacity:0.77999998;fill:url(#linearGradient2066);enable-background:new\"
+    />\n\t\n\t\t<linearGradient\n   id=\"SVGID_29_\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    x1=\"9444.0752\"\n   y1=\"607.97308\"\n   x2=\"9891.1475\"\n   y2=\"760.16803\"\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop250\" />\n\t\t<stop\n  
+    offset=\"1\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop252\"
+    />\n\t</linearGradient>\n\t<polyline\n   class=\"st30\"\n   points=\"7384.2,1014.3
+    7272.9,953.1 7257.1,914.7 7213.7,875.7 7229.5,822.2 7209.2,779.8 7244.1,746.3   
+    7178.8,694.8 7164.7,654.9 7134.5,615.6 7123.1,527.6 7117.7,477.3 7128.5,441.9
+    7134.5,429.5 7170.4,452.2 7263.6,679.4  \"\n   id=\"polyline255\"\n   style=\"opacity:0.77999998;fill:url(#linearGradient2068);enable-background:new\"
+    />\n\t\n\t\t<linearGradient\n   id=\"SVGID_30_\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    x1=\"9961.7627\"\n   y1=\"412.29471\"\n   x2=\"10281.995\"\n   y2=\"521.30981\"\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop257\" />\n\t\t<stop\n  
+    offset=\"1\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop259\"
+    />\n\t</linearGradient>\n\t<polygon\n   class=\"st31\"\n   points=\"7435.2,753
+    7422.3,838.8 7467.6,942.1 7553,963.6 \"\n   id=\"polygon262\"\n   style=\"opacity:0.77999998;fill:url(#linearGradient2070);enable-background:new\"
+    />\n\t\n\t\t<linearGradient\n   id=\"SVGID_31_\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    x1=\"9675.7041\"\n   y1=\"136.067\"\n   x2=\"11519.786\"\n   y2=\"763.83948\"\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop264\" />\n\t\t<stop\n  
+    offset=\"0.9181\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop266\"
+    />\n\t</linearGradient>\n\t<polygon\n   class=\"st32\"\n   points=\"7773,788.4
+    7710,877.1 7773,914.7 7872.8,945 7931.5,1001.2 8154.4,1022 8154.4,689.3 8018.8,659.8
+    7979.9,677.9 7957.2,677.9 7897.7,670.1 7872.7,668.8 7838.1,646.7 7796.5,640.2
+    7716.9,602.1 7691.1,677.9 7704.2,708.1 7778.9,714.8 7834.5,757 \"\n   id=\"polygon269\"\n  
+    style=\"opacity:0.77999998;fill:url(#linearGradient2072);enable-background:new\"
+    />\n\t\n\t\t<linearGradient\n   id=\"SVGID_32_\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    x1=\"9947.0283\"\n   y1=\"530.10089\"\n   x2=\"10442.305\"\n   y2=\"698.70569\"\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop271\" />\n\t\t<stop\n  
+    offset=\"1\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop273\"
+    />\n\t</linearGradient>\n\t<polygon\n   class=\"st33\"\n   points=\"7547.2,835.3
+    7612.1,858.3 7637.2,858.3 7559.7,686.6 7454,680.4 7452.9,717.9 7488.4,773 \"\n  
+    id=\"polygon276\"\n   style=\"opacity:0.77999998;fill:url(#linearGradient2074);enable-background:new\"
+    />\n\t\n\t\t<linearGradient\n   id=\"SVGID_33_\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    x1=\"9197.7832\"\n   y1=\"836.73438\"\n   x2=\"9618.5928\"\n   y2=\"979.98901\"\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\">\n\t\t<stop\n  
+    offset=\"0.1653\"\n   style=\"stop-color:#04927B\"\n   id=\"stop278\" />\n\t\t<stop\n  
+    offset=\"1\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   id=\"stop280\"
+    />\n\t</linearGradient>\n\t<polygon\n   class=\"st34\"\n   points=\"7065.2,669.3
+    7085.4,669.3 7117.7,714.8 7088.9,481 7047.4,485.7 7017.1,564 7017.1,610.9 \"\n  
+    id=\"polygon283\"\n   style=\"opacity:0.77999998;fill:url(#linearGradient2076);enable-background:new\"
+    />\n\t<line\n   class=\"st12\"\n   x1=\"6534.5\"\n   y1=\"921.79999\"\n   x2=\"6621.1001\"\n  
+    y2=\"921.79999\"\n   id=\"line285\"\n   style=\"display:none;fill:none;stroke:#73ffef;stroke-width:6.39849997;stroke-linecap:round;stroke-miterlimit:5.81689978\"
+    />\n\t<line\n   class=\"st12\"\n   x1=\"7334.1001\"\n   y1=\"805.59998\"\n  
+    x2=\"7404.1001\"\n   y2=\"805.59998\"\n   id=\"line287\"\n   style=\"display:none;fill:none;stroke:#73ffef;stroke-width:6.39849997;stroke-linecap:round;stroke-miterlimit:5.81689978\"
+    />\n\t<line\n   class=\"st12\"\n   x1=\"5956.3999\"\n   y1=\"707.29999\"\n  
+    x2=\"6042\"\n   y2=\"707.29999\"\n   id=\"line289\"\n   style=\"display:none;fill:none;stroke:#73ffef;stroke-width:6.39849997;stroke-linecap:round;stroke-miterlimit:5.81689978\"
+    />\n\t<line\n   class=\"st12\"\n   x1=\"6812.2998\"\n   y1=\"700.59998\"\n  
+    x2=\"6898.8999\"\n   y2=\"700.59998\"\n   id=\"line291\"\n   style=\"display:none;fill:none;stroke:#73ffef;stroke-width:6.39849997;stroke-linecap:round;stroke-miterlimit:5.81689978\"
+    />\n</g><g\n   style=\"display:inline\"\n   id=\"g1088\"\n   transform=\"matrix(-1.0385149,0,0,1,11191.021,52.009701)\">\n\t<g\n  
+    id=\"g990\">\n\t\t<path\n   style=\"fill:#092247\"\n   inkscape:connector-curvature=\"0\"\n  
+    id=\"path982\"\n   d=\"m 5448.9,669.9 c 55.6,-6.3 131.3,5 131.3,5 l 8.4,-15.9
+    c 0,0 27.3,-12.9 39.8,-26.5 12.5,-13.6 119,-53.6 119,-53.6 0,0 66.8,28.7 85.4,37.7
+    19.4,-0.7 43.7,1.5 43.7,1.5 0,0 70.5,78.7 80.9,90.2 8.1,0.2 63,-0.4 83.3,0 14.5,-14.1
+    25.7,-66.5 35.2,-81.9 23.3,-23 62.8,-26.5 62.8,-26.5 0,0 38,-33 54.9,-44.1 16.9,-11.1
+    42.7,-28.3 42.7,-28.3 0,0 34.4,29.8 38,33.7 3.6,4 64.2,17.2 64.2,17.2 0,0 4,13.6
+    10.1,20.8 6.1,7.2 143.2,88 146.7,93.6 3.6,5.6 21.9,28.5 26.5,46.8 2.5,9.9 -6.6,104.6
+    9.2,177.8 5.6,10.5 95.3,-0.9 93.8,8.6 -1.3,8.7 236.5,61.5 239.2,96.3 h -99.6
+    -1315.6 z\"\n   class=\"st0\" />\n\t\t<path\n   style=\"fill:#092247\"\n   inkscape:connector-curvature=\"0\"\n  
+    id=\"path984\"\n   d=\"m 7394.4,853.2 c 0,0 40.1,-179.6 60.8,-183.3 20.8,-3.7
+    89.1,5 89.1,5 l 8.4,-15.9 c 0,0 27.3,-12.9 39.8,-26.5 10.6,-11.6 88,-41.8 112,-51
+    4.5,-1.7 9.5,-1.6 14,0.3 17.6,7.6 63.5,27.5 78.5,34.7 19.4,-0.7 43.7,1.5 43.7,1.5
+    0,0 21.5,13.3 31.9,24.7 13.6,0.3 58.8,1.8 63.5,0 4.7,-1.8 28.3,-9.3 32.6,-8.3
+    4.3,1 110.4,38.5 185.6,35.4 v 352.1 h -891 z\"\n   class=\"st0\" />\n\t\t<path\n  
+    style=\"fill:#092247\"\n   inkscape:connector-curvature=\"0\"\n   id=\"path986\"\n  
+    d=\"m 6887.9,1021.5 h -464 c 0.1,-5.1 -1.3,-166 -2.2,-181.4 -0.3,-6.1 3,-11.9
+    8.4,-14.7 6.5,-3.3 69.2,-7.4 69.2,-7.4 0,0 18.4,112.1 32.4,105.9 14,-6.2 11.2,-3.2
+    23.5,-3 12.3,0.2 58.2,0.8 66.3,1 26.4,-16.4 37,-220.9 61.8,-213.2 6.8,-11.6 5.8,-37
+    5.8,-37 0,0 54.9,-5.5 57.5,-4.2 2.7,1.2 33.3,-2.3 36.5,0.3 3.2,2.6 10.8,6.6 15.9,12
+    5.8,6 7,18.1 12,20.8 4.6,2.4 87.2,-2.4 101.2,1.3 14.4,3.7 -24.3,319.6 -24.3,319.6\"\n  
+    class=\"st0\" />\n\t\t<path\n   style=\"fill:#092247\"\n   inkscape:connector-curvature=\"0\"\n  
+    id=\"path988\"\n   d=\"m 7346.1,1022 h -506.4 c 0.2,-11.7 -1.5,-207 -2.5,-242
+    -0.4,-13.9 3.4,-27 9.8,-33.3 7.5,-7.5 47.2,-17 47.2,-17 0,0 29.7,-139.4 46,-153.7
+    16.3,-14.3 62.8,-8.6 76.8,-12 l 30.4,-78.4 c 0,0 18.7,-3.9 41.4,-4.7 9.1,-21.2
+    31.6,-56.1 36.2,-56.7 4.6,-0.5 42.2,25.1 45.4,27.9 3.2,2.8 10.8,16.8 10.8,16.8
+    l 82.4,210.5 c 0,0 40.7,10.2 49.2,16.9 8.4,6.7 20.1,109.8 20.1,109.8 0,0 10.5,2.1
+    20.9,1.1 10.4,-1 63.3,-2.3 63.3,-2.3 L 7398,1022 Z\"\n   class=\"st0\" />\n\t</g>\n\t\n\t\t<linearGradient\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n   y2=\"689.93109\"\n  
+    x2=\"8433.1992\"\n   y1=\"402.9838\"\n   x1=\"7932.71\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    id=\"linearGradient996\">\n\t\t<stop\n   id=\"stop992\"\n   style=\"stop-color:#04927B\"\n  
+    offset=\"0.1653\" />\n\t\t<stop\n   id=\"stop994\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n  
+    offset=\"1\" />\n\t</linearGradient>\n\t<polyline\n   style=\"opacity:0.77999998;fill:url(#linearGradient1090);enable-background:new\"\n  
+    id=\"polyline998\"\n   points=\"6300.8,593.2 6266.2,582 6235.2,537.6 6209.9,566.1
+    6209.9,595 6242.9,623 6242.6,656.3    6222.3,697.1 6225.5,716 6265.4,716.5 6288.8,726.1
+    6318.7,744.9 6295.3,775.6 6273,788.6 6249,824.8 6235.2,868 6338.1,868    6378.5,902.9
+    6394.1,978.2 6442.1,1001.2 6598.3,1001.2  \"\n   class=\"st24\" />\n\t\n\t\t<linearGradient\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n   y2=\"697.23767\"\n  
+    x2=\"7707.2959\"\n   y1=\"335.51419\"\n   x1=\"7076.3828\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    id=\"linearGradient1004\">\n\t\t<stop\n   id=\"stop1000\"\n   style=\"stop-color:#04927B\"\n  
+    offset=\"0.1653\" />\n\t\t<stop\n   id=\"stop1002\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n  
+    offset=\"1\" />\n\t</linearGradient>\n\t<path\n   style=\"opacity:0.77999998;fill:url(#linearGradient1092);enable-background:new\"\n  
+    inkscape:connector-curvature=\"0\"\n   id=\"path1006\"\n   d=\"m 5747.4,578.8
+    7,42.3 12.9,5.4 v 25.2 l -17.9,42.3 68.5,-29.4 h 23.5 l 11.8,50.5 -14.1,27 -2.3,48.2
+    -87.3,92.8 10.9,10.6 h 10.6 l 27.6,10.6 25.3,21.2 h 41.1 l 28.2,16.5 36.5,47
+    52.5,32.9 h 47.6 88.8 l -108.3,-314.3 -52.8,0.3 c 0,0 -73.5,-88.1 -80.9,-90.2
+    -4.2,-1.2 -43.7,-1.5 -43.7,-1.5 z\"\n   class=\"st25\" />\n\t\n\t\t<linearGradient\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n   y2=\"625.67749\"\n  
+    x2=\"9468.3574\"\n   y1=\"80.346397\"\n   x1=\"8517.1982\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    id=\"linearGradient1012\">\n\t\t<stop\n   id=\"stop1008\"\n   style=\"stop-color:#04927B\"\n  
+    offset=\"0.1653\" />\n\t\t<stop\n   id=\"stop1010\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n  
+    offset=\"1\" />\n\t</linearGradient>\n\t<path\n   style=\"opacity:0.77999998;fill:url(#linearGradient1094);enable-background:new\"\n  
+    inkscape:connector-curvature=\"0\"\n   id=\"path1014\"\n   d=\"m 6700.7,721.5
+    -4.7,5.1 c -0.8,0.9 -1.4,2 -1.7,3.2 l -4.2,18.4 15.5,22.2 27.1,61.7 12.5,20.6
+    v 14.7 l -20,-2.5 -21.5,87.8 30.2,21.4 12.9,31.1 58.3,-2.2 14.3,18.9 h 141.3
+    226.4 l -34,-103.9 -3.5,-138.3 -96.6,-29 -185.6,-49.6 -25.4,-1.9 -31,-0.5 -13.6,-19.7
+    -42.6,0.6 -6.7,-3.7 -44.8,1.2 c -4.2,-0.2 -7.6,3.5 -7.2,7.7 l 6.3,30.3 c 0.5,2.5
+    -0.2,4.8 -1.7,6.4 z\"\n   class=\"st26\" />\n\t\n\t\t<linearGradient\n   gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n  
+    y2=\"448.16949\"\n   x2=\"8050.9922\"\n   y1=\"170.43671\"\n   x1=\"7566.5742\"\n  
+    gradientUnits=\"userSpaceOnUse\"\n   id=\"linearGradient1020\">\n\t\t<stop\n  
+    id=\"stop1016\"\n   style=\"stop-color:#04927B\"\n   offset=\"0.1653\" />\n\t\t<stop\n  
+    id=\"stop1018\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   offset=\"1\"
+    />\n\t</linearGradient>\n\t<polygon\n   style=\"opacity:0.77999998;fill:url(#linearGradient1096);enable-background:new\"\n  
+    id=\"polygon1022\"\n   points=\"6038.1,867.4 6038.1,822.9 6077.3,853.2 6091.6,872.8
+    6091.6,897.7 6177.2,937 6218.2,983.4 6307.3,1022 6029.7,1022 5998.8,897.7 \"\n  
+    class=\"st27\" />\n\t\n\t\t<linearGradient\n   gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n  
+    y2=\"849.71143\"\n   x2=\"7969.9731\"\n   y1=\"771.15387\"\n   x1=\"7832.9541\"\n  
+    gradientUnits=\"userSpaceOnUse\"\n   id=\"linearGradient1028\">\n\t\t<stop\n  
+    id=\"stop1024\"\n   style=\"stop-color:#04927B\"\n   offset=\"0.1653\" />\n\t\t<stop\n  
+    id=\"stop1026\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   offset=\"1\"
+    />\n\t</linearGradient>\n\t<path\n   style=\"opacity:0.77999998;fill:url(#linearGradient1098);enable-background:new\"\n  
+    inkscape:connector-curvature=\"0\"\n   id=\"path1030\"\n   d=\"m 6129.6,622.5
+    c 0,0 -23.8,0 -25,9.5 -1.2,9.5 12.5,44 12.5,44 h 12.5 l 23.5,33.3 20.6,23.8 13.1,-48.9
+    v -23.7 z\"\n   class=\"st28\" />\n\t\n\t\t<linearGradient\n   gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n  
+    y2=\"809.21008\"\n   x2=\"7119.0566\"\n   y1=\"700.87671\"\n   x1=\"6930.103\"\n  
+    gradientUnits=\"userSpaceOnUse\"\n   id=\"linearGradient1036\">\n\t\t<stop\n  
+    id=\"stop1032\"\n   style=\"stop-color:#04927B\"\n   offset=\"0.1653\" />\n\t\t<stop\n  
+    id=\"stop1034\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   offset=\"1\"
+    />\n\t</linearGradient>\n\t<path\n   style=\"opacity:0.77999998;fill:url(#linearGradient1100);enable-background:new\"\n  
+    inkscape:connector-curvature=\"0\"\n   id=\"path1038\"\n   d=\"m 5587.9,684.4
+    c -4.2,11.9 25.1,38.8 25.1,38.8 l 19.8,10.1 -2.8,20.6 14.8,32.1 27.7,-56.4 15.6,-51.7
+    -14.6,-16.8 c 0,0 -35.8,-40.6 -45.1,-28.6 -9.4,12 -39.8,26.5 -39.8,26.5 0,0 3.5,13.5
+    -0.7,25.4 z\"\n   class=\"st29\" />\n\t\n\t\t<linearGradient\n   gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n  
+    y2=\"760.16803\"\n   x2=\"9891.1475\"\n   y1=\"607.97308\"\n   x1=\"9444.0752\"\n  
+    gradientUnits=\"userSpaceOnUse\"\n   id=\"linearGradient1044\">\n\t\t<stop\n  
+    id=\"stop1040\"\n   style=\"stop-color:#04927B\"\n   offset=\"0.1653\" />\n\t\t<stop\n  
+    id=\"stop1042\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   offset=\"1\"
+    />\n\t</linearGradient>\n\t<polyline\n   style=\"opacity:0.77999998;fill:url(#linearGradient1102);enable-background:new\"\n  
+    id=\"polyline1046\"\n   points=\"7384.2,1014.3 7272.9,953.1 7257.1,914.7 7213.7,875.7
+    7229.5,822.2 7209.2,779.8 7244.1,746.3    7178.8,694.8 7164.7,654.9 7134.5,615.6
+    7123.1,527.6 7117.7,477.3 7128.5,441.9 7134.5,429.5 7170.4,452.2 7263.6,679.4 
+    \"\n   class=\"st30\" />\n\t\n\t\t<linearGradient\n   gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n  
+    y2=\"521.30981\"\n   x2=\"10281.995\"\n   y1=\"412.29471\"\n   x1=\"9961.7627\"\n  
+    gradientUnits=\"userSpaceOnUse\"\n   id=\"linearGradient1052\">\n\t\t<stop\n  
+    id=\"stop1048\"\n   style=\"stop-color:#04927B\"\n   offset=\"0.1653\" />\n\t\t<stop\n  
+    id=\"stop1050\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   offset=\"1\"
+    />\n\t</linearGradient>\n\t<polygon\n   style=\"opacity:0.77999998;fill:url(#linearGradient1104);enable-background:new\"\n  
+    id=\"polygon1054\"\n   points=\"7422.3,838.8 7467.6,942.1 7553,963.6 7435.2,753
+    \"\n   class=\"st31\" />\n\t\n\t\t<linearGradient\n   gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n  
+    y2=\"763.83948\"\n   x2=\"11519.786\"\n   y1=\"136.067\"\n   x1=\"9675.7041\"\n  
+    gradientUnits=\"userSpaceOnUse\"\n   id=\"linearGradient1060\">\n\t\t<stop\n  
+    id=\"stop1056\"\n   style=\"stop-color:#04927B\"\n   offset=\"0.1653\" />\n\t\t<stop\n  
+    id=\"stop1058\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n   offset=\"0.9181\"
+    />\n\t</linearGradient>\n\t<polygon\n   style=\"opacity:0.77999998;fill:url(#linearGradient1106);enable-background:new\"\n  
+    id=\"polygon1062\"\n   points=\"7778.9,714.8 7834.5,757 7773,788.4 7710,877.1
+    7773,914.7 7872.8,945 7931.5,1001.2 8154.4,1022 8154.4,689.3 8018.8,659.8 7979.9,677.9
+    7957.2,677.9 7897.7,670.1 7872.7,668.8 7838.1,646.7 7796.5,640.2 7716.9,602.1
+    7691.1,677.9 7704.2,708.1 \"\n   class=\"st32\" />\n\t\n\t\t<linearGradient\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n   y2=\"698.70569\"\n  
+    x2=\"10442.305\"\n   y1=\"530.10089\"\n   x1=\"9947.0283\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    id=\"linearGradient1068\">\n\t\t<stop\n   id=\"stop1064\"\n   style=\"stop-color:#04927B\"\n  
+    offset=\"0.1653\" />\n\t\t<stop\n   id=\"stop1066\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n  
+    offset=\"1\" />\n\t</linearGradient>\n\t<polygon\n   style=\"opacity:0.77999998;fill:url(#linearGradient1108);enable-background:new\"\n  
+    id=\"polygon1070\"\n   points=\"7559.7,686.6 7454,680.4 7452.9,717.9 7488.4,773
+    7547.2,835.3 7612.1,858.3 7637.2,858.3 \"\n   class=\"st33\" />\n\t\n\t\t<linearGradient\n  
+    gradientTransform=\"matrix(0.5817,0,0,-0.5817,1547.762,1149.7867)\"\n   y2=\"979.98901\"\n  
+    x2=\"9618.5928\"\n   y1=\"836.73438\"\n   x1=\"9197.7832\"\n   gradientUnits=\"userSpaceOnUse\"\n  
+    id=\"linearGradient1076\">\n\t\t<stop\n   id=\"stop1072\"\n   style=\"stop-color:#04927B\"\n  
+    offset=\"0.1653\" />\n\t\t<stop\n   id=\"stop1074\"\n   style=\"stop-color:#092247;stop-opacity:0\"\n  
+    offset=\"1\" />\n\t</linearGradient>\n\t<polygon\n   style=\"opacity:0.77999998;fill:url(#linearGradient1110);enable-background:new\"\n  
+    id=\"polygon1078\"\n   points=\"7088.9,481 7047.4,485.7 7017.1,564 7017.1,610.9
+    7065.2,669.3 7085.4,669.3 7117.7,714.8 \"\n   class=\"st34\" />\n\t<line\n  
+    style=\"display:none;fill:none;stroke:#73ffef;stroke-width:6.39849997;stroke-linecap:round;stroke-miterlimit:5.81689978\"\n  
+    id=\"line1080\"\n   y2=\"921.79999\"\n   x2=\"6621.1001\"\n   y1=\"921.79999\"\n  
+    x1=\"6534.5\"\n   class=\"st12\" />\n\t<line\n   style=\"display:none;fill:none;stroke:#73ffef;stroke-width:6.39849997;stroke-linecap:round;stroke-miterlimit:5.81689978\"\n  
+    id=\"line1082\"\n   y2=\"805.59998\"\n   x2=\"7404.1001\"\n   y1=\"805.59998\"\n  
+    x1=\"7334.1001\"\n   class=\"st12\" />\n\t<line\n   style=\"display:none;fill:none;stroke:#73ffef;stroke-width:6.39849997;stroke-linecap:round;stroke-miterlimit:5.81689978\"\n  
+    id=\"line1084\"\n   y2=\"707.29999\"\n   x2=\"6042\"\n   y1=\"707.29999\"\n  
+    x1=\"5956.3999\"\n   class=\"st12\" />\n\t<line\n   style=\"display:none;fill:none;stroke:#73ffef;stroke-width:6.39849997;stroke-linecap:round;stroke-miterlimit:5.81689978\"\n  
+    id=\"line1086\"\n   y2=\"700.59998\"\n   x2=\"6898.8999\"\n   y1=\"700.59998\"\n  
+    x1=\"6812.2998\"\n   class=\"st12\" />\n</g></svg>"
+  assetBundleName: 
+  assetBundleVariant: 

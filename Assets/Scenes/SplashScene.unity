@@ -502,6 +502,16 @@ PrefabInstance:
       propertyPath: isInitializedOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 625089578558530278, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
+        type: 3}
+      propertyPath: mobileKey
+      value: mob-eeeaab3e-a3c7-411f-bac7-e0f8ed5b4919
+      objectReference: {fileID: 0}
+    - target: {fileID: 625089578558530278, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
+        type: 3}
+      propertyPath: isUserAnonymous
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 625089578558530279, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -581,6 +591,11 @@ PrefabInstance:
         type: 3}
       propertyPath: fullName.isSet
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365188690582664974, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
+        type: 3}
+      propertyPath: logLevel
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06b5ed18425c6a14c86e62653ccf5fd2, type: 3}

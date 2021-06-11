@@ -4,12 +4,29 @@ using UnityEngine;
 
 public class PauseButtonBehavior : MonoBehaviour
 {
-	public GameObject pauseMenu;
+    public GameObject pauseMenu;
+    public GameBehavior gameBehavior;
 
-	public void OnClick()
-	{
-		gameObject.SetActive(false);
-		pauseMenu.SetActive(true);
-		Time.timeScale = 0.0f;
-	}
+    public void Update()
+    {
+        if (Input.GetButtonUp("Cancel"))
+        {
+            Pause();
+        }
+    }
+
+    public void OnClick()
+    {
+        Pause();
+    }
+
+    protected void Pause()
+    {
+        if(gameBehavior) {
+            gameBehavior.Pause();
+        }
+        gameObject.SetActive(false);
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0.0f;
+    }
 }

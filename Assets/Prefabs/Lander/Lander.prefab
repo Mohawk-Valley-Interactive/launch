@@ -422,7 +422,7 @@ MonoBehaviour:
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   dangerColor: {r: 1, g: 0, b: 0, a: 1}
   angleOfApproachThreshold: 10
-  horizontalSpeedThreshold: 10
+  velocityThreshold: 1
   verticalSpeedThreshold: 10
   lowFuelThreshold: 250
   fuelNearEmptyThreshold: 100
@@ -440,9 +440,9 @@ MonoBehaviour:
   thrusterParticleSystem: {fileID: 2466927073208223592}
   fuelGuageText: {fileID: 0}
   altitudeGuageText: {fileID: 0}
-  horizontalSpeedGuageText: {fileID: 0}
-  verticalSpeedGuageText: {fileID: 0}
+  velocityGuageText: {fileID: 0}
   angleOfApproachGuageText: {fileID: 0}
+  ceiling: 500
 --- !u!50 &2466927072824576261
 Rigidbody2D:
   serializedVersion: 4

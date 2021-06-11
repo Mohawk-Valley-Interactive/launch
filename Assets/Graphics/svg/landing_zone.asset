@@ -1,0 +1,268 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35648741dd5b14baa82bec08abfe7457, type: 3}
+  m_Name: landing_zone
+  m_EditorClassIdentifier: 
+  _lastTimeModified: 637562748324725494
+  _documentAsset: {fileID: 4384317925072140517}
+  _sharedMesh: {fileID: 0}
+  _antialiasing: 1
+  _generateCollider: 1
+  _keepSVGFile: 0
+  _ignoreSVGCanvas: 1
+  _colliderShape:
+  - points:
+    - {x: 0.896, y: 0.062000003}
+    - {x: 0.919, y: 0.027}
+    - {x: 0.887, y: 0}
+    - {x: 0.031000001, y: 0}
+    - {x: 0.022000002, y: 0.001}
+    - {x: 0, y: 0.036000002}
+    - {x: 0.031000001, y: 0.063}
+    - {x: 0.887, y: 0.063}
+    bounds:
+      serializedVersion: 2
+      x: 0
+      y: 0.896
+      width: 0.919
+      height: 0.874
+  _format: 1
+  _useGradients: 1
+  _meshCompression: 0
+  _optimizeMesh: 1
+  _generateNormals: 0
+  _generateTangents: 0
+  _scale: 0.01
+  _vpm: 1000
+  _depthOffset: 0.01
+  _compressDepth: 1
+  _pivotPoint: {x: 0, y: 1}
+  _customPivotPoint: 0
+  _border: {x: 0, y: 0, z: 0, w: 0}
+  _sliceMesh: 0
+  _sharedGradients: []
+  _sharedShaders:
+  - SVG Importer/SolidColor/SolidColorAlphaBlendedAntialiased
+  _canvasRectangle:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 81.92
+    height: 12.7699995
+  _useLayers: 1
+  _layers:
+  - name: line95
+    shapes:
+    - type: 2
+      vertices:
+      - {x: 0.88766, y: 0}
+      - {x: 0.8966503, y: 0.06270027}
+      - {x: 0.91932964, y: 0.027459621}
+      - {x: 0.88766, y: 0.06398964}
+      - {x: 0.031670094, y: 0}
+      - {x: 0.022680283, y: 0.0012893677}
+      - {x: 0.031670094, y: 0.06398964}
+      - {x: 0, y: 0.036530018}
+      triangles: 000000000100000002000000000000000300000001000000040000000300000000000000050000000300000004000000050000000600000003000000060000000500000007000000
+      colors: []
+      angles: []
+      depth: 0
+      bounds:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0.91932964
+        height: 0.06398964
+      fill:
+        fillType: 0
+        blend: 0
+        gradientType: 0
+        color:
+          serializedVersion: 2
+          rgba: 4293918579
+        opacity: 1
+        viewport:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0.01
+          height: 0.01
+        transform:
+          a: 0
+          b: 0
+          c: -0
+          d: -0
+          e: 0
+          f: 0
+        gradientId: 
+        gradientColors:
+          colorKeys: []
+          alphaKeys: []
+          index: 0
+    - type: 3
+      vertices:
+      - {x: 0.8966503, y: 0.06270027}
+      - {x: 0.8966503, y: 0.06270027}
+      - {x: 0.91932964, y: 0.027459621}
+      - {x: 0.91932964, y: 0.027459621}
+      - {x: 0.91932964, y: 0.027459621}
+      - {x: 0.88766, y: 0}
+      - {x: 0.88766, y: 0}
+      - {x: 0.88766, y: 0}
+      - {x: 0.031670094, y: 0}
+      - {x: 0.031670094, y: 0}
+      - {x: 0.031670094, y: 0}
+      - {x: 0.022680283, y: 0.0012893677}
+      - {x: 0.022680283, y: 0.0012893677}
+      - {x: 0.022680283, y: 0.0012893677}
+      - {x: 0, y: 0.036530018}
+      - {x: 0, y: 0.036530018}
+      - {x: 0, y: 0.036530018}
+      - {x: 0.031670094, y: 0.06398964}
+      - {x: 0.031670094, y: 0.06398964}
+      - {x: 0.031670094, y: 0.06398964}
+      - {x: 0.88766, y: 0.06398964}
+      - {x: 0.88766, y: 0.06398964}
+      - {x: 0.88766, y: 0.06398964}
+      - {x: 0.8966503, y: 0.06270027}
+      - {x: 0.8966503, y: 0.06270027}
+      - {x: 0.8966503, y: 0.06270027}
+      triangles: 0200000003000000000000000000000001000000020000000400000003000000020000000500000006000000030000000300000004000000050000000700000006000000050000000800000009000000060000000600000007000000080000000a00000009000000080000000b0000000c00000009000000090000000a0000000b0000000d0000000c0000000b0000000e0000000f0000000c0000000c0000000d0000000e000000100000000f0000000e00000011000000120000000f0000000f0000001000000011000000130000001200000011000000140000001500000012000000120000001300000014000000160000001500000014000000170000001800000015000000150000001600000017000000190000001800000017000000
+      colors:
+      - serializedVersion: 2
+        rgba: 4294967295
+      - serializedVersion: 2
+        rgba: 16777215
+      - serializedVersion: 2
+        rgba: 16777215
+      - serializedVersion: 2
+        rgba: 4294967295
+      - serializedVersion: 2
+        rgba: 16777215
+      - serializedVersion: 2
+        rgba: 16777215
+      - serializedVersion: 2
+        rgba: 4294967295
+      - serializedVersion: 2
+        rgba: 16777215
+      - serializedVersion: 2
+        rgba: 16777215
+      - serializedVersion: 2
+        rgba: 4294967295
+      - serializedVersion: 2
+        rgba: 16777215
+      - serializedVersion: 2
+        rgba: 16777215
+      - serializedVersion: 2
+        rgba: 4294967295
+      - serializedVersion: 2
+        rgba: 16777215
+      - serializedVersion: 2
+        rgba: 16777215
+      - serializedVersion: 2
+        rgba: 4294967295
+      - serializedVersion: 2
+        rgba: 16777215
+      - serializedVersion: 2
+        rgba: 16777215
+      - serializedVersion: 2
+        rgba: 4294967295
+      - serializedVersion: 2
+        rgba: 16777215
+      - serializedVersion: 2
+        rgba: 16777215
+      - serializedVersion: 2
+        rgba: 4294967295
+      - serializedVersion: 2
+        rgba: 16777215
+      - serializedVersion: 2
+        rgba: 16777215
+      - serializedVersion: 2
+        rgba: 4294967295
+      - serializedVersion: 2
+        rgba: 16777215
+      angles:
+      - {x: 0, y: -0}
+      - {x: 0.8409424, y: 0.5411377}
+      - {x: 0.8409424, y: 0.5411377}
+      - {x: 0, y: -0}
+      - {x: 0.65515137, y: -0.75549316}
+      - {x: 0.65515137, y: -0.75549316}
+      - {x: 0, y: -0}
+      - {x: 0, y: -1}
+      - {x: 0, y: -1}
+      - {x: 0, y: -0}
+      - {x: -0.14196777, y: -0.98986816}
+      - {x: -0.14196777, y: -0.98986816}
+      - {x: 0, y: -0}
+      - {x: -0.8409424, y: -0.5411377}
+      - {x: -0.8409424, y: -0.5411377}
+      - {x: 0, y: -0}
+      - {x: -0.65515137, y: 0.75549316}
+      - {x: -0.65515137, y: 0.75549316}
+      - {x: 0, y: -0}
+      - {x: 0, y: 1}
+      - {x: 0, y: 1}
+      - {x: 0, y: -0}
+      - {x: 0.14196777, y: 0.98986816}
+      - {x: 0.14196777, y: 0.98986816}
+      - {x: 0, y: -0}
+      - {x: 0.8409424, y: 0.5411377}
+      depth: 0
+      bounds:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0.91932964
+        height: 0.06398964
+      fill:
+        fillType: 0
+        blend: 1
+        gradientType: 0
+        color:
+          serializedVersion: 2
+          rgba: 4293918579
+        opacity: 1
+        viewport:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0.01
+          height: 0.01
+        transform:
+          a: 0
+          b: 0
+          c: -0
+          d: -0
+          e: 0
+          f: 0
+        gradientId: 
+        gradientColors:
+          colorKeys: []
+          alphaKeys: []
+          index: 0
+--- !u!114 &4384317925072140517
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 363e9872ad27a4ca59c07d233fdf0023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _errors: 
+  _svgFile: 
+  _title: 
+  _description: 

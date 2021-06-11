@@ -7,204 +7,234 @@ using UnityEngine.UI;
 
 public class GameBehavior : MonoBehaviour
 {
-	[Header("General")]
-	public CameraBehavior cam;
-	public LanderBehaviour lander;
-	public LandscapeGeneratorBehavior landscapeGenerator;
-	[Space(5)]
+    [Header("General")]
+    public CameraBehavior cam;
+    public LanderBehaviour lander;
+    public LandscapeGeneratorBehavior landscapeGenerator;
+    [Space(5)]
 
-	[Header("UI Gauges")]
-	public Text scoreGuageText;
-	public Text timeGuageText;
-	public Text levelCompleteScreen;
-	public Text continueText;
-	public GameObject levelCompletePanel;
-	public GameObject continuePanel;
-	[Space(5)]
+    [Header("UI Gauges")]
+    public Text scoreGuageText;
+    public Text timeGuageText;
+    public Text levelCompleteScreen;
+    public Text continueText;
+    public GameObject levelCompletePanel;
+    public GameObject continuePanel;
+    [Space(5)]
 
-	[Header("Feature Flags")]
-	public string gravityFeatureFlagName = "gravity";
-	public float defaultGravityValue = -1.62f;
-	[Space(1)]
-	public string failedLandingFlavorTextFlagName = "failed-landing-flavor-text";
-	public string[] defaultFailedLandingFlavorText = { "Flavor text belongs here..." };
-	private string[] flavorText = { "flavor text unset" };
-	[Space(1)]
-	public string additionalFuelFlagName = "fuel-reward";
-	public float defaultFuelReward = 50.0f;
-	public float fuelReward = 50.0f;
+    [Header("Feature Flags")]
+    public string gravityFeatureFlagName = "gravity";
+    public float defaultGravityValue = -1.62f;
+    [Space(1)]
+    public string failedLandingFlavorTextFlagName = "failed-landing-flavor-text";
+    public string[] defaultFailedLandingFlavorText = { "Flavor text belongs here..." };
+    private string[] flavorText = { "flavor text unset" };
+    [Space(1)]
+    public string additionalFuelFlagName = "fuel-reward";
+    public float defaultFuelReward = 50.0f;
+    public float fuelReward = 50.0f;
 
 
-	void Start()
-	{
-		continueText.gameObject.SetActive(false);
-		levelCompleteScreen.gameObject.SetActive(false);
-		continuePanel.SetActive(false);
-		levelCompletePanel.SetActive(false);
+    void Start()
+    {
+        continueText.gameObject.SetActive(false);
+        levelCompleteScreen.gameObject.SetActive(false);
+        continuePanel.SetActive(false);
+        levelCompletePanel.SetActive(false);
 
-		LaunchDarklyClientBehavior.Instance.RegisterFeatureFlagChangedCallback(gravityFeatureFlagName, LdValue.Of(defaultGravityValue), OnGravityFeatureFlagChanged, true);
-		LaunchDarklyClientBehavior.Instance.RegisterFeatureFlagChangedCallback(additionalFuelFlagName, LdValue.Of(defaultFuelReward), OnFuelRewardFeatureFlagChanged, true);
-		LaunchDarklyClientBehavior.Instance.RegisterFeatureFlagChangedCallback(failedLandingFlavorTextFlagName, MakeLdValueFromStringArray(defaultFailedLandingFlavorText), OnFailedLandingFlavorTextFeatureFlagChanged, true);
-	}
+        LaunchDarklyClientBehavior.Instance.RegisterFeatureFlagChangedCallback(gravityFeatureFlagName, LdValue.Of(defaultGravityValue), OnGravityFeatureFlagChanged, true);
+        LaunchDarklyClientBehavior.Instance.RegisterFeatureFlagChangedCallback(additionalFuelFlagName, LdValue.Of(defaultFuelReward), OnFuelRewardFeatureFlagChanged, true);
+        LaunchDarklyClientBehavior.Instance.RegisterFeatureFlagChangedCallback(failedLandingFlavorTextFlagName, MakeLdValueFromStringArray(defaultFailedLandingFlavorText), OnFailedLandingFlavorTextFeatureFlagChanged, true);
+    }
 
-	void Update()
-	{
-		if (!isLevelComplete)
-		{
-			if (isTimerActive)
-			{
-				time += Time.deltaTime;
-				UpdateTimeUI();
-			}
-		}
-		else
-		{
-			if (hasReleasedThrottle && Input.GetAxis(lander.ThrustAxisName) != 0)
-			{
-				StartNextRound();
-				isLevelComplete = false;
-			}
-			hasReleasedThrottle = Input.GetAxis(lander.ThrustAxisName) == 0;
-		}
-	}
+    void Update()
+    {
+        if (!isLevelComplete)
+        {
+            if (isTimerActive)
+            {
+                time += Time.deltaTime;
+                UpdateTimeUI();
+            }
+        }
+        else
+        {
+            if (hasReleasedThrottle && Input.GetAxis(lander.ThrustAxisName) != 0)
+            {
+                StartNextRound();
+                isLevelComplete = false;
+            }
+            hasReleasedThrottle = Input.GetAxis(lander.ThrustAxisName) == 0;
+        }
+    }
 
-	public void OnSuccessfulLanding(LanderBehaviour lander, float multiplier)
-	{
-		isLevelComplete = true;
-		int points = (int)(50.0f * multiplier);
-		totalPoints += points;
-		isTimerActive = false;
+    public void Resume()
+    {
+        if (isLevelComplete)
+        {
+            ShowEndGamePanels();
+        }
+    }
 
-		lander.ModifyFuel(fuelReward);
+    public void Pause()
+    {
+        if (isLevelComplete)
+        {
+            HideEndGamePanels();
+        }
+    }
 
-		UpdateScoreUI();
-		ShowSuccessScreen(points);
-	}
+    public void OnSuccessfulLanding(LanderBehaviour lander, float multiplier)
+    {
+        isLevelComplete = true;
+        int points = (int)(50.0f * multiplier);
+        totalPoints += points;
+        isTimerActive = false;
 
-	public void OnCrashLanding(LanderBehaviour lander)
-	{
-		isLevelComplete = true;
-		isTimerActive = false;
-		int fuelDeducted = (int)((Random.value * 200.0f) + 200.0f);
-		lander.ModifyFuel(-fuelDeducted);
+        lander.ModifyFuel(fuelReward);
 
-		if (lander.Fuel < 1)
-		{
-			ShowGameOverScreen();
-		}
-		else
-		{
-			ShowFailureScreen(fuelDeducted);
-		}
-	}
+        UpdateScoreUI();
+        ShowSuccessScreen(points);
+    }
 
-	private void StartNextRound()
-	{
-		bool isGameOver = lander.Fuel <= 0;
-		if (isGameOver)
-		{
-			SceneManager.LoadScene("LaunchScene");
-			totalPoints = 0;
-			time = 0;
-		}
+    public void OnCrashLanding(LanderBehaviour lander)
+    {
+        isLevelComplete = true;
+        isTimerActive = false;
+        int fuelDeducted = (int)((Random.value * 200.0f) + 200.0f);
+        lander.ModifyFuel(-fuelDeducted);
 
-		isTimerActive = true;
-		continuePanel.SetActive(false);
-		levelCompletePanel.SetActive(false);
-		continueText.gameObject.SetActive(false);
-		levelCompleteScreen.gameObject.SetActive(false);
+        if (lander.Fuel < 1)
+        {
+            ShowGameOverScreen();
+        }
+        else
+        {
+            ShowFailureScreen(fuelDeducted);
+        }
+    }
 
-		UpdateScoreUI();
+    private void StartNextRound()
+    {
+        bool isGameOver = lander.Fuel <= 0;
+        if (isGameOver)
+        {
+            SceneManager.LoadScene("LaunchScene");
+            totalPoints = 0;
+            time = 0;
+        }
 
-		cam.ResetCamera();
-		lander.ResetLander(isGameOver);
-		landscapeGenerator.IncrementLevel(isGameOver);
-	}
+        isTimerActive = true;
+        HideEndGamePanels();
 
-	private void UpdateScoreUI()
-	{
-		const string scorePrecision = "D9";
-		scoreGuageText.text = totalPoints.ToString(scorePrecision);
-	}
+        UpdateScoreUI();
 
-	private void ShowSuccessScreen(int points)
-	{
-		continuePanel.SetActive(true);
-		levelCompletePanel.SetActive(true);
-		continueText.gameObject.SetActive(true);
-		levelCompleteScreen.gameObject.SetActive(true);
-		levelCompleteScreen.text = "Congrats!\nPerfect Landing\n" + points + " points";
-	}
+        cam.ResetCamera();
+        lander.ResetLander(isGameOver);
+        //landscapeGenerator.IncrementLevel(isGameOver);
+    }
 
-	private void ShowFailureScreen(int fuelDeducted)
-	{
-		continuePanel.SetActive(true);
-		levelCompletePanel.SetActive(true);
-		continueText.gameObject.SetActive(true);
-		levelCompleteScreen.gameObject.SetActive(true);
+    private void ShowEndGamePanels()
+    {
+        continuePanel.SetActive(true);
+        levelCompletePanel.SetActive(true);
+        continueText.gameObject.SetActive(true);
+        levelCompleteScreen.gameObject.SetActive(true);
+    }
 
-		string message = flavorText[Random.Range(0, flavorText.Length)];
-		message += "\nauxiliary fuel tanks destroyed\n" + fuelDeducted + " fuel units lost";
-		levelCompleteScreen.text = message;
-	}
+    private void HideEndGamePanels()
+    {
+        continuePanel.SetActive(false);
+        levelCompletePanel.SetActive(false);
+        continueText.gameObject.SetActive(false);
+        levelCompleteScreen.gameObject.SetActive(false);
+    }
 
-	private void ShowGameOverScreen()
-	{
-		continuePanel.SetActive(true);
-		levelCompletePanel.SetActive(true);
-		continueText.gameObject.SetActive(true);
-		levelCompleteScreen.gameObject.SetActive(true);
+    private void UpdateScoreUI()
+    {
+        const string scorePrecision = "D9";
+        scoreGuageText.text = totalPoints.ToString(scorePrecision);
+    }
 
-		levelCompleteScreen.text = "out of fuel\nFIN\n\ntime: " + getTimeString() + "\nscore: " + totalPoints.ToString();
-	}
+    private void ShowSuccessScreen(int points)
+    {
+        continuePanel.SetActive(true);
+        levelCompletePanel.SetActive(true);
+        continueText.gameObject.SetActive(true);
+        levelCompleteScreen.gameObject.SetActive(true);
+        levelCompleteScreen.text = "Congrats!\nPerfect Landing\n" + points + " points";
+    }
 
-	private void UpdateTimeUI()
-	{
-		timeGuageText.text = getTimeString();
-	}
+    private void ShowFailureScreen(int fuelDeducted)
+    {
+        continuePanel.SetActive(true);
+        levelCompletePanel.SetActive(true);
+        continueText.gameObject.SetActive(true);
+        levelCompleteScreen.gameObject.SetActive(true);
 
-	private string getTimeString()
-	{
-		const string timePrecision = "D2";
-		return ((int)(time / 60)).ToString(timePrecision) + ":" + ((int)(time % 60)).ToString(timePrecision);
-	}
+        string message = flavorText[Random.Range(0, flavorText.Length)];
+        message += "\nauxiliary fuel tanks destroyed\n" + fuelDeducted + " fuel units lost";
+        levelCompleteScreen.text = message;
+    }
 
-	// BEGIN - Feature flag support
-	private LdValue MakeLdValueFromStringArray(string[] stringArray)
-	{
-		LdValue.ArrayBuilder arrayBuilder = LdValue.BuildArray();
-		foreach (string s in stringArray)
-		{
-			arrayBuilder.Add(s);
-		}
+    private void ShowGameOverScreen()
+    {
+        continuePanel.SetActive(true);
+        levelCompletePanel.SetActive(true);
+        continueText.gameObject.SetActive(true);
+        levelCompleteScreen.gameObject.SetActive(true);
 
-		return arrayBuilder.Build();
-	}
+        levelCompleteScreen.text = "out of fuel\nFIN\n\ntime: " + getTimeString() + "\nscore: " + totalPoints.ToString();
+    }
 
-	private void OnFuelRewardFeatureFlagChanged(LdValue value)
-	{
-		fuelReward = value.AsFloat;
-	}
+    private void UpdateTimeUI()
+    {
+        timeGuageText.text = getTimeString();
+    }
 
-	private void OnGravityFeatureFlagChanged(LdValue value)
-	{
-		Physics2D.gravity = new Vector2(0.0f, -value.AsFloat);
-	}
+    private string getTimeString()
+    {
+        const string timePrecision = "D2";
+        return ((int)(time / 60)).ToString(timePrecision) + ":" + ((int)(time % 60)).ToString(timePrecision);
+    }
 
-	private void OnFailedLandingFlavorTextFeatureFlagChanged(LdValue value)
-	{
-		IReadOnlyList<string> strings = value.AsList(LdValue.Convert.String);
-		flavorText = new string[strings.Count];
-		for(int i = 0; i < strings.Count; i++)
-		{
-			flavorText[i] = strings[i];	
-		}
-	}
-	// END - Feature flag support
+    // BEGIN - Feature flag support
+    private LdValue MakeLdValueFromStringArray(string[] stringArray)
+    {
+        LdValue.ArrayBuilder arrayBuilder = LdValue.BuildArray();
+        foreach (string s in stringArray)
+        {
+            arrayBuilder.Add(s);
+        }
 
-	private bool hasReleasedThrottle = false;
-	private bool isLevelComplete = false;
-	private bool isTimerActive = true;
-	private int totalPoints = 0;
-	private float time = 0;
+        return arrayBuilder.Build();
+    }
+
+    private void OnFuelRewardFeatureFlagChanged(LdValue value)
+    {
+        fuelReward = value.AsFloat;
+    }
+
+    private void OnGravityFeatureFlagChanged(LdValue value)
+    {
+        Physics2D.gravity = new Vector2(0.0f, -value.AsFloat);
+    }
+
+    private void OnFailedLandingFlavorTextFeatureFlagChanged(LdValue value)
+    {
+        IReadOnlyList<string> strings = value.AsList(LdValue.Convert.String);
+        flavorText = new string[strings.Count];
+        for (int i = 0; i < strings.Count; i++)
+        {
+            flavorText[i] = strings[i];
+        }
+    }
+    // END - Feature flag support
+
+    private bool hasReleasedThrottle = false;
+    private bool isLevelComplete = false;
+    private bool isTimerActive = true;
+    private int totalPoints = 0;
+    private float time = 0;
+
 }

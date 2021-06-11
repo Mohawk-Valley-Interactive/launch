@@ -17,6 +17,7 @@ public class LaunchDarklyInterfaceBehavior : ILaunchDarklyUserAttributeProviderB
 		if (!LaunchDarklyClientBehavior.IsInitialized)
 		{
 			InitializeLdClient();
+			Debug.LogWarning("LaunchDarklyInterfaceBehavior::InitializeLdClient called.");
 		}
 	}
 

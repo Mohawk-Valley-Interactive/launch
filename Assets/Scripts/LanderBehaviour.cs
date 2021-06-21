@@ -7,316 +7,344 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody2D))]
 public class LanderBehaviour : MonoBehaviour
 {
-    [Header("Support GameObjects")]
-    public Transform spawnPoint = null;
-    public GameBehavior gameBehavior = null;
-    [Space(10)]
+	[Header("Support GameObjects")]
+	public Transform spawnPoint = null;
+	public GameBehavior gameBehavior = null;
+	[Space(10)]
 
-    [Header("Handling")]
-    public float thrust = 1.0f;
-    public float maxVelocity = 10.0f;
-    public float rotationSensitivity = 1.0f;
-    [Space(10)]
+	[Header("Handling")]
+	public float thrust = 1.0f;
+	public float maxVelocity = 10.0f;
+	public float rotationSensitivity = 1.0f;
+	[Space(10)]
 
-    [Header("World Settings")]
-    public Vector2 initialVelocity = new Vector2();
-    public float initialFuel = 3500.0f;
-    [Space(10)]
+	[Header("World Settings")]
+	public Vector2 initialVelocity = new Vector2();
+	public float initialFuel = 3500.0f;
+	[Space(10)]
 
-    [Header("Landing Requirements")]
-    public Color normalColor = Color.white;
-    public Color dangerColor = Color.red;
-    public int angleOfApproachThreshold = 0;
-    public int velocityThreshold = 1;
-    public int verticalSpeedThreshold = 1;
-    public int lowFuelThreshold = 250;
-    public int fuelNearEmptyThreshold = 100;
-    public int fuelEmergencyThreshold = 50;
-    [Space(10)]
+	[Header("Landing Requirements")]
+	public Color normalColor = Color.white;
+	public Color dangerColor = Color.red;
+	public int angleOfApproachThreshold = 0;
+	public int lowAltitudeThreshold = 250;
+	public int velocityThreshold = 1;
+	public int verticalSpeedThreshold = 1;
+	public int lowFuelThreshold = 250;
+	public int fuelNearEmptyThreshold = 100;
+	public int fuelEmergencyThreshold = 50;
+	[Space(10)]
 
-    [Header("Audio & Visuals")]
-    public GameObject landerAvatar;
-    [Space(5)]
-    public AudioSource successfulLandingSound;
-    public float fuelNearEmptyDelay = 0.5f;
-    public float fuelEmergencyDelay = 0.25f;
-    public float lowFuelChimeDelay = 1.0f;
-    public AudioSource lowFuelSound;
-    public AudioSource explosionSound;
-    public ParticleSystem explosionParticleSystem;
-    [Space(5)]
-    public float thrustSoundRamp = 0.1f;
-    public AudioSource thrustSound;
-    public ParticleSystem thrusterParticleSystem;
-    [Space(10)]
+	[Header("Audio & Visuals")]
+	public GameObject landerAvatar;
+	[Space(5)]
+	public AudioSource successfulLandingSound;
+	public float fuelNearEmptyDelay = 0.5f;
+	public float fuelEmergencyDelay = 0.25f;
+	public float lowFuelChimeDelay = 1.0f;
+	public AudioSource lowFuelSound;
+	public AudioSource explosionSound;
+	public ParticleSystem explosionParticleSystem;
+	[Space(5)]
+	public float thrustSoundRamp = 0.1f;
+	public AudioSource thrustSound;
+	public ParticleSystem thrusterParticleSystem;
+	[Space(10)]
 
-    [Header("UI")]
-    public Text fuelGuageText;
-    public Text altitudeGuageText;
-    public Text velocityGuageText;
-    public Text angleOfApproachGuageText;
+	[Header("UI")]
+	public Text fuelGuageText;
+	public Text altitudeGuageText;
+	public Text velocityGuageText;
+	public Text angleOfApproachGuageText;
 
-    public string RotationAxisName { get => rotationAxisName; }
-    public string ThrustAxisName { get => thrustAxisName; }
-    public float Altitude { get => altitude; }
-    public float Fuel { get => fuel; }
-    public bool HasCrashed { get => hasCrashed; }
-    public bool HasLanded { get => hasLanded; }
-    public int LandingMultiplier { get => landingMultiplier; }
+	public MusicPlayerBehavior musicPlayer;
 
-    public float ceiling = 500.0f;
+	public string RotationAxisName { get => rotationAxisName; }
+	public string ThrustAxisName { get => thrustAxisName; }
+	public float Altitude { get => altitude; }
+	public float Fuel { get => fuel; }
+	public bool HasCrashed { get => hasCrashed; }
+	public bool HasLanded { get => hasLanded; }
+	public int LandingMultiplier { get => landingMultiplier; }
 
-    public void ModifyFuel(float fuel)
-    {
-        this.fuel += fuel;
-    }
+	public float ceiling = 500.0f;
 
-    public bool HasRunFirstUpdate() {
-        return hasRunFirstUpdate;
-    }
+	public void ModifyFuel(float fuel)
+	{
+		this.fuel += fuel;
+	}
 
-    public void ResetLander(bool isGameOver)
-    {
-        RepositionToSpawnPoint();
-        hasLanded = false;
-        hasCrashed = false;
-        rigidbodyComponent.simulated = true;
-        rigidbodyComponent.velocity = initialVelocity;
-        rigidbodyComponent.angularVelocity = 0.0f;
-        landerAvatar.SetActive(true);
+	public bool HasRunFirstUpdate()
+	{
+		return hasRunFirstUpdate;
+	}
 
-        if (isGameOver)
-        {
-            fuel = initialFuel;
-        }
-    }
+	public void ResetLander(bool isGameOver)
+	{
+		RepositionToSpawnPoint();
+		hasLanded = false;
+		hasCrashed = false;
+		rigidbodyComponent.simulated = true;
+		rigidbodyComponent.velocity = initialVelocity;
+		rigidbodyComponent.angularVelocity = 0.0f;
+		landerAvatar.SetActive(true);
 
-    void Start()
-    {
-        if (spawnPoint)
-        {
-            RepositionToSpawnPoint();
-        }
+		if (isGameOver)
+		{
+			fuel = initialFuel;
+		}
+	}
 
-        rigidbodyComponent = GetComponent<Rigidbody2D>();
-        rigidbodyComponent.velocity = initialVelocity;
+	void Start()
+	{
+		if (spawnPoint)
+		{
+			RepositionToSpawnPoint();
+		}
 
-        fuel = initialFuel;
+		rigidbodyComponent = GetComponent<Rigidbody2D>();
+		rigidbodyComponent.velocity = initialVelocity;
 
-        if (thrustSound)
-        {
-            thrustSound.volume = 0;
-            thrustSound.Play();
-        }
+		fuel = initialFuel;
 
-    }
+		if (thrustSound)
+		{
+			thrustSound.volume = 0;
+			thrustSound.Play();
+		}
 
-    void Update()
-    {
-        if (hasCrashed || hasLanded)
-        {
-            return;
-        }
+	}
 
-        bool isThrusting = Input.GetAxis(thrustAxisName) != 0.0f && fuel > 0.0f;
-        if (thrustSound)
-        {
-            if (isThrusting && thrustSound.volume < 1.0f)
-            {
-                thrustSound.volume = Mathf.Min(thrustSound.volume + (thrustSoundRamp * Time.deltaTime), 1.0f);
-            }
-            else if (!isThrusting && thrustSound.volume > 0.0f)
-            {
-                thrustSound.volume = Mathf.Max(thrustSound.volume - (thrustSoundRamp * Time.deltaTime), 0.0f);
-            }
-        }
+	void Update()
+	{
+		if (hasCrashed || hasLanded)
+		{
+			return;
+		}
 
-        if (fuel < lowFuelThreshold)
-        {
-            if (timeSinceLastFuelChime < 0)
-            {
-                lowFuelSound.Play();
-                if (fuel < fuelEmergencyThreshold)
-                {
-                    timeSinceLastFuelChime = fuelEmergencyDelay;
-                }
-                else if (fuel < fuelNearEmptyThreshold)
-                {
-                    timeSinceLastFuelChime = fuelNearEmptyDelay;
-                }
-                else
-                {
-                    timeSinceLastFuelChime = lowFuelChimeDelay;
-                }
-            }
-            else
-            {
-                timeSinceLastFuelChime -= Time.deltaTime;
-            }
-        }
+		bool isThrusting = Input.GetAxis(thrustAxisName) != 0.0f && fuel > 0.0f;
+		if (thrustSound)
+		{
+			if (isThrusting && thrustSound.volume < 1.0f)
+			{
+				thrustSound.volume = Mathf.Min(thrustSound.volume + (thrustSoundRamp * Time.deltaTime), 1.0f);
+			}
+			else if (!isThrusting && thrustSound.volume > 0.0f)
+			{
+				thrustSound.volume = Mathf.Max(thrustSound.volume - (thrustSoundRamp * Time.deltaTime), 0.0f);
+			}
+		}
 
-        if (thrusterParticleSystem)
-        {
-            if (isThrusting && !thrusterParticleSystem.isEmitting)
-            {
-                thrusterParticleSystem.Play();
-            }
-            if (!isThrusting && thrusterParticleSystem.isEmitting)
-            {
-                thrusterParticleSystem.Stop();
-            }
-        }
+		if (fuel < lowFuelThreshold)
+		{
+			if (timeSinceLastFuelChime < 0)
+			{
+				lowFuelSound.Play();
+				if (musicPlayer)
+				{
+					musicPlayer.OnLowFuel();
+				}
+			}
+		}
 
-        hasRunFirstUpdate = true;
+		if (thrusterParticleSystem)
+		{
+			if (isThrusting && !thrusterParticleSystem.isEmitting)
+			{
+				thrusterParticleSystem.Play();
+			}
+			if (!isThrusting && thrusterParticleSystem.isEmitting)
+			{
+				thrusterParticleSystem.Stop();
+			}
+		}
 
-        UpdateUiElements();
-    }
+		hasRunFirstUpdate = true;
 
-    void FixedUpdate()
-    {
-        if (hasCrashed || hasLanded)
-        {
-            return;
-        }
+		UpdateMusic();
+		UpdateUiElements();
+	}
 
-        if (transform.position.y > ceiling)
-        {
-            transform.position = new Vector2(transform.position.x, ceiling);
-            rigidbodyComponent.velocity = new Vector2(rigidbodyComponent.velocity.x, 0.0f);
-        }
+	void FixedUpdate()
+	{
+		if (hasCrashed || hasLanded)
+		{
+			return;
+		}
 
-        CalculateStats();
+		if (transform.position.y > ceiling)
+		{
+			transform.position = new Vector2(transform.position.x, ceiling);
+			rigidbodyComponent.velocity = new Vector2(rigidbodyComponent.velocity.x, 0.0f);
+		}
 
-        float actualThrust = fuel > 0.0f ? Input.GetAxis(thrustAxisName) * thrust * Time.fixedDeltaTime : 0.0f;
-        fuel -= actualThrust;
-        rigidbodyComponent.AddRelativeForce(new Vector2(0.0f, actualThrust * 100.0f));
+		CalculateStats();
 
-        rigidbodyComponent.angularVelocity = rigidbodyComponent.angularVelocity + Input.GetAxis(rotationAxisName) * -rotationSensitivity;
-        rigidbodyComponent.rotation = rigidbodyComponent.rotation > 360.0f ? rigidbodyComponent.rotation - 360.0f :
-            rigidbodyComponent.rotation < 0.0f ? rigidbodyComponent.rotation + 360.0f : rigidbodyComponent.rotation;
-    }
+		float actualThrust = fuel > 0.0f ? Input.GetAxis(thrustAxisName) * thrust * Time.fixedDeltaTime : 0.0f;
+		fuel -= actualThrust;
+		rigidbodyComponent.AddRelativeForce(new Vector2(0.0f, actualThrust * 100.0f));
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (hasCrashed || hasLanded)
-        {
-            return;
-        }
+		rigidbodyComponent.angularVelocity = rigidbodyComponent.angularVelocity + Input.GetAxis(rotationAxisName) * -rotationSensitivity;
+		rigidbodyComponent.rotation = rigidbodyComponent.rotation > 360.0f ? rigidbodyComponent.rotation - 360.0f :
+		    rigidbodyComponent.rotation < 0.0f ? rigidbodyComponent.rotation + 360.0f : rigidbodyComponent.rotation;
+	}
 
-        bool isBadLanding = landingMultiplier == LandingZoneBehavior.DEFAULT_MULTIPLIER || isDangerousAngleOfApproach || isDangerousHorizontalVelocity;
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (hasCrashed || hasLanded)
+		{
+			return;
+		}
 
-        if (isBadLanding)
-        {
-            rigidbodyComponent.simulated = false;
-            if (explosionParticleSystem)
-            {
-                explosionParticleSystem.Play();
-            }
+		bool isBadLanding = landingMultiplier < LandingZoneBehavior.DEFAULT_MULTIPLIER || isDangerousAngleOfApproach || isDangerousVelocity;
 
-            if (explosionSound)
-            {
-                explosionSound.Play();
-            }
+		if (isBadLanding)
+		{
+			rigidbodyComponent.simulated = false;
+			if (explosionParticleSystem)
+			{
+				explosionParticleSystem.Play();
+			}
 
-            if (landerAvatar)
-            {
-                landerAvatar.SetActive(false);
-            }
+			if (explosionSound)
+			{
+				explosionSound.Play();
+			}
 
-            if (thrusterParticleSystem && thrusterParticleSystem.isEmitting)
-            {
-                thrusterParticleSystem.Stop();
-            }
+			if (landerAvatar)
+			{
+				landerAvatar.SetActive(false);
+			}
 
-            if (thrustSound)
-            {
-                thrustSound.volume = 0.0f;
-            }
+			if (thrusterParticleSystem && thrusterParticleSystem.isEmitting)
+			{
+				thrusterParticleSystem.Stop();
+			}
 
-            hasCrashed = true;
-            gameBehavior.OnCrashLanding(this);
-        }
-        else
-        {
-            hasLanded = true;
-            rigidbodyComponent.simulated = false;
-            successfulLandingSound.Play();
+			if (thrustSound)
+			{
+				thrustSound.volume = 0.0f;
+			}
 
-            gameBehavior.OnSuccessfulLanding(this, landingMultiplier);
-        }
-    }
+			hasCrashed = true;
+			gameBehavior.OnCrashLanding(this);
+		}
+		else
+		{
+			hasLanded = true;
+			rigidbodyComponent.simulated = false;
+			successfulLandingSound.Play();
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        LandingZoneBehavior lzb = collision.gameObject.GetComponent<LandingZoneBehavior>();
-        landingMultiplier = lzb.Multiplier;
-    }
+			gameBehavior.OnSuccessfulLanding(this, landingMultiplier);
+		}
+	}
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        landingMultiplier = LandingZoneBehavior.DEFAULT_MULTIPLIER;
-    }
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		LandingZoneBehavior lzb = collision.gameObject.GetComponent<LandingZoneBehavior>();
+		landingMultiplier = lzb.Multiplier;
+	}
 
-    private void CalculateStats()
-    {
-        velocity = Mathf.Abs((rigidbodyComponent.velocity.magnitude));
-        angleOfApproach = Mathf.Abs(Vector3.Angle(transform.up, Vector3.up));
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+		landingMultiplier = LandingZoneBehavior.DEFAULT_MULTIPLIER - 1;
+	}
 
-        Vector2 direction = new Vector2(0.0f, -1.0f);
-        List<RaycastHit2D> results = new List<RaycastHit2D>(2);
-        Physics2D.Raycast(transform.position, direction, new ContactFilter2D(), results);
-        if (results.Count > 1)
-        {
-            float distance = results[1].point.y - results[0].point.y;
-            altitude = Mathf.Abs(distance) - 1.0f;
-        }
-        else
-        {
-            altitude = Mathf.Infinity;
-        }
+	private void CalculateStats()
+	{
+		velocity = Mathf.Abs((rigidbodyComponent.velocity.magnitude));
+		angleOfApproach = Mathf.Abs(Vector3.Angle(transform.up, Vector3.up));
 
-        isDangerousHorizontalVelocity = velocity >= velocityThreshold;
-        isDangerousAngleOfApproach = angleOfApproach >= angleOfApproachThreshold;
-    }
+		Vector2 direction = new Vector2(0.0f, -1.0f);
+		List<RaycastHit2D> results = new List<RaycastHit2D>(2);
+		Physics2D.Raycast(transform.position, direction, new ContactFilter2D(), results);
+		if (results.Count > 1)
+		{
+			float distance = results[1].point.y - results[0].point.y;
+			altitude = Mathf.Abs(distance) - 1.0f;
+		}
+		else
+		{
+			altitude = Mathf.Infinity;
+		}
 
-    private void RepositionToSpawnPoint()
-    {
-        transform.position = spawnPoint.position;
-        transform.rotation = spawnPoint.rotation;
-    }
+		isDangerousVelocity = velocity >= velocityThreshold;
+		isDangerousAngleOfApproach = angleOfApproach >= angleOfApproachThreshold;
+		isLowAltitude = altitude < lowAltitudeThreshold;
+	}
 
-    private void UpdateUiElements()
-    {
-        const string fuelPrecision = "D4";
-        const string floatingPointPrecision = "F1";
+	private void RepositionToSpawnPoint()
+	{
+		transform.position = spawnPoint.position;
+		transform.rotation = spawnPoint.rotation;
+	}
 
-        fuelGuageText.text = ((int)fuel).ToString(fuelPrecision);
+	private void UpdateMusic()
+	{
+		if (musicPlayer == null)
+		{
+			return;
+		}
 
-        altitudeGuageText.text = altitude.ToString(floatingPointPrecision);
-        angleOfApproachGuageText.text = angleOfApproach.ToString(floatingPointPrecision);
-        velocityGuageText.text = velocity.ToString(floatingPointPrecision);
+		if (fuel < lowFuelThreshold)
+		{
+			musicPlayer.OnLowFuel();
+		}
+		if (isLowAltitude)
+		{
+			musicPlayer.onLowAltitudeEntered();
+			if (isDangerousAngleOfApproach || isDangerousVelocity)
+			{
+				musicPlayer.onBadAngleEntered();
+				musicPlayer.onHighVelocityEntered();
+			}
+			else
+			{
+				musicPlayer.onBadAngleExited();
+				musicPlayer.onHighVelocityExited();
+			}
+		}
+		else
+		{
+			musicPlayer.onLowAltitudeExited();
+			musicPlayer.onBadAngleExited();
+			musicPlayer.onHighVelocityExited();
+		}
+	}
 
-        fuelGuageText.color = fuel < lowFuelThreshold ? dangerColor : normalColor;
-        velocityGuageText.color = isDangerousHorizontalVelocity ? dangerColor : normalColor;
-        angleOfApproachGuageText.color = isDangerousAngleOfApproach ? dangerColor : normalColor;
-    }
+	private void UpdateUiElements()
+	{
+		const string fuelPrecision = "D4";
+		const string floatingPointPrecision = "F1";
 
-    private bool hasCrashed = false;
-    private bool hasLanded = false;
-    private bool isDangerousHorizontalVelocity = false;
-    private bool isDangerousAngleOfApproach = false;
+		fuelGuageText.text = ((int)fuel).ToString(fuelPrecision);
 
-    private Rigidbody2D rigidbodyComponent;
+		altitudeGuageText.text = altitude.ToString(floatingPointPrecision);
+		angleOfApproachGuageText.text = angleOfApproach.ToString(floatingPointPrecision);
+		velocityGuageText.text = velocity.ToString(floatingPointPrecision);
 
-    private const string rotationAxisName = "Rotate";
-    private const string thrustAxisName = "ApplyThrust";
-    private int landingMultiplier = LandingZoneBehavior.DEFAULT_MULTIPLIER;
-    private float timeSinceLastFuelChime;
-    private float fuel = 0;
-    private float altitude;
-    private float angleOfApproach;
-    private float velocity;
-    private float verticalSpeed;
+		fuelGuageText.color = fuel < lowFuelThreshold ? dangerColor : normalColor;
+		velocityGuageText.color = isDangerousVelocity ? dangerColor : normalColor;
+		angleOfApproachGuageText.color = isDangerousAngleOfApproach ? dangerColor : normalColor;
+	}
 
-    private bool hasRunFirstUpdate = false;
+	private bool hasCrashed = false;
+	private bool hasLanded = false;
+	private bool isDangerousVelocity = false;
+	private bool isDangerousAngleOfApproach = false;
+	private bool isLowAltitude = false;
+
+	private Rigidbody2D rigidbodyComponent;
+
+	private const string rotationAxisName = "Rotate";
+	private const string thrustAxisName = "ApplyThrust";
+	private int landingMultiplier = LandingZoneBehavior.DEFAULT_MULTIPLIER;
+	private float timeSinceLastFuelChime = 0.0f;
+	private float fuel = 0;
+	private float altitude;
+	private float angleOfApproach;
+	private float velocity;
+	private float verticalSpeed;
+
+	private bool hasRunFirstUpdate = false;
 }

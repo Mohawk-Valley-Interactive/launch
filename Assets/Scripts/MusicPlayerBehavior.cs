@@ -14,21 +14,23 @@ public class MusicPlayerBehavior : MonoBehaviour
 	{
 		public AudioSource audioSource;
 		public float volume;
+		public bool muteOnAwake;
 	}
 
 	public List<DefaultAudioVolume> defaultAudioVolumes = new List<DefaultAudioVolume>();
+	public List<AudioSource> muteOnAwake = new List<AudioSource>();
 
 	public void Start()
 	{
 		foreach (DefaultAudioVolume dav in defaultAudioVolumes)
 		{
-			dav.audioSource.volume = dav.volume;
+			dav.audioSource.volume = dav.muteOnAwake ? 0.0f : dav.volume;
 		}
 	}
 
 	public void OnLowFuel()
 	{
-		lowFuelAudioSource.volume = 1.0f;
+		enableAudioSource(lowFuelAudioSource);
 	}
 
 	public void onLowAltitudeEntered()
@@ -38,7 +40,7 @@ public class MusicPlayerBehavior : MonoBehaviour
 
 	public void onLowAltitudeExited()
 	{
-		lowAltitudeIndicationAudioSource.volume = 1.0f;
+		enableAudioSource(lowAltitudeIndicationAudioSource);
 	}
 
 	public void onHighVelocityEntered()
@@ -48,7 +50,7 @@ public class MusicPlayerBehavior : MonoBehaviour
 
 	public void onHighVelocityExited()
 	{
-		highVelocityIndicationAudioSource.volume = 1.0f;
+		enableAudioSource(highVelocityIndicationAudioSource);
 	}
 
 	public void onBadAngleEntered()
@@ -58,6 +60,23 @@ public class MusicPlayerBehavior : MonoBehaviour
 
 	public void onBadAngleExited()
 	{
-		badAngleIndicationAudioSource.volume = 1.0f;
+		enableAudioSource(badAngleIndicationAudioSource);
+	}
+
+	private void enableAudioSource(AudioSource audioSource)
+	{
+		bool hasAudioSource = false;
+		foreach (DefaultAudioVolume dav in defaultAudioVolumes)
+		{
+			if (dav.audioSource == audioSource)
+			{
+				dav.audioSource.volume = dav.volume;
+				hasAudioSource = true;
+			}
+		}
+		if (!hasAudioSource)
+		{
+			audioSource.volume = 1.0f;
+		}
 	}
 }

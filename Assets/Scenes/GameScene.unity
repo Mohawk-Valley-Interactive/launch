@@ -1967,7 +1967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   landerCam: {fileID: 1502673426}
   lander: {fileID: 423707215}
-  outerBoundsBuffer: {x: 256, y: 256}
+  outerBoundsBuffer: {x: 192, y: 192}
   zoomHighAltitudeThreshold: 300
   zoomLowAltitudeThreshold: 100
   zoomedOrthographicSize: 100
@@ -2055,6 +2055,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 985567065}
   m_CullTransparentMesh: 0
+--- !u!1 &1003618760 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 440343568828584492, guid: e8bcda810cb9ad747881de2e3f7b4e9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 440343568937662606}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1003618761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003618760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1 &1011733980
 GameObject:
   m_ObjectHideFlags: 0
@@ -2703,6 +2722,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1409137488}
   m_CullTransparentMesh: 0
+--- !u!1 &1457393589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 440343569687741275, guid: e8bcda810cb9ad747881de2e3f7b4e9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 440343568937662606}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1457393590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457393589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1 &1502673425
 GameObject:
   m_ObjectHideFlags: 0
@@ -3006,15 +3044,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusicManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1546694541375792035, guid: 4c2a21dd2107c204bbc9aa7b45578672,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1546694541375792030, guid: 4c2a21dd2107c204bbc9aa7b45578672, type: 3}
-    - {fileID: 1546694541375792021, guid: 4c2a21dd2107c204bbc9aa7b45578672, type: 3}
-    - {fileID: 1546694541375792020, guid: 4c2a21dd2107c204bbc9aa7b45578672, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c2a21dd2107c204bbc9aa7b45578672, type: 3}
 --- !u!114 &1619080674 stripped
 MonoBehaviour:
@@ -3702,6 +3732,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1980828025, guid: e75ec9ab42b7b44449e2956ae826a622, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 60d4f2c03d503b7409d6464fcd26c7c6, type: 3}
     - target: {fileID: 1215747518760556025, guid: e75ec9ab42b7b44449e2956ae826a622,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3822,6 +3856,16 @@ PrefabInstance:
       propertyPath: musicPlayer
       value: 
       objectReference: {fileID: 1619080674}
+    - target: {fileID: 2466927072824576282, guid: e75ec9ab42b7b44449e2956ae826a622,
+        type: 3}
+      propertyPath: lowFuelThreshold
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466927072824576282, guid: e75ec9ab42b7b44449e2956ae826a622,
+        type: 3}
+      propertyPath: initialFuel
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 2466927072824576283, guid: e75ec9ab42b7b44449e2956ae826a622,
         type: 3}
       propertyPath: m_LocalPosition.x

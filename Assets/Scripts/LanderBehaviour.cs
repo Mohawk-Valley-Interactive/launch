@@ -41,7 +41,6 @@ public class LanderBehaviour : MonoBehaviour
 	public AudioSource successfulLandingSound;
 	public float fuelNearEmptyDelay = 0.5f;
 	public float fuelEmergencyDelay = 0.25f;
-	public float lowFuelChimeDelay = 1.0f;
 	public AudioSource lowFuelSound;
 	public AudioSource explosionSound;
 	public ParticleSystem explosionParticleSystem;
@@ -84,6 +83,7 @@ public class LanderBehaviour : MonoBehaviour
 		RepositionToSpawnPoint();
 		hasLanded = false;
 		hasCrashed = false;
+		timeSinceLastFuelChime = -1.0f;
 		rigidbodyComponent.simulated = true;
 		rigidbodyComponent.velocity = initialVelocity;
 		rigidbodyComponent.angularVelocity = 0.0f;
@@ -139,6 +139,7 @@ public class LanderBehaviour : MonoBehaviour
 		{
 			if (timeSinceLastFuelChime < 0)
 			{
+				timeSinceLastFuelChime = 0.0f;
 				lowFuelSound.Play();
 				if (musicPlayer)
 				{
@@ -339,7 +340,7 @@ public class LanderBehaviour : MonoBehaviour
 	private const string rotationAxisName = "Rotate";
 	private const string thrustAxisName = "ApplyThrust";
 	private int landingMultiplier = LandingZoneBehavior.DEFAULT_MULTIPLIER;
-	private float timeSinceLastFuelChime = 0.0f;
+	private float timeSinceLastFuelChime = -1.0f;
 	private float fuel = 0;
 	private float altitude;
 	private float angleOfApproach;

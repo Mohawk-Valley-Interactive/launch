@@ -311,8 +311,31 @@ MonoBehaviour:
   highVelocityIndicationAudioSource: {fileID: 1956258072280282139}
   badAngleIndicationAudioSource: {fileID: 1956258072280282139}
   defaultAudioVolumes:
+  - audioSource: {fileID: 1712925042444609986}
+    volume: 0.25
+    muteOnAwake: 0
+  - audioSource: {fileID: 2044155802159746569}
+    volume: 0.25
+    muteOnAwake: 0
+  - audioSource: {fileID: 3392827625166704473}
+    volume: 0.25
+    muteOnAwake: 0
+  - audioSource: {fileID: 6180996379836814692}
+    volume: 0.25
+    muteOnAwake: 0
+  - audioSource: {fileID: 541306147430642811}
+    volume: 0.25
+    muteOnAwake: 0
+  - audioSource: {fileID: 7036528070363868603}
+    volume: 0.25
+    muteOnAwake: 0
   - audioSource: {fileID: 3147322271602783339}
-    volume: 0
+    volume: 0.25
+    muteOnAwake: 1
+  - audioSource: {fileID: 1956258072280282139}
+    volume: 0.25
+    muteOnAwake: 0
+  muteOnAwake: []
 --- !u!1 &2102084888165875506
 GameObject:
   m_ObjectHideFlags: 0

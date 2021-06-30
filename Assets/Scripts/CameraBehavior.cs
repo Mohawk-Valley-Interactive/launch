@@ -30,6 +30,7 @@ public class CameraBehavior : MonoBehaviour
 		zoomBias = 1.0f - Mathf.Clamp01((lander.Altitude - zoomLowAltitudeThreshold) / (zoomHighAltitudeThreshold - zoomLowAltitudeThreshold));
 		DrawAltitudeRange();
 
+		Vector2 adjustedBuffer = outerBoundsBuffer * 0.5f;
 		Vector3 landscapeCameraPosition = transform.position;
 		Vector3 zoomedCameraPosition = lander.transform.position;
 		if (zoomedCameraPosition.y - zoomedOrthographicSize < 0)
@@ -48,21 +49,8 @@ public class CameraBehavior : MonoBehaviour
 			landscapeOrthographicSize * 2.0f);
 		DrawRect(landscapeBounds);
 
-		float zoomedSpaceWidth = zoomedOrthographicSize * 2 * Screen.width / Screen.height;
-		Rect zoomedBounds = new Rect(
-			zoomedCameraPosition.x - zoomedSpaceWidth * 0.5f,
-			zoomedCameraPosition.y - zoomedOrthographicSize,
-			zoomedSpaceWidth,
-			zoomedOrthographicSize * 2.0f);
-		DrawRect(zoomedBounds);
-
-		Vector2 adjustedBuffer = outerBoundsBuffer * 0.5f;
-
 		float boundsLeft = Mathf.Min(landscapeBounds.x + adjustedBuffer.x, landscapeBounds.xMax - adjustedBuffer.x);
 		float boundsRight = Mathf.Max(landscapeBounds.x + adjustedBuffer.x, landscapeBounds.xMax - adjustedBuffer.x);
-		float boundsBottom = Mathf.Min(landscapeBounds.y + adjustedBuffer.y, landscapeBounds.yMax - adjustedBuffer.y);
-		float boundsTop = Mathf.Max(landscapeBounds.y + adjustedBuffer.y, landscapeBounds.yMax - adjustedBuffer.y);
-
 		bool isLanderAtLeftOuterBoundary = zoomedCameraPosition.x < boundsLeft;
 		bool isLanderAtRightOuterBoundary = zoomedCameraPosition.x > boundsRight;
 		if (isLanderAtLeftOuterBoundary)
@@ -74,31 +62,13 @@ public class CameraBehavior : MonoBehaviour
 			landscapeCameraPosition.x = zoomedCameraPosition.x - ((boundsRight - boundsLeft) * 0.5f);
 		}
 
-		boundsLeft = Mathf.Min(zoomedBounds.x + adjustedBuffer.x, zoomedBounds.xMax - adjustedBuffer.x);
-		boundsRight = Mathf.Max(zoomedBounds.x + adjustedBuffer.x, zoomedBounds.xMax - adjustedBuffer.x);
-		boundsBottom = Mathf.Min(zoomedBounds.y + adjustedBuffer.y, zoomedBounds.yMax - adjustedBuffer.y);
-		boundsTop = Mathf.Max(zoomedBounds.y + adjustedBuffer.y, zoomedBounds.yMax - adjustedBuffer.y);
-
-		bool isLanderAtTopOuterBoundary = zoomedCameraPosition.y > boundsTop;
-		bool isLanderAtBottomOuterBoundary = zoomedCameraPosition.y < boundsBottom;
-		isLanderAtLeftOuterBoundary = zoomedCameraPosition.x < boundsLeft;
-		isLanderAtRightOuterBoundary = zoomedCameraPosition.x > boundsRight;
-		if (isLanderAtTopOuterBoundary)
-		{
-			zoomedCameraPosition.y = zoomedCameraPosition.y + ((boundsTop - boundsBottom) * 0.5f);
-		}
-		else if (isLanderAtBottomOuterBoundary)
-		{
-			zoomedCameraPosition.y = zoomedCameraPosition.y - ((boundsTop - boundsBottom) * 0.5f);
-		}
-		if (isLanderAtLeftOuterBoundary)
-		{
-			zoomedCameraPosition.x = zoomedCameraPosition.x + ((boundsRight - boundsLeft) * 0.5f);
-		}
-		else if (isLanderAtRightOuterBoundary)
-		{
-			zoomedCameraPosition.x = zoomedCameraPosition.x - ((boundsRight - boundsLeft) * 0.5f);
-		}
+		float zoomedSpaceWidth = zoomedOrthographicSize * 2 * Screen.width / Screen.height;
+		Rect zoomedBounds = new Rect(
+			zoomedCameraPosition.x - zoomedSpaceWidth * 0.5f,
+			zoomedCameraPosition.y - zoomedOrthographicSize,
+			zoomedSpaceWidth,
+			zoomedOrthographicSize * 2.0f);
+		DrawRect(zoomedBounds);
 
 		transform.position = landscapeCameraPosition;
 		Vector3 cameraRigPosition = landscapeCameraPosition + (zoomBias * (zoomedCameraPosition - landscapeCameraPosition));

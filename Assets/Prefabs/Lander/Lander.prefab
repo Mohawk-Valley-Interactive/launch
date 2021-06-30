@@ -432,7 +432,6 @@ MonoBehaviour:
   successfulLandingSound: {fileID: 1980828024}
   fuelNearEmptyDelay: 0.5
   fuelEmergencyDelay: 0.25
-  lowFuelChimeDelay: 1
   lowFuelSound: {fileID: 1980828025}
   explosionSound: {fileID: 2466927072824576262}
   explosionParticleSystem: {fileID: 5313655772202157745}

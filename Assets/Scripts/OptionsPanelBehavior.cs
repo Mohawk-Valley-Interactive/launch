@@ -12,6 +12,7 @@ public class OptionsPanelBehavior : MonoBehaviour
 	public LaunchDarklyInterfaceBehavior launchDarklyInterfaceBehavior;
 	public InputField mobileKeyInput;
 	public InputField userEmailInput;
+	public GameObject logoObject;
 
 	public void Show()
 	{
@@ -41,6 +42,7 @@ public class OptionsPanelBehavior : MonoBehaviour
 			}
 		}
 
+		logoObject.SetActive(false);
 		gameObject.SetActive(true);
 	}
 
@@ -67,6 +69,7 @@ public class OptionsPanelBehavior : MonoBehaviour
 			launchDarklyInterfaceBehavior.UpdateEmail(null);
 		}
 
+		logoObject.SetActive(true);
 		gameObject.SetActive(false);
 	}
 
@@ -96,6 +99,7 @@ public class OptionsPanelBehavior : MonoBehaviour
 			}
 		}
 
+		logoObject.SetActive(true);
 		gameObject.SetActive(false);
 	}
 }

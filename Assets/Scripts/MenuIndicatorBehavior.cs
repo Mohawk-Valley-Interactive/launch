@@ -28,7 +28,6 @@ public class MenuIndicatorBehavior : MonoBehaviour
 			entry.eventID = EventTriggerType.PointerEnter;
 			entry.callback.AddListener((data) => { OnSelectionHover((PointerEventData)data); });
 			trigger.triggers.Add(entry);
-
 		}
 	}
 
@@ -63,7 +62,6 @@ public class MenuIndicatorBehavior : MonoBehaviour
 
 			ChangeIndicatorPosition(currentSelection);
 		}
-
 	}
 
 	public void OnSelectionHover(PointerEventData p)

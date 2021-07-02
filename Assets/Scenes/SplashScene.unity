@@ -500,7 +500,7 @@ PrefabInstance:
     - target: {fileID: 625089578558530278, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
         type: 3}
       propertyPath: isInitializedOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 625089578558530278, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
         type: 3}
@@ -511,6 +511,11 @@ PrefabInstance:
         type: 3}
       propertyPath: isUserAnonymous
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 625089578558530278, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
+        type: 3}
+      propertyPath: userKey
+      value: default@user.net
       objectReference: {fileID: 0}
     - target: {fileID: 625089578558530279, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
         type: 3}

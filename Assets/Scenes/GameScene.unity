@@ -2979,6 +2979,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 541306147430642811, guid: 4c2a21dd2107c204bbc9aa7b45578672,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1546694541375792028, guid: 4c2a21dd2107c204bbc9aa7b45578672,
         type: 3}
       propertyPath: lander
@@ -3043,6 +3048,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MusicManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712925042444609986, guid: 4c2a21dd2107c204bbc9aa7b45578672,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956258072280282139, guid: 4c2a21dd2107c204bbc9aa7b45578672,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044155802159746569, guid: 4c2a21dd2107c204bbc9aa7b45578672,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3147322271602783339, guid: 4c2a21dd2107c204bbc9aa7b45578672,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392827625166704473, guid: 4c2a21dd2107c204bbc9aa7b45578672,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6180996379836814692, guid: 4c2a21dd2107c204bbc9aa7b45578672,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7036528070363868603, guid: 4c2a21dd2107c204bbc9aa7b45578672,
+        type: 3}
+      propertyPath: Loop
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c2a21dd2107c204bbc9aa7b45578672, type: 3}
@@ -3188,17 +3228,17 @@ PrefabInstance:
     - target: {fileID: 625089578558530278, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
         type: 3}
       propertyPath: mobileKey
-      value: mob-b8bb9e47-0c82-4586-a41b-c81b8d27da7f
+      value: mob-eeeaab3e-a3c7-411f-bac7-e0f8ed5b4919
       objectReference: {fileID: 0}
     - target: {fileID: 625089578558530278, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
         type: 3}
       propertyPath: userKey
-      value: unity@debug.net
+      value: default@user.net
       objectReference: {fileID: 0}
     - target: {fileID: 625089578558530278, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
         type: 3}
       propertyPath: isMockMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 625089578558530279, guid: 06b5ed18425c6a14c86e62653ccf5fd2,
         type: 3}
@@ -3718,6 +3758,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2734438071643193405, guid: e8bcda810cb9ad747881de2e3f7b4e9d,
+        type: 3}
+      propertyPath: indicatorOffset.x
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2734438071643193405, guid: e8bcda810cb9ad747881de2e3f7b4e9d,
+        type: 3}
+      propertyPath: indicatorOffset.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8bcda810cb9ad747881de2e3f7b4e9d, type: 3}

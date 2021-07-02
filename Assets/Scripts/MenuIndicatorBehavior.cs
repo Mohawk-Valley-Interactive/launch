@@ -15,11 +15,8 @@ public class MenuIndicatorBehavior : MonoBehaviour
 		{
 			Debug.LogError("No buttons associated with the MenuIndicatorBehavior: " + this.gameObject.name);
 		}
-		RectTransform newRectTransform = buttons[0].GetComponent<RectTransform>();
 
-		rectTransform.localPosition = new Vector3(newRectTransform.localPosition.x + indicatorOffset.x,
-			newRectTransform.localPosition.y + indicatorOffset.y,
-			newRectTransform.localPosition.z);
+		ChangeIndicatorPosition(0);
 
 		foreach (GameObject button in buttons)
 		{
@@ -31,13 +28,44 @@ public class MenuIndicatorBehavior : MonoBehaviour
 		}
 	}
 
+	public void LockInput(InputField inputField)
+	{
+		inputField.onEndEdit.RemoveAllListeners();
+		isEditingInputField = 2;
+	}
+
 	// Update is called once per frame
 	void Update()
 	{
 		int selectionChange = 0;
+		if (isEditingInputField == 1)
+		{
+			return;
+		}
+
 		if (Input.GetButtonUp("select"))
 		{
-			buttons[currentSelection].GetComponent<Button>().onClick.Invoke();
+			if (isEditingInputField == 2)
+			{
+				isEditingInputField = 0;
+				return;
+			}
+
+			Button button = buttons[currentSelection].GetComponent<Button>();
+			if (button)
+			{
+				button.onClick.Invoke();
+			}
+			else
+			{
+				InputField inputField = buttons[currentSelection].GetComponent<InputField>();
+				if (inputField)
+				{
+					isEditingInputField = 1;
+					inputField.onEndEdit.AddListener(delegate { LockInput(inputField); });
+					inputField.Select();
+				}
+			}
 		}
 		else if (Input.GetButtonUp("up"))
 		{
@@ -70,7 +98,7 @@ public class MenuIndicatorBehavior : MonoBehaviour
 		foreach (GameObject obj in p.hovered)
 		{
 			thisObject = obj;
-			while ( thisObject != null )
+			while (thisObject != null)
 			{
 				foreach (GameObject button in buttons)
 				{
@@ -90,11 +118,15 @@ public class MenuIndicatorBehavior : MonoBehaviour
 	{
 		RectTransform newRectTransform = buttons[index].GetComponent<RectTransform>();
 
-		rectTransform.localPosition = new Vector3(newRectTransform.localPosition.x + indicatorOffset.x,
-			newRectTransform.localPosition.y + indicatorOffset.y,
-			newRectTransform.localPosition.z);
+		Vector3[] vectors = new Vector3[4];
+		newRectTransform.GetWorldCorners(vectors);
+		Vector3 midLeft = new Vector3(vectors[0].x, ((vectors[1].y - vectors[0].y) * 0.5f) + vectors[0].y, vectors[0].z);
+		rectTransform.position = new Vector3(midLeft.x + indicatorOffset.x,
+			midLeft.y + indicatorOffset.y,
+			midLeft.z);
 	}
 
 	private RectTransform rectTransform;
 	private int currentSelection = 0;
+	private int isEditingInputField = 0;
 }

@@ -5,13 +5,19 @@ public class OptionsPanelBehavior : MonoBehaviour
 {
 	public const string ldMobileKeyKey = "ld-mobile-key";
 	public const string userEmailKey = "user-email-key";
+	public const string customAttributeNameKey = "custom-attribute-name-key";
+	public const string customAttributeValueKey = "custom-attribute-value-key";
 
 	private const string defaultLdMobileKey = "mob-xxx-xxxxxxx";
 	private const string defaultUserEmail = "user@domain.tld";
+	private const string defaultCustomAttributeName = "your_custom_attribute_name_here";
+	private const string defaultCustomAttributeValue = "your_custom_attribute_value_here";
 
 	public LaunchDarklyInterfaceBehavior launchDarklyInterfaceBehavior;
 	public InputField mobileKeyInput;
 	public InputField userEmailInput;
+	public InputField customAttributeNameInput;
+	public InputField customAttributeValueInput;
 	public GameObject logoObject;
 	public GameObject buttons;
 
@@ -43,6 +49,32 @@ public class OptionsPanelBehavior : MonoBehaviour
 			}
 		}
 
+		if (customAttributeNameInput != null)
+		{
+			if (PlayerPrefs.HasKey(customAttributeNameKey))
+			{
+				string customAttributeName = PlayerPrefs.GetString(customAttributeNameKey);
+				customAttributeNameInput.SetTextWithoutNotify(customAttributeName.Length > 0 ? customAttributeName : defaultUserEmail);
+			}
+			else
+			{
+				customAttributeNameInput.SetTextWithoutNotify(defaultCustomAttributeName);
+			}
+		}
+
+		if (customAttributeValueInput != null)
+		{
+			if (PlayerPrefs.HasKey(customAttributeValueKey))
+			{
+				string customAttributeValue = PlayerPrefs.GetString(customAttributeValueKey);
+				customAttributeValueInput.SetTextWithoutNotify(customAttributeValue.Length > 0 ? customAttributeValue : defaultUserEmail);
+			}
+			else
+			{
+				customAttributeValueInput.SetTextWithoutNotify(defaultCustomAttributeValue);
+			}
+		}
+
 		logoObject.SetActive(false);
 		buttons.SetActive(false);
 		gameObject.SetActive(true);
@@ -69,6 +101,31 @@ public class OptionsPanelBehavior : MonoBehaviour
 		{
 			PlayerPrefs.DeleteKey(userEmailKey);
 			launchDarklyInterfaceBehavior.UpdateEmail(null);
+		}
+
+		if (customAttributeNameInput != null && customAttributeNameInput.text != defaultCustomAttributeName && customAttributeNameInput.text.Trim().Length > 0)
+		{
+			string customAttributeName = customAttributeNameInput.text.Trim();
+			PlayerPrefs.SetString(customAttributeNameKey, customAttributeName);
+		}
+		else
+		{
+			PlayerPrefs.DeleteKey(customAttributeNameKey);
+		}
+
+		if (customAttributeValueInput != null && customAttributeValueInput.text != defaultCustomAttributeValue && customAttributeValueInput.text.Trim().Length > 0)
+		{
+			string customAttributeValue = customAttributeValueInput.text.Trim();
+			PlayerPrefs.SetString(customAttributeValueKey, customAttributeValue);
+		}
+		else
+		{
+			PlayerPrefs.DeleteKey(customAttributeValueKey);
+		}
+
+		if (PlayerPrefs.HasKey(customAttributeNameKey) && PlayerPrefs.HasKey(customAttributeValueKey))
+		{
+			launchDarklyInterfaceBehavior.UpdateCustomAttribute(PlayerPrefs.GetString(customAttributeNameKey), PlayerPrefs.GetString(customAttributeValueKey));
 		}
 
 		buttons.SetActive(true);
@@ -99,6 +156,30 @@ public class OptionsPanelBehavior : MonoBehaviour
 			else
 			{
 				userEmailInput.SetTextWithoutNotify(defaultUserEmail);
+			}
+		}
+
+		if (customAttributeNameInput != null)
+		{
+			if (PlayerPrefs.HasKey(customAttributeNameKey))
+			{
+				customAttributeNameInput.SetTextWithoutNotify(PlayerPrefs.GetString(customAttributeNameKey));
+			}
+			else
+			{
+				customAttributeNameInput.SetTextWithoutNotify(customAttributeNameKey);
+			}
+		}
+
+		if (customAttributeValueInput != null)
+		{
+			if (PlayerPrefs.HasKey(customAttributeValueKey))
+			{
+				customAttributeValueInput.SetTextWithoutNotify(PlayerPrefs.GetString(customAttributeValueKey));
+			}
+			else
+			{
+				customAttributeValueInput.SetTextWithoutNotify(customAttributeValueKey);
 			}
 		}
 

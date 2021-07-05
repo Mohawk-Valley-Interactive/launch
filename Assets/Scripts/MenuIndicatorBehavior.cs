@@ -111,6 +111,17 @@ public class MenuIndicatorBehavior : MonoBehaviour
 				}
 				thisObject = thisObject.transform.parent == null ? null : thisObject.transform.parent.gameObject;
 			}
+			for(int i = 0; i < obj.transform.childCount; i++) {
+				foreach (GameObject button in buttons)
+				{
+					if (obj.transform.GetChild(i).gameObject == button)
+					{
+						currentSelection = buttons.IndexOf(button);
+						ChangeIndicatorPosition(currentSelection);
+						return;
+					}
+				}
+			}
 		}
 	}
 

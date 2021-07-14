@@ -1726,6 +1726,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 793313865}
   m_CullTransparentMesh: 0
+--- !u!1 &823038361 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1342923735229387104, guid: e75ec9ab42b7b44449e2956ae826a622,
+    type: 3}
+  m_PrefabInstance: {fileID: 2466927072711379797}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &823038363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823038361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee15fc87c6655e44994f8ee26c92f0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultThruster: {fileID: 979073847}
+  thrusterFlagName: thruster-type
+  thrusterFlagDefault: SparksEffect
 --- !u!1 &896035748
 GameObject:
   m_ObjectHideFlags: 0
@@ -3916,6 +3937,11 @@ PrefabInstance:
       propertyPath: initialFuel
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 2466927072824576282, guid: e75ec9ab42b7b44449e2956ae826a622,
+        type: 3}
+      propertyPath: thrusterBehavior
+      value: 
+      objectReference: {fileID: 823038363}
     - target: {fileID: 2466927072824576283, guid: e75ec9ab42b7b44449e2956ae826a622,
         type: 3}
       propertyPath: m_LocalPosition.x

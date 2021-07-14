@@ -47,7 +47,7 @@ public class LanderBehaviour : MonoBehaviour
 	[Space(5)]
 	public float thrustSoundRamp = 0.1f;
 	public AudioSource thrustSound;
-	public ParticleSystem thrusterParticleSystem;
+	public ThrusterBehavior thrusterBehavior;
 	[Space(10)]
 
 	[Header("UI")]
@@ -148,15 +148,15 @@ public class LanderBehaviour : MonoBehaviour
 			}
 		}
 
-		if (thrusterParticleSystem)
+		if (thrusterBehavior)
 		{
-			if (isThrusting && !thrusterParticleSystem.isEmitting)
+			if (isThrusting && !thrusterBehavior.isEmitting)
 			{
-				thrusterParticleSystem.Play();
+				thrusterBehavior.Play();
 			}
-			if (!isThrusting && thrusterParticleSystem.isEmitting)
+			if (!isThrusting && thrusterBehavior.isEmitting)
 			{
-				thrusterParticleSystem.Stop();
+				thrusterBehavior.Stop();
 			}
 		}
 
@@ -217,9 +217,9 @@ public class LanderBehaviour : MonoBehaviour
 				landerAvatar.SetActive(false);
 			}
 
-			if (thrusterParticleSystem && thrusterParticleSystem.isEmitting)
+			if (thrusterBehavior && thrusterBehavior.isEmitting)
 			{
-				thrusterParticleSystem.Stop();
+				thrusterBehavior.Stop();
 			}
 
 			if (thrustSound)

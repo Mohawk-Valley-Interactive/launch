@@ -437,7 +437,7 @@ MonoBehaviour:
   explosionParticleSystem: {fileID: 5313655772202157745}
   thrustSoundRamp: 1
   thrustSound: {fileID: 2466927072824576263}
-  thrusterParticleSystem: {fileID: 2466927073208223592}
+  thrusterBehavior: {fileID: 0}
   fuelGuageText: {fileID: 0}
   altitudeGuageText: {fileID: 0}
   velocityGuageText: {fileID: 0}

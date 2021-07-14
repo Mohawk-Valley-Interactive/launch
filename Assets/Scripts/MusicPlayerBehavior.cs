@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using LaunchDarkly.Client;
+using LaunchDarkly.Unity;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MusicPlayerBehavior : MonoBehaviour
@@ -20,12 +22,50 @@ public class MusicPlayerBehavior : MonoBehaviour
 	public List<DefaultAudioVolume> defaultAudioVolumes = new List<DefaultAudioVolume>();
 	public List<AudioSource> muteOnAwake = new List<AudioSource>();
 
-	public void Start()
+	public string audioLevelsFlagName = "audio-levels";
+	public float musicVolume = 1.0f;
+
+	void Awake()
 	{
+		LdValue defaultValue = LdValue.BuildObject()
+			.Add("music", 1.0f)
+			.Build();
+		LaunchDarklyClientBehavior.Instance.RegisterFeatureFlagChangedCallback(
+			audioLevelsFlagName, defaultValue, OnAudioLevelsFlagChanged2, true);
+	}
+
+	void Start()
+	{
+		LdValue defaultValue = LdValue.BuildObject()
+			.Add("music", 1.0f)
+			.Build();
+		LdValue volumes = LaunchDarklyClientBehavior.Instance.JsonVariation(audioLevelsFlagName, defaultValue);
+		IReadOnlyDictionary<string, float> al = volumes.AsDictionary<float>(LdValue.Convert.Float);
+		musicVolume = al.ContainsKey("music") ? al["music"] : 1.0f;
+		musicVolumeActual = musicVolume;
+
 		foreach (DefaultAudioVolume dav in defaultAudioVolumes)
 		{
-			dav.audioSource.volume = dav.muteOnAwake ? 0.0f : dav.volume;
+			dav.audioSource.volume = dav.muteOnAwake ? 0.0f : dav.volume * musicVolumeActual;
 		}
+	}
+
+	void Update()
+	{
+		if (musicVolume != musicVolumeActual)
+		{
+			musicVolumeActual = musicVolume;
+			foreach (DefaultAudioVolume dav in defaultAudioVolumes)
+			{
+				dav.audioSource.volume = dav.muteOnAwake ? 0.0f : dav.volume * musicVolumeActual;
+			}
+		}
+	}
+
+	public void OnAudioLevelsFlagChanged2(LdValue audioLevels)
+	{
+		IReadOnlyDictionary<string, float> al = audioLevels.AsDictionary<float>(LdValue.Convert.Float);
+		musicVolume = al.ContainsKey("music") ? al["music"] : 1.0f;
 	}
 
 	public void OnLowFuel()
@@ -70,13 +110,15 @@ public class MusicPlayerBehavior : MonoBehaviour
 		{
 			if (dav.audioSource == audioSource)
 			{
-				dav.audioSource.volume = dav.volume;
+				dav.audioSource.volume = dav.volume * musicVolume;
 				hasAudioSource = true;
 			}
 		}
 		if (!hasAudioSource)
 		{
-			audioSource.volume = 1.0f;
+			audioSource.volume = musicVolume;
 		}
 	}
+
+	private float musicVolumeActual = 1.0f;
 }

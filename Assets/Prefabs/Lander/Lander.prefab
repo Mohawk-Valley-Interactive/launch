@@ -442,6 +442,8 @@ MonoBehaviour:
   thrustSoundRamp: 1
   thrustSound: {fileID: 2466927072824576263}
   thrusterBehavior: {fileID: 0}
+  audioLevelsFlagName: audio-levels
+  fxVolume: 1
   fuelGuageText: {fileID: 0}
   altitudeGuageText: {fileID: 0}
   velocityGuageText: {fileID: 0}

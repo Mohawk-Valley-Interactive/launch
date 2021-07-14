@@ -1,4 +1,5 @@
-﻿using LaunchDarkly.Unity;
+﻿using LaunchDarkly.Client;
+using LaunchDarkly.Unity;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -53,6 +54,8 @@ public class LanderBehaviour : MonoBehaviour
 	public float thrustSoundRamp = 0.1f;
 	public AudioSource thrustSound;
 	public ThrusterBehavior thrusterBehavior;
+	public string audioLevelsFlagName = "audio-levels";
+	public float fxVolume = 1.0f;
 	[Space(10)]
 
 	[Header("UI")]
@@ -100,6 +103,15 @@ public class LanderBehaviour : MonoBehaviour
 		}
 	}
 
+	void Awake()
+	{
+		LdValue defaultValue = LdValue.BuildObject()
+			.Add("fx", 1.0f)
+			.Build();
+		LaunchDarklyClientBehavior.Instance.RegisterFeatureFlagChangedCallback(
+			audioLevelsFlagName, defaultValue, OnAudioLevelsFlagChanged, true);
+	}
+
 	void Start()
 	{
 		if (spawnPoint)
@@ -118,6 +130,7 @@ public class LanderBehaviour : MonoBehaviour
 			thrustSound.Play();
 		}
 
+		fxVolumeInternal = fxVolume;
 	}
 
 	void Update()
@@ -127,12 +140,22 @@ public class LanderBehaviour : MonoBehaviour
 			return;
 		}
 
+		if (fxVolumeInternal != fxVolumeActual)
+		{
+			fxVolumeActual = fxVolumeInternal;
+			thrustSound.volume = fxVolumeActual;
+			explosionSound.volume = fxVolumeActual;
+			lowFuelSound.volume = fxVolumeActual;
+			explosionSound.volume = fxVolumeActual;
+			successfulLandingSound.volume = fxVolumeActual;
+		}
+
 		bool isThrusting = Input.GetAxis(thrustAxisName) != 0.0f && fuel > 0.0f;
 		if (thrustSound)
 		{
-			if (isThrusting && thrustSound.volume < 1.0f)
+			if (isThrusting && thrustSound.volume < fxVolumeActual)
 			{
-				thrustSound.volume = Mathf.Min(thrustSound.volume + (thrustSoundRamp * Time.deltaTime), 1.0f);
+				thrustSound.volume = Mathf.Min(thrustSound.volume + (thrustSoundRamp * Time.deltaTime), fxVolumeActual);
 			}
 			else if (!isThrusting && thrustSound.volume > 0.0f)
 			{
@@ -193,7 +216,13 @@ public class LanderBehaviour : MonoBehaviour
 
 		rigidbodyComponent.angularVelocity = rigidbodyComponent.angularVelocity + Input.GetAxis(rotationAxisName) * -rotationSensitivity;
 		rigidbodyComponent.rotation = rigidbodyComponent.rotation > 360.0f ? rigidbodyComponent.rotation - 360.0f :
-		    rigidbodyComponent.rotation < 0.0f ? rigidbodyComponent.rotation + 360.0f : rigidbodyComponent.rotation;
+			rigidbodyComponent.rotation < 0.0f ? rigidbodyComponent.rotation + 360.0f : rigidbodyComponent.rotation;
+	}
+
+	public void OnAudioLevelsFlagChanged(LdValue audioLevels)
+	{
+		IReadOnlyDictionary<string, float> al = audioLevels.AsDictionary<float>(LdValue.Convert.Float);
+		fxVolumeInternal = al.ContainsKey("fx") ? al["fx"] : 1.0f;
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
@@ -359,4 +388,7 @@ public class LanderBehaviour : MonoBehaviour
 	private float verticalSpeed;
 
 	private bool hasRunFirstUpdate = false;
+
+	private float fxVolumeActual;
+	private float fxVolumeInternal;
 }

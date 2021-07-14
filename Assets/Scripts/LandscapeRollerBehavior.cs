@@ -25,8 +25,6 @@ public class LandscapeRollerBehavior : MonoBehaviour
         rightSize = rightMesh.mesh.bounds.size.x * rightLandmass.transform.localScale.x;
 
         if(leftBoundary < leftLandmassPosition) {
-            Debug.Log("0 " + leftBoundary + " < " + leftLandmassPosition + " & " + rightSize);
-
             Vector3 newPosition = leftLandmass.transform.position;
             newPosition.x = newPosition.x - rightSize;
             rightLandmass.transform.position = newPosition;
@@ -35,7 +33,6 @@ public class LandscapeRollerBehavior : MonoBehaviour
             rightLandmass = leftLandmass;
             leftLandmass = tempLandmass;
         } else if (rightLandmassPosition + rightSize < rightBoundary) {
-            Debug.Log("1 " + (rightLandmassPosition + rightSize) + " < " + rightBoundary + " & " + rightSize);
             Vector3 newPosition = rightLandmass.transform.position;
             newPosition.x = newPosition.x + rightSize;
             leftLandmass.transform.position = newPosition;

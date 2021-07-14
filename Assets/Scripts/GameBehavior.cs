@@ -30,10 +30,13 @@ public class GameBehavior : MonoBehaviour
 	public string[] defaultFailedLandingFlavorText = { "Flavor text belongs here..." };
 	private string[] flavorText = { "flavor text unset" };
 	[Space(1)]
-	public string additionalFuelFlagName = "fuel-reward";
+	public string fuelRewardFlagName = "fuel-reward";
 	public float defaultFuelReward = 50.0f;
-	public float fuelReward = 50.0f;
     public float inputDelayAfterLevelComplete = 3.0f;
+	public string baseSuccessPointsFlagName = "base-success-points";
+	public float defaultBaseSuccessPoints = 50.0f;
+	public string fuelDeductionBaseFlagName = "fuel-deduction-base";
+	public float defaultFuelDeduction = 200.0f;
 
 	void Start()
 	{
@@ -43,7 +46,6 @@ public class GameBehavior : MonoBehaviour
 		levelCompletePanel.SetActive(false);
 
 		LaunchDarklyClientBehavior.Instance.RegisterFeatureFlagChangedCallback(gravityFeatureFlagName, LdValue.Of(defaultGravityValue), OnGravityFeatureFlagChanged, true);
-		LaunchDarklyClientBehavior.Instance.RegisterFeatureFlagChangedCallback(additionalFuelFlagName, LdValue.Of(defaultFuelReward), OnFuelRewardFeatureFlagChanged, true);
 		LaunchDarklyClientBehavior.Instance.RegisterFeatureFlagChangedCallback(failedLandingFlavorTextFlagName, MakeLdValueFromStringArray(defaultFailedLandingFlavorText), OnFailedLandingFlavorTextFeatureFlagChanged, true);
 	}
 
@@ -90,11 +92,13 @@ public class GameBehavior : MonoBehaviour
 	{
 		isLevelComplete = true;
         timeLevelCompleted = Time.time;
-		int points = (int)(50.0f * multiplier);
+		float basePoints = LaunchDarklyClientBehavior.Instance.FloatVariation(baseSuccessPointsFlagName, defaultBaseSuccessPoints);
+		int points = (int)(basePoints * multiplier);
 		totalPoints += points;
 		isTimerActive = false;
 
-		lander.ModifyFuel(fuelReward);
+		float rewardFuel = LaunchDarklyClientBehavior.Instance.FloatVariation(fuelRewardFlagName, defaultFuelReward);
+		lander.ModifyFuel(rewardFuel);
 
 		UpdateScoreUI();
 		ShowSuccessScreen(points);
@@ -105,7 +109,8 @@ public class GameBehavior : MonoBehaviour
 		isLevelComplete = true;
         timeLevelCompleted = Time.time;
 		isTimerActive = false;
-		int fuelDeducted = (int)((Random.value * 200.0f) + 200.0f);
+		float fuelDeductionBase = LaunchDarklyClientBehavior.Instance.FloatVariation(fuelDeductionBaseFlagName, defaultFuelDeduction);
+		int fuelDeducted = (int)((Random.value * fuelDeductionBase) + fuelDeductionBase);
 		lander.ModifyFuel(-fuelDeducted);
 
 		if (lander.Fuel < 1)
@@ -213,11 +218,6 @@ public class GameBehavior : MonoBehaviour
 		}
 
 		return arrayBuilder.Build();
-	}
-
-	private void OnFuelRewardFeatureFlagChanged(LdValue value)
-	{
-		fuelReward = value.AsFloat;
 	}
 
 	private void OnGravityFeatureFlagChanged(LdValue value)

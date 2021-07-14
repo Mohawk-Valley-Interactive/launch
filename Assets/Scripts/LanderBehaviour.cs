@@ -21,16 +21,21 @@ public class LanderBehaviour : MonoBehaviour
 	[Header("World Settings")]
 	public Vector2 initialVelocity = new Vector2();
 	public float initialFuel = 3500.0f;
+	public string startingFuelFlagName = "starting-fuel";
 	[Space(10)]
 
 	[Header("Landing Requirements")]
 	public Color normalColor = Color.white;
 	public Color dangerColor = Color.red;
 	public int angleOfApproachThreshold = 0;
+	public string angleOfApproachThresholdFlagName = "angle-of-approach-threshold";
 	public int lowAltitudeThreshold = 250;
+	public string lowAltitudeThresholdFlagName = "low-altitude-threshold";
 	public int velocityThreshold = 1;
+	public string velocityThresholdFlagName = "velocity-threshold";
 	public int verticalSpeedThreshold = 1;
 	public int lowFuelThreshold = 250;
+	public string lowFuelThresholdFlagName = "low-fuel-threshold";
 	public int fuelNearEmptyThreshold = 100;
 	public int fuelEmergencyThreshold = 50;
 	[Space(10)]
@@ -43,7 +48,7 @@ public class LanderBehaviour : MonoBehaviour
 	public float fuelEmergencyDelay = 0.25f;
 	public AudioSource lowFuelSound;
 	public AudioSource explosionSound;
-	public ParticleSystem explosionParticleSystem;
+	public ExplosionBehavior explosionBehavior;
 	[Space(5)]
 	public float thrustSoundRamp = 0.1f;
 	public AudioSource thrustSound;
@@ -91,7 +96,7 @@ public class LanderBehaviour : MonoBehaviour
 
 		if (isGameOver)
 		{
-			fuel = initialFuel;
+			fuel = LaunchDarklyClientBehavior.Instance.FloatVariation(startingFuelFlagName, initialFuel);
 		}
 	}
 
@@ -105,7 +110,7 @@ public class LanderBehaviour : MonoBehaviour
 		rigidbodyComponent = GetComponent<Rigidbody2D>();
 		rigidbodyComponent.velocity = initialVelocity;
 
-		fuel = initialFuel;
+		fuel = LaunchDarklyClientBehavior.Instance.FloatVariation(startingFuelFlagName, initialFuel);
 
 		if (thrustSound)
 		{
@@ -135,7 +140,8 @@ public class LanderBehaviour : MonoBehaviour
 			}
 		}
 
-		if (fuel < lowFuelThreshold)
+		float lowFuelThresholdActual = LaunchDarklyClientBehavior.Instance.FloatVariation(lowFuelThresholdFlagName, lowFuelThreshold);
+		if (fuel < lowFuelThresholdActual)
 		{
 			if (timeSinceLastFuelChime < 0)
 			{
@@ -202,9 +208,9 @@ public class LanderBehaviour : MonoBehaviour
 		if (isBadLanding)
 		{
 			rigidbodyComponent.simulated = false;
-			if (explosionParticleSystem)
+			if (explosionBehavior)
 			{
-				explosionParticleSystem.Play();
+				explosionBehavior.Play();
 			}
 
 			if (explosionSound)
@@ -269,9 +275,12 @@ public class LanderBehaviour : MonoBehaviour
 			altitude = Mathf.Infinity;
 		}
 
-		isDangerousVelocity = velocity >= velocityThreshold;
-		isDangerousAngleOfApproach = angleOfApproach >= angleOfApproachThreshold;
-		isLowAltitude = altitude < lowAltitudeThreshold;
+		float velocityThresholdActual = LaunchDarklyClientBehavior.Instance.FloatVariation(velocityThresholdFlagName, velocityThreshold);
+		float angleOfApproachThresholdActual = LaunchDarklyClientBehavior.Instance.FloatVariation(angleOfApproachThresholdFlagName, angleOfApproachThreshold);
+		float lowAltitudeThresholdActual = LaunchDarklyClientBehavior.Instance.FloatVariation(lowAltitudeThresholdFlagName, lowAltitudeThreshold);
+		isDangerousVelocity = velocity >= velocityThresholdActual;
+		isDangerousAngleOfApproach = angleOfApproach >= angleOfApproachThresholdActual;
+		isLowAltitude = altitude < lowAltitudeThresholdActual;
 	}
 
 	private void RepositionToSpawnPoint()
@@ -287,7 +296,8 @@ public class LanderBehaviour : MonoBehaviour
 			return;
 		}
 
-		if (fuel < lowFuelThreshold)
+		float lowFuelThresholdActual = LaunchDarklyClientBehavior.Instance.FloatVariation(lowFuelThresholdFlagName, lowFuelThreshold);
+		if (fuel < lowFuelThresholdActual)
 		{
 			musicPlayer.OnLowFuel();
 		}
@@ -324,7 +334,8 @@ public class LanderBehaviour : MonoBehaviour
 		angleOfApproachGuageText.text = angleOfApproach.ToString(floatingPointPrecision);
 		velocityGuageText.text = velocity.ToString(floatingPointPrecision);
 
-		fuelGuageText.color = fuel < lowFuelThreshold ? dangerColor : normalColor;
+		float lowFuelThresholdActual = LaunchDarklyClientBehavior.Instance.FloatVariation(lowFuelThresholdFlagName, lowFuelThreshold);
+		fuelGuageText.color = fuel < lowFuelThresholdActual ? dangerColor : normalColor;
 		velocityGuageText.color = isDangerousVelocity ? dangerColor : normalColor;
 		angleOfApproachGuageText.color = isDangerousAngleOfApproach ? dangerColor : normalColor;
 	}

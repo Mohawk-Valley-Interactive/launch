@@ -32,7 +32,7 @@ public class GameBehavior : MonoBehaviour
 	[Space(1)]
 	public string fuelRewardFlagName = "fuel-reward";
 	public float defaultFuelReward = 50.0f;
-    public float inputDelayAfterLevelComplete = 3.0f;
+    public float inputDelayAfterLevelComplete = 1.0f;
 	public string baseSuccessPointsFlagName = "base-success-points";
 	public float defaultBaseSuccessPoints = 50.0f;
 	public string fuelDeductionBaseFlagName = "fuel-deduction-base";
@@ -63,10 +63,11 @@ public class GameBehavior : MonoBehaviour
 		{
             float timeSinceCrash = Time.time - timeLevelCompleted;
             bool timeElapsed = timeSinceCrash > inputDelayAfterLevelComplete;
-			if (hasReleasedThrottle && Input.GetAxis(lander.ThrustAxisName) != 1.0f && timeElapsed)
+			if (hasReleasedThrottle && Input.GetAxis(lander.ThrustAxisName) != 0.0f && timeElapsed)
 			{
 				StartNextRound();
 				isLevelComplete = false;
+				hasReleasedThrottle = false;
 			}
 			hasReleasedThrottle = Input.GetAxis(lander.ThrustAxisName) == 0.0f;
 		}

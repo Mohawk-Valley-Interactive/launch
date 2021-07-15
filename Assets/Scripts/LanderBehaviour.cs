@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 [RequireComponent(typeof(Rigidbody2D))]
 public class LanderBehaviour : MonoBehaviour
 {
@@ -148,7 +147,6 @@ public class LanderBehaviour : MonoBehaviour
 		if (fxVolumeInternal != fxVolumeActual)
 		{
 			fxVolumeActual = fxVolumeInternal;
-			thrustSound.volume = fxVolumeActual;
 			explosionSound.volume = fxVolumeActual;
 			lowFuelSound.volume = fxVolumeActual;
 			explosionSound.volume = fxVolumeActual;

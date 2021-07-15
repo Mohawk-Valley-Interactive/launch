@@ -2167,7 +2167,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4a997d75dd6d6ae4aab5cc983658ba4e, type: 3}
-    m_FontSize: 22
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -2514,6 +2514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1310640641}
   - component: {fileID: 1310640640}
+  - component: {fileID: 1310640642}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -2550,10 +2551,13 @@ MonoBehaviour:
   - you left an awesome 2 mile crater
   - probably didn't hurt a bit
   - brutal
-  additionalFuelFlagName: fuel-reward
+  fuelRewardFlagName: fuel-reward
   defaultFuelReward: 50
-  fuelReward: 50
   inputDelayAfterLevelComplete: 3
+  baseSuccessPointsFlagName: base-success-points
+  defaultBaseSuccessPoints: 50
+  fuelDeductionBaseFlagName: fuel-deduction-base
+  defaultFuelDeduction: 200
 --- !u!4 &1310640641
 Transform:
   m_ObjectHideFlags: 0
@@ -2568,6 +2572,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1310640642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310640639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b37535ff29eefef47a4e9b266679628c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullscreenFlagName: is-full-screen
+  defaultValue: 0
 --- !u!1 &1395683642
 GameObject:
   m_ObjectHideFlags: 0
@@ -3845,6 +3863,11 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2466927072824576263, guid: e75ec9ab42b7b44449e2956ae826a622,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2466927072824576280, guid: e75ec9ab42b7b44449e2956ae826a622,
         type: 3}
       propertyPath: m_Name
@@ -4030,6 +4053,11 @@ PrefabInstance:
       propertyPath: moveWithCustomTransform
       value: 
       objectReference: {fileID: 1406966422}
+    - target: {fileID: 2466927073208223592, guid: e75ec9ab42b7b44449e2956ae826a622,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2466927073774429002, guid: e75ec9ab42b7b44449e2956ae826a622,
         type: 3}
       propertyPath: m_LocalPosition.y

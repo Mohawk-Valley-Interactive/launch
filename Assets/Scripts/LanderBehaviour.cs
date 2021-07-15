@@ -130,7 +130,12 @@ public class LanderBehaviour : MonoBehaviour
 			thrustSound.Play();
 		}
 
-		fxVolumeInternal = fxVolume;
+		LdValue defaultValue = LdValue.BuildObject()
+			.Add("fx", 1.0f)
+			.Build();
+		LdValue audioLevels = LaunchDarklyClientBehavior.Instance.JsonVariation(audioLevelsFlagName, defaultValue);
+		IReadOnlyDictionary<string, float> al = audioLevels.AsDictionary<float>(LdValue.Convert.Float);
+		fxVolumeInternal = al.ContainsKey("fx") ? al["fx"] : 1.0f;
 	}
 
 	void Update()

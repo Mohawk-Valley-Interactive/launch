@@ -213,7 +213,8 @@ public class LanderBehaviour : MonoBehaviour
 
 		CalculateStats();
 
-		float actualThrust = fuel > 0.0f ? Input.GetAxis(thrustAxisName) * thrust * Time.fixedDeltaTime : 0.0f;
+		float thrustActual = LaunchDarklyClientBehavior.Instance.FloatVariation(thrustFlagName, thrust);
+		float actualThrust = fuel > 0.0f ? Input.GetAxis(thrustAxisName) * thrustActual * Time.fixedDeltaTime : 0.0f;
 		fuel -= actualThrust;
 		rigidbodyComponent.AddRelativeForce(new Vector2(0.0f, actualThrust * 100.0f));
 
@@ -382,6 +383,7 @@ public class LanderBehaviour : MonoBehaviour
 
 	private const string rotationAxisName = "Rotate";
 	private const string thrustAxisName = "ApplyThrust";
+	private const string thrustFlagName = "lander-thrust";
 	private int landingMultiplier = LandingZoneBehavior.DEFAULT_MULTIPLIER;
 	private float timeSinceLastFuelChime = -1.0f;
 	private float fuel = 0;

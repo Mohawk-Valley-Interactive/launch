@@ -2111,7 +2111,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 480, y: 310}
+  m_SizeDelta: {x: 480, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &626319367
 MonoBehaviour:
@@ -2152,20 +2152,25 @@ MonoBehaviour:
     Yasmeen
     Yasheed - visual assets
 
+    Phil Zona - visual assets
+
     Dean Kreseski - composer
 
-    Heidi Waterhouse -
-    inspiration
+    Heidi
+    Waterhouse - inspiration
+
+    Yoz Grahame - quality
 
 
-    with special thanks to...
+    with special thanks
+    to...
 
     Edith Harbaugh    John Kodumal
 
-    Lev
-    Lazinskiy
+    Lev Lazinskiy
 
-    Dan & Lenna Tacci
+    Dan & Lenna
+    Tacci
 
     John Winstead    Greg Beckham'
 --- !u!222 &626319368
@@ -9015,7 +9020,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -250, y: -200}
+  m_SizeDelta: {x: -250, y: -250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1188587464
 CanvasRenderer:
